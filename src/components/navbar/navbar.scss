@@ -1,0 +1,102 @@
+@use "../../App.scss" as *;
+.nav_container {
+  .nav_footer {
+    background-color: $second;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    svg {
+      width: 2rem;
+      height: 2rem;
+      transition: 0.5s;
+      cursor: pointer;
+      &:hover {
+        color: $light !important;
+      }
+    }
+    .nav_icons {
+      display: flex;
+      gap: 1rem;
+    }
+    .nav_numbers {
+      display: flex;
+      gap: 3rem;
+      .nav_number_container {
+        display: flex;
+        align-items: center;
+        color: #fff;
+        gap: 1rem;
+        p {
+          font-size: 20px;
+        }
+      }
+    }
+  }
+  .nav_content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    margin-top: 2rem;
+    .nav_logo {
+      img {
+        width: 4rem;
+      }
+    }
+    .nav_links {
+      display: flex;
+      gap: 2rem;
+      .nav_link {
+        font-size: 1.2rem;
+        text-decoration: none;
+        color: $second;
+        position: relative;
+        font-weight: 500;
+        transition: 0.1s;
+        &:hover {
+          transform: scale(1.05);
+        }
+        &::before {
+          transition: 0.5s;
+          content: "";
+          position: absolute;
+          bottom: -5px;
+          left: 0;
+          width: 100%;
+          height: 3px;
+          background-color: $second;
+          opacity: 0;
+        }
+      }
+      .active {
+        &::before {
+          opacity: 1;
+        }
+      }
+    }
+    .nav_btns {
+      display: flex;
+      gap: 2rem;
+      button {
+        border: none;
+        background-color: transparent;
+        font-size: 1.2rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: 0.6s;
+      }
+      .start_btn {
+        background-color: $main;
+        color: #fff;
+        padding: 0.5rem 1rem;
+        border-radius: 10px;
+        outline: 2px solid $main;
+        &:hover {
+          background-color: transparent;
+          color: $main;
+        }
+      }
+    }
+  }
+}
