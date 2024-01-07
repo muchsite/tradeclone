@@ -39,94 +39,128 @@
       }
     }
   }
-  .hero_img {
-    width: 120vw;
-    position: relative;
+}
 
-    .top {
-      right: 11%;
-      top: -47%;
-      width: 50%;
-      position: absolute;
-      opacity: 0;
-      animation: backInDown 1s forwards, float 15s 2.5s infinite ease;
-      z-index: 2;
-    }
-    .middle_div {
-      position: relative;
-      overflow: hidden;
-      z-index: 1;
-      .middle_div_cover {
-        position: absolute;
-        width: 100vw;
-        height: 100vh;
-        background-color: $bacground;
-        top: 0;
-        animation: animate_middle 1s 1.5s forwards;
-      }
-
-      .mid {
-        width: 100%;
-      }
-    }
-    .bottom {
-      position: absolute;
-      left: -1%;
-      bottom: -17%;
-      width: 70%;
-      opacity: 0;
-      animation: backInUp 1s 0.5s forwards, float2 10s 2.5s infinite;
-      z-index: 2;
-    }
+.hero_n_image {
+  width: 50vw;
+  height: 60vh;
+  object-fit: cover;
+  position: relative;
+}
+#inline_id {
+  opacity: 0;
+  animation: draw3 1s 2s forwards;
+}
+#outline_id {
+  fill: none;
+  stroke-dasharray: 2000;
+  stroke-dashoffset: 2000;
+  animation: draw 1.5s linear forwards, draw2 0s 1.5s forwards;
+}
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes draw2 {
+  to {
+    opacity: 0;
+  }
+}
+@keyframes draw3 {
+  to {
+    opacity: 1;
   }
 }
 
-@keyframes animate_middle {
-  0% {
-    left: 0;
-  }
-  100% {
-    left: 100%;
+#arrow {
+  transform: translate(-50vw, -10vw);
+  animation: arrow 1s 4.6s forwards;
+}
+@keyframes arrow {
+  to {
+    transform: translate(0, 0);
   }
 }
 
-@keyframes float {
+#fc {
+  fill: none;
+  stroke-dasharray: 500;
+  stroke-dashoffset: 500;
+  animation: draw 3s 2s linear forwards;
+}
+#sc {
+  fill: none;
+  stroke-dasharray: 500;
+  stroke-dashoffset: 500;
+  animation: draw 3s 2.5s linear forwards;
+}
+#oc {
+  fill: none;
+  stroke-dasharray: 500;
+  stroke-dashoffset: 500;
+  animation: draw 3s 3s linear forwards;
+}
+
+.rotate_container {
+  position: absolute;
+  top: 23%;
+  left: 9%;
+}
+#rotate_top {
+  position: relative;
+  animation: rotate 4s 4s infinite linear;
+  width: 65px;
+  height: 65px;
+}
+#rotate_bottom {
+  animation: rotate2 4s 4s infinite linear;
+  position: absolute;
+  top: 0;
+  left: 90%;
+}
+
+@keyframes rotate {
   0% {
-    transform: translate(0px, 0px);
-  }
-  20% {
-    transform: translate(10px, 15px);
-  }
-  40% {
-    transform: translate(5px, 10px);
-  }
-  60% {
-    transform: translate(0px, 5px);
-  }
-  80% {
-    transform: translate(-10px, 0px);
+    transform: rotate(0deg);
   }
   100% {
-    transform: translate(0px, 0px);
+    transform: rotate(360deg);
   }
 }
-@keyframes float2 {
+@keyframes rotate2 {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+#middleC {
+  animation: cloud 17s 4s infinite linear;
+}
+#rigthC {
+  animation: cloud 14s 4s infinite linear;
+}
+#leftC {
+  animation: cloud 10s 4s infinite linear;
+}
+
+@keyframes cloud {
   0% {
     transform: translate(0px, 0px);
   }
-  20% {
-    transform: translate(-10px, -15px);
+  25% {
+    transform: translate(20px, 5px);
   }
-  40% {
-    transform: translate(-6px, -4px);
+  50% {
+    transform: translate(5px, 20px);
   }
-  60% {
-    transform: translate(8px, 4px);
+  75% {
+    transform: translate(10px 10px);
   }
-  80% {
-    transform: translate(4px, 8px);
-  }
+
   100% {
-    transform: translate(0px, 0px);
+    transform: translate(0px 0px);
   }
 }
