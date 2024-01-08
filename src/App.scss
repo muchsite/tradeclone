@@ -3,7 +3,7 @@ $main: #356bb3;
 $second: #293148;
 $light: #4a8acf;
 $bacground: #d1e5f0;
-
+$gr: rgb(55, 58, 61);
 * {
   margin: 0;
   padding: 0;
@@ -13,7 +13,6 @@ $bacground: #d1e5f0;
 
 body {
   background-color: $bacground;
-  height: 300vh;
 }
 $breack-up: (
   "small": "600px",

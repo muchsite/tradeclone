@@ -1,0 +1,44 @@
+@use "../../App.scss" as *;
+
+.footer_container {
+  background-color: $second;
+  display: flex;
+  padding: 3rem;
+  justify-content: space-between;
+  .footer_logo {
+    cursor: pointer;
+    img {
+      width: 10rem;
+    }
+  }
+  .footer_links {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    a {
+      cursor: pointer;
+      transition: 0.5s;
+      text-decoration: none;
+      color: #fff;
+      font-size: 20px;
+      font-weight: 500;
+      &:hover {
+        color: $main;
+      }
+    }
+  }
+  .footer_media {
+    display: flex;
+    gap: 1rem;
+    svg {
+      color: #fff;
+      width: 3rem;
+      height: 3rem;
+      cursor: pointer;
+      transition: 0.5s;
+      &:hover {
+        color: $main;
+      }
+    }
+  }
+}
