@@ -47,16 +47,50 @@
     .nav_links {
       display: flex;
       gap: 2rem;
+      .nav_link_relative {
+        position: relative;
+        overflow: hidden;
+        padding: 1rem 0;
+        .nav_link_absolute {
+          position: absolute;
+          width: 70vw;
+          height: 80vh;
+          background-color: #fff;
+          bottom: 0;
+          left: 50%;
+          transform: translate(-50%, 100.1%);
+          z-index: 1000;
+        }
+      }
+      .nav_link_relative_active {
+        overflow: visible;
+      }
       .nav_link {
         font-size: 1.2rem;
         text-decoration: none;
         color: $second;
         position: relative;
         font-weight: 500;
-        transition: 0.1s;
-        &:hover {
-          transform: scale(1.05);
+        transition: 0.5s;
+        &::before {
+          transition: 0.5s;
+          content: "";
+          position: absolute;
+          bottom: -5px;
+          left: -100%;
+          width: 100%;
+          height: 3px;
+          background-color: $second;
         }
+      }
+      .active {
+        &::before {
+          left: 0;
+        }
+      }
+      .hover_link {
+        color: $main;
+        overflow: hidden;
         &::before {
           transition: 0.5s;
           content: "";
@@ -65,13 +99,9 @@
           left: 0;
           width: 100%;
           height: 3px;
-          background-color: $second;
-          opacity: 0;
-        }
-      }
-      .active {
-        &::before {
+          background-color: $main !important;
           opacity: 1;
+          animation: drawLine 0.5s;
         }
       }
     }
@@ -98,5 +128,14 @@
         }
       }
     }
+  }
+}
+
+@keyframes drawLine {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 0%;
   }
 }

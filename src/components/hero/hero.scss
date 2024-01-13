@@ -137,13 +137,31 @@
   }
 }
 #middleC {
-  animation: cloud 17s 4s infinite linear;
+  opacity: 0;
+  animation: cloud 17s 4s infinite linear, draw3 forwards 1s 4s;
+  width: 4rem;
+  height: 4rem;
+  position: absolute;
+  top: 3rem;
+  left: 10vw;
 }
 #rigthC {
-  animation: cloud 14s 4s infinite linear;
+  opacity: 0;
+  animation: cloud 14s 4s infinite linear, draw3 forwards 1s 4s;
+  width: 4rem;
+  height: 4rem;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 #leftC {
-  animation: cloud 10s 4s infinite linear;
+  opacity: 0;
+  animation: cloud 10s 4s infinite linear, draw3 forwards 1s 4s;
+  width: 4rem;
+  height: 4rem;
+  position: absolute;
+  top: 2rem;
+  left: 20vw;
 }
 
 @keyframes cloud {

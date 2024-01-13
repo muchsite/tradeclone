@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./navbar.scss";
 import {
   FaFacebookSquare,
@@ -10,6 +10,7 @@ import { MdEmail } from "react-icons/md";
 import { NavLink } from "react-router-dom";
 import logo from "../../images/logo.svg";
 const Navbar = () => {
+  const [navHover, setNavHover] = useState(-1);
   return (
     <nav className="nav_container">
       <div className="nav_footer">
@@ -34,27 +35,60 @@ const Navbar = () => {
           <img src={logo} alt="" />
         </div>
         <div className="nav_links">
-          <NavLink
-            to="/"
-            className={`${({ isActive }) =>
-              isActive ? "active" : ""} nav_link`}
+          <div
+            className={`nav_link_relative ${
+              navHover === 0 && "nav_link_relative_active"
+            }`}
+            onMouseEnter={() => setNavHover(0)}
+            onMouseLeave={() => setNavHover(-1)}
           >
-            Home
-          </NavLink>
-          <NavLink
-            to="/contact"
-            className={`${({ isActive }) =>
-              isActive ? "active" : ""} nav_link`}
+            <NavLink
+              to="/"
+              className={`${({ isActive }) =>
+                isActive ? "active" : ""} nav_link ${
+                navHover == 0 && "hover_link"
+              }`}
+            >
+              Home
+            </NavLink>
+            <div className="nav_link_absolute"></div>
+          </div>
+          <div
+            className={`nav_link_relative ${
+              navHover === 1 && "nav_link_relative_active"
+            } `}
+            onMouseEnter={() => setNavHover(1)}
+            onMouseLeave={() => setNavHover(-1)}
           >
-            Contact
-          </NavLink>
-          <NavLink
-            to="/about"
-            className={`${({ isActive }) =>
-              isActive ? "active" : ""} nav_link`}
+            <NavLink
+              to="/contact"
+              className={`${({ isActive }) =>
+                isActive ? "active" : ""} nav_link ${
+                navHover == 1 && "hover_link"
+              }`}
+            >
+              Contact
+            </NavLink>
+            <div className="nav_link_absolute"></div>
+          </div>
+          <div
+            className={`nav_link_relative ${
+              navHover === 2 && "nav_link_relative_active"
+            }`}
+            onMouseEnter={() => setNavHover(2)}
+            onMouseLeave={() => setNavHover(-1)}
           >
-            About
-          </NavLink>
+            <NavLink
+              to="/about"
+              className={`${({ isActive }) =>
+                isActive ? "active" : ""} nav_link ${
+                navHover == 2 && "hover_link"
+              }`}
+            >
+              About
+            </NavLink>
+            <div className="nav_link_absolute"></div>
+          </div>
         </div>
         <div className="nav_btns">
           {/* <button className="login_btn">Log In</button> */}

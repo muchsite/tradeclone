@@ -1,14 +1,14 @@
-@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,200;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800;900&family=Raleway:ital,wght@0,200;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap");
 $main: #356bb3;
 $second: #293148;
 $light: #4a8acf;
-$bacground: #d1e5f0;
+$bacground: #e7f0f5;
 $gr: rgb(55, 58, 61);
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Raleway", sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 body {
