@@ -136,32 +136,34 @@
     transform: rotate(-360deg);
   }
 }
+.curr {
+  position: absolute;
+  top: 0rem;
+  left: 10vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+  align-content: center;
+  align-self: center;
+  gap: 2rem;
+}
 #middleC {
   opacity: 0;
   animation: cloud 17s 4s infinite linear, draw3 forwards 1s 4s;
   width: 4rem;
   height: 4rem;
-  position: absolute;
-  top: 3rem;
-  left: 10vw;
 }
 #rigthC {
   opacity: 0;
   animation: cloud 14s 4s infinite linear, draw3 forwards 1s 4s;
   width: 4rem;
   height: 4rem;
-  position: absolute;
-  top: 0;
-  left: 0;
 }
 #leftC {
   opacity: 0;
   animation: cloud 10s 4s infinite linear, draw3 forwards 1s 4s;
   width: 4rem;
   height: 4rem;
-  position: absolute;
-  top: 2rem;
-  left: 20vw;
 }
 
 @keyframes cloud {
@@ -180,5 +182,15 @@
 
   100% {
     transform: translate(0px 0px);
+  }
+}
+
+@keyframes cloud2 {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
   }
 }

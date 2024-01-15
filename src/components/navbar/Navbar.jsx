@@ -42,16 +42,22 @@ const Navbar = () => {
             onMouseEnter={() => setNavHover(0)}
             onMouseLeave={() => setNavHover(-1)}
           >
-            <NavLink
-              to="/"
-              className={`${({ isActive }) =>
-                isActive ? "active" : ""} nav_link ${
-                navHover == 0 && "hover_link"
+            <div className="nav_link_overflow">
+              <NavLink
+                to="/"
+                className={`${({ isActive }) =>
+                  isActive ? "active" : ""} nav_link ${
+                  navHover == 0 && "hover_link"
+                }`}
+              >
+                Home
+              </NavLink>
+            </div>
+            <div
+              className={`nav_link_absolute ${
+                navHover == 0 && "display_block"
               }`}
-            >
-              Home
-            </NavLink>
-            <div className="nav_link_absolute"></div>
+            ></div>
           </div>
           <div
             className={`nav_link_relative ${
@@ -60,16 +66,22 @@ const Navbar = () => {
             onMouseEnter={() => setNavHover(1)}
             onMouseLeave={() => setNavHover(-1)}
           >
-            <NavLink
-              to="/contact"
-              className={`${({ isActive }) =>
-                isActive ? "active" : ""} nav_link ${
-                navHover == 1 && "hover_link"
+            <div className="nav_link_overflow">
+              <NavLink
+                to="/contact"
+                className={`${({ isActive }) =>
+                  isActive ? "active" : ""} nav_link ${
+                  navHover == 1 && "hover_link"
+                }`}
+              >
+                Contact
+              </NavLink>
+            </div>
+            <div
+              className={`nav_link_absolute ${
+                navHover == 1 && "display_block"
               }`}
-            >
-              Contact
-            </NavLink>
-            <div className="nav_link_absolute"></div>
+            ></div>
           </div>
           <div
             className={`nav_link_relative ${
@@ -78,20 +90,25 @@ const Navbar = () => {
             onMouseEnter={() => setNavHover(2)}
             onMouseLeave={() => setNavHover(-1)}
           >
-            <NavLink
-              to="/about"
-              className={`${({ isActive }) =>
-                isActive ? "active" : ""} nav_link ${
-                navHover == 2 && "hover_link"
+            <div className="nav_link_overflow">
+              <NavLink
+                to="/about"
+                className={`${({ isActive }) =>
+                  isActive ? "active" : ""} nav_link ${
+                  navHover == 2 && "hover_link"
+                }`}
+              >
+                About
+              </NavLink>
+            </div>
+            <div
+              className={`nav_link_absolute ${
+                navHover == 2 && "display_block"
               }`}
-            >
-              About
-            </NavLink>
-            <div className="nav_link_absolute"></div>
+            ></div>
           </div>
         </div>
         <div className="nav_btns">
-          {/* <button className="login_btn">Log In</button> */}
           <button className="start_btn">Get Started</button>
         </div>
       </div>

@@ -49,7 +49,6 @@
       gap: 2rem;
       .nav_link_relative {
         position: relative;
-        overflow: hidden;
         padding: 1rem 0;
         .nav_link_absolute {
           position: absolute;
@@ -60,10 +59,12 @@
           left: 50%;
           transform: translate(-50%, 100.1%);
           z-index: 1000;
+          display: none;
         }
       }
-      .nav_link_relative_active {
-        overflow: visible;
+      .nav_link_overflow {
+        padding: 0.5rem 0;
+        overflow: hidden;
       }
       .nav_link {
         font-size: 1.2rem;
@@ -72,11 +73,13 @@
         position: relative;
         font-weight: 500;
         transition: 0.5s;
+        padding: 0.5rem 0;
+        overflow: hidden;
         &::before {
           transition: 0.5s;
           content: "";
           position: absolute;
-          bottom: -5px;
+          bottom: -0px;
           left: -100%;
           width: 100%;
           height: 3px;
@@ -84,6 +87,7 @@
         }
       }
       .active {
+        overflow: hidden;
         &::before {
           left: 0;
         }
@@ -95,7 +99,7 @@
           transition: 0.5s;
           content: "";
           position: absolute;
-          bottom: -5px;
+          bottom: -0px;
           left: 0;
           width: 100%;
           height: 3px;
@@ -130,7 +134,9 @@
     }
   }
 }
-
+.display_block {
+  display: block !important;
+}
 @keyframes drawLine {
   0% {
     left: -100%;
