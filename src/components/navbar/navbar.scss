@@ -93,7 +93,7 @@
         }
       }
       .hover_link {
-        color: $main;
+        color: $light;
         overflow: hidden;
         &::before {
           transition: 0.5s;
@@ -103,7 +103,7 @@
           left: 0;
           width: 100%;
           height: 3px;
-          background-color: $main !important;
+          background-color: $light !important;
           opacity: 1;
           animation: drawLine 0.5s;
         }
@@ -121,14 +121,14 @@
         transition: 0.6s;
       }
       .start_btn {
-        background-color: $main;
+        background-color: $light;
         color: #fff;
         padding: 0.5rem 1rem;
         border-radius: 10px;
-        outline: 2px solid $main;
+        outline: 2px solid $light;
         &:hover {
           background-color: transparent;
-          color: $main;
+          color: $light;
         }
       }
     }

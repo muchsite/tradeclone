@@ -1,0 +1,50 @@
+@use "../../App.scss" as *;
+.acc_container {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  background-color: #fff;
+  padding: 3rem 0;
+  h2 {
+    text-align: center;
+  }
+  .acc_slider_container {
+    overflow: hidden;
+    position: relative;
+
+    .acc_icon {
+      position: absolute;
+      font-size: 3rem;
+      color: $main;
+      z-index: 3;
+      transition: 0.5s;
+      transform: translateY(-50%);
+      cursor: pointer;
+      &:hover {
+        color: $light;
+      }
+    }
+    .acc_left {
+      top: 50%;
+      left: 10px;
+    }
+    .acc_right {
+      top: 50%;
+      right: 10px;
+    }
+  }
+  .acc_slider {
+    display: flex;
+    align-items: center;
+    gap: 5vw;
+    position: relative;
+    padding-left: 5vw;
+    transition: 0.5s;
+
+    img {
+      width: 18.75vw;
+      height: fit-content;
+      object-fit: cover;
+    }
+  }
+}

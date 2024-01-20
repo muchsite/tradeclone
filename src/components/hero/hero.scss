@@ -12,29 +12,29 @@
     gap: 2rem;
     h1 {
       font-size: 80px;
-      color: $second;
+      color: $second2;
     }
     p {
       font-size: 20px;
       font-weight: 400;
-      color: $second;
+      color: $second2;
     }
     button {
       width: fit-content;
-      background-color: $main;
+      background-color: $light;
       color: #fff;
       border: none;
       padding: 0.5rem 1rem;
       font-size: 20px;
       border-radius: 4px;
-      outline: 1px solid $main;
+      outline: 1px solid $light;
       transition: 0.4s;
       box-shadow: 4px 4px 11px #293148;
       font-weight: 500;
       cursor: pointer;
       &:hover {
         background-color: transparent;
-        color: $main;
+        color: $light;
         box-shadow: 4px 4px 11px #a3aece;
       }
     }
@@ -52,6 +52,7 @@
   animation: draw3 1s 2s forwards;
 }
 #outline_id {
+  stroke-width: 10px;
   fill: none;
   stroke-dasharray: 2000;
   stroke-dashoffset: 2000;
