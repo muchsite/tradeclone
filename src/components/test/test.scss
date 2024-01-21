@@ -1,0 +1,56 @@
+@use "../../App.scss" as *;
+.test_container {
+  background-color: #fff;
+  padding: 4rem 0;
+  h2 {
+    margin-bottom: 4rem;
+    text-align: center;
+  }
+  .test_contetnt {
+    display: flex;
+    justify-content: center;
+    gap: 5rem;
+    position: relative;
+    overflow: hidden;
+    padding: 2rem 0;
+    .test_item {
+      flex-shrink: 0;
+      width: 20vw;
+      padding: 2rem;
+      box-shadow: 5px 5px 20px rgba(6, 71, 87, 0.575);
+      border-radius: 10px;
+      background-color: $bacground;
+      .test_top {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 2rem;
+        img {
+          width: 4rem;
+          height: 4rem;
+          border-radius: 50%;
+          object-fit: cover;
+        }
+      }
+    }
+    .test_arrow {
+      position: absolute;
+      font-size: 8rem;
+      color: $light;
+      cursor: pointer;
+      transition: 0.5s;
+      &:hover {
+        scale: 1.05;
+      }
+    }
+    .test_left {
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    .test_right {
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+}

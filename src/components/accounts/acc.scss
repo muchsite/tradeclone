@@ -4,14 +4,14 @@
   flex-direction: column;
   gap: 4rem;
   background-color: #fff;
-  padding: 3rem 0;
+  padding-top: 3rem;
   h2 {
     text-align: center;
   }
   .acc_slider_container {
     overflow: hidden;
     position: relative;
-
+    padding-left: 4vw;
     .acc_icon {
       position: absolute;
       font-size: 3rem;
@@ -38,13 +38,43 @@
     align-items: center;
     gap: 5vw;
     position: relative;
-    padding-left: 5vw;
     transition: 0.5s;
-
     img {
       width: 18.75vw;
       height: fit-content;
       object-fit: cover;
+      user-select: none;
+    }
+  }
+  .acc_dark {
+    background-color: $second;
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem;
+
+    img {
+      width: 40vw;
+    }
+    .acc_dark_info {
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 3rem;
+      h3 {
+        font-size: 1.7rem;
+      }
+      .acc_dark_numbers {
+        display: flex;
+        gap: 1rem;
+        h4 {
+          font-size: 1.3rem;
+        }
+      }
+      .border_right {
+        border-right: 1px solid #fff;
+        padding-right: 1rem;
+      }
     }
   }
 }
