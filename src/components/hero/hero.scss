@@ -49,14 +49,14 @@
 }
 #inline_id {
   opacity: 0;
-  animation: draw3 1s 2s forwards;
+  animation: draw3 1s 1s forwards;
 }
 #outline_id {
   stroke-width: 10px;
   fill: none;
   stroke-dasharray: 2000;
   stroke-dashoffset: 2000;
-  animation: draw 1.5s linear forwards, draw2 0s 1.5s forwards;
+  animation: draw 1s linear forwards, draw2 0s 1s forwards;
 }
 @keyframes draw {
   to {
@@ -73,125 +73,23 @@
     opacity: 1;
   }
 }
-
-#arrow {
-  transform: translate(-50vw, -10vw);
-  animation: arrow 1s 4.6s forwards;
-}
-@keyframes arrow {
-  to {
-    transform: translate(0, 0);
-  }
-}
-
-#fc {
-  fill: none;
-  stroke-dasharray: 500;
-  stroke-dashoffset: 500;
-  animation: draw 3s 2s linear forwards;
-}
-#sc {
-  fill: none;
-  stroke-dasharray: 500;
-  stroke-dashoffset: 500;
-  animation: draw 3s 2.5s linear forwards;
-}
-#oc {
-  fill: none;
-  stroke-dasharray: 500;
-  stroke-dashoffset: 500;
-  animation: draw 3s 3s linear forwards;
-}
-
-.rotate_container {
-  position: absolute;
-  top: 23%;
-  left: 9%;
-}
-#rotate_top {
-  position: relative;
-  animation: rotate 4s 4s infinite linear;
-  width: 65px;
-  height: 65px;
-}
-#rotate_bottom {
-  animation: rotate2 4s 4s infinite linear;
+.hero_coins {
   position: absolute;
   top: 0;
-  left: 90%;
-}
-
-@keyframes rotate {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-@keyframes rotate2 {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(-360deg);
-  }
-}
-.curr {
-  position: absolute;
-  top: 0rem;
-  left: 10vw;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  justify-content: center;
-  align-content: center;
-  align-self: center;
+  display: flex;
   gap: 2rem;
-}
-#middleC {
-  opacity: 0;
-  animation: cloud 17s 4s infinite linear, draw3 forwards 1s 4s;
-  width: 4rem;
-  height: 4rem;
-}
-#rigthC {
-  opacity: 0;
-  animation: cloud 14s 4s infinite linear, draw3 forwards 1s 4s;
-  width: 4rem;
-  height: 4rem;
-}
-#leftC {
-  opacity: 0;
-  animation: cloud 10s 4s infinite linear, draw3 forwards 1s 4s;
-  width: 4rem;
-  height: 4rem;
-}
-
-@keyframes cloud {
-  0% {
-    transform: translate(0px, 0px);
+  .coin_1 {
+    opacity: 0;
+    animation: bounceIn forwards 1s 1.3s;
+    margin-top: 1rem;
   }
-  25% {
-    transform: translate(20px, 5px);
+  .coin_2 {
+    opacity: 0;
+    animation: bounceIn forwards 1s 1.9s;
+    margin-top: 3rem;
   }
-  50% {
-    transform: translate(5px, 20px);
-  }
-  75% {
-    transform: translate(10px 10px);
-  }
-
-  100% {
-    transform: translate(0px 0px);
-  }
-}
-
-@keyframes cloud2 {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
+  .coin_3 {
+    opacity: 0;
+    animation: bounceIn forwards 1s 2.5s;
   }
 }
