@@ -17,6 +17,11 @@ import h from "../../images/banks/14.png";
 import v from "../../images/banks/15.png";
 import globe from "../../images/globe.svg";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
+import { FaMoneyBillWave } from "react-icons/fa";
+import { RiMoneyDollarBoxFill } from "react-icons/ri";
+import { GrDocumentTransfer } from "react-icons/gr";
+import { FaCalculator } from "react-icons/fa6";
+import { BiSolidUserAccount } from "react-icons/bi";
 const Accounts = () => {
   const arr = [q, w, t, a, s, d, f, g, z, x, c, v, h, e, r];
   const [left, setLEft] = useState(0);
@@ -73,6 +78,32 @@ const Accounts = () => {
         </div>
         <div className="acc_dark_globe">
           <img src={globe} alt="" className="globe" />
+          {/* <div className="dark_car">
+            <div className="dark_car_item dark_car_item_1">
+              <FaMoneyBillWave />
+              <p>Title One1</p>
+            </div>
+            <div className="dark_car_item dark_car_item_2">
+              <RiMoneyDollarBoxFill />
+              <p>Title One2</p>
+            </div>
+            <div className="dark_car_item dark_car_item_3">
+              <GrDocumentTransfer />
+              <p>Title One3</p>
+            </div>
+            <div className="dark_car_item dark_car_item_4">
+              <FaCalculator />
+              <p>Title One4</p>
+            </div>
+            <div className="dark_car_item dark_car_item_5">
+              <BiSolidUserAccount />
+              <p>Title One5</p>
+            </div>
+            <div className="dark_car_item dark_car_item_6">
+              <GrDocumentTransfer />
+              <p>Title One6</p>
+            </div>
+          </div> */}
         </div>
       </div>
     </div>

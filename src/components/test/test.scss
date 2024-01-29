@@ -9,10 +9,10 @@
   .test_contetnt {
     display: flex;
     justify-content: center;
-    gap: 5rem;
     position: relative;
     overflow: hidden;
     padding: 2rem 0;
+    height: 30rem;
     .test_item {
       flex-shrink: 0;
       width: 20vw;
@@ -20,6 +20,9 @@
       box-shadow: 5px 5px 20px rgba(6, 71, 87, 0.575);
       border-radius: 10px;
       background-color: $bacground;
+      position: absolute;
+      transition: 0.3s;
+      height: 90%;
       .test_top {
         display: flex;
         justify-content: space-between;
@@ -31,6 +34,21 @@
           object-fit: cover;
         }
       }
+    }
+    .firstT {
+      left: 10vw;
+    }
+    .secondT {
+      left: 40vw;
+    }
+    .thirdT {
+      left: 70vw;
+    }
+    .prevT {
+      left: -40vw;
+    }
+    .nextT {
+      left: 100vw;
     }
     .test_arrow {
       position: absolute;

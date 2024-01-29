@@ -115,8 +115,8 @@ const Coin = ({ front, back, left, x, y, z }) => {
     return (
       <>
         {/* <directionalLight position={[0, 1, 2]} ref={directionalLightRef} /> */}
-        <ambientLight intensity={2} />
-        <Cylinder args={[3, 3, 0.6, 23]} position={[0, 0, 0]} />
+        <ambientLight intensity={3} />
+        <Cylinder args={[2.2, 2.2, 0.4, 230]} position={[0, 0, 0]} />
         <OrbitControls enableZoom={false} />
       </>
     );
