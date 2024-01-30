@@ -1,0 +1,109 @@
+@use "../../App.scss" as *;
+.contact_container {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 5rem;
+  .message_icon_container {
+    .message_icon {
+      width: 3rem;
+      height: 3rem;
+      transition: 0.5s;
+      cursor: pointer;
+      color: $light;
+      &:hover {
+        color: $main;
+      }
+    }
+    .close_message {
+      width: 0;
+    }
+  }
+  .contact_form_container {
+    display: none;
+    background-color: $second;
+    .contact_form_head {
+      display: flex;
+      color: #fff;
+      justify-content: space-between;
+      align-items: center;
+      img {
+        width: 5rem;
+      }
+      padding: 1rem;
+    }
+    form {
+      padding: 2rem 2rem 2rem 2rem;
+      background-color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 2rem;
+      .contact_input_container {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        .contact_input {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          gap: 3rem;
+          color: $second;
+          input {
+            color: $second;
+            border: none;
+            outline: $main 1px solid;
+            padding: 0.5rem;
+            border-radius: 5px;
+            width: 15rem;
+            &:focus {
+              outline: $light 1px solid;
+            }
+          }
+          textArea {
+            color: $second;
+            border: none;
+            outline: $main 1px solid;
+            padding: 0.5rem;
+            border-radius: 5px;
+            width: 15rem !important;
+            min-height: 4rem !important;
+            max-height: 10rem !important;
+            &:focus {
+              outline: $light 1px solid;
+            }
+          }
+        }
+      }
+    }
+    button {
+      width: fit-content;
+      padding: 0.7rem 1.5rem;
+      background-color: $light;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      outline: 1px solid $light;
+      color: #fff;
+      transition: 0.5s;
+      font-weight: 700;
+      &:hover {
+        background-color: #fff;
+        color: $light;
+      }
+    }
+  }
+}
+.contact_diplay {
+  display: block !important;
+  opacity: 0;
+  animation: opaciti 0.5s forwards;
+}
+@keyframes opaciti {
+  to {
+    opacity: 1;
+  }
+}
