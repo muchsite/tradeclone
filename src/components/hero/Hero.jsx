@@ -10,7 +10,7 @@ const Hero = () => {
     <>
       <div className="hero_container">
         <div className="hero_text">
-          <h1>A better way to asdf</h1>
+          <h1>A better way to qwer</h1>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur
             voluptatibus harum, beatae, voluptatem est aut molestiae architecto
