@@ -47,19 +47,135 @@
     .nav_links {
       display: flex;
       gap: 2rem;
+      position: relative;
       .nav_link_relative {
-        position: relative;
-        padding: 1rem 0;
+        padding: 0;
         .nav_link_absolute {
           position: absolute;
-          width: 70vw;
-          height: 80vh;
+          width: 80vw;
+          min-height: 50vh;
           background-color: #fff;
-          bottom: 0;
+          box-shadow: 0 0 50px rgba(72, 98, 245, 0.247);
+          border-radius: 10px;
+          bottom: -0%;
           left: 50%;
-          transform: translate(-50%, 100.1%);
+          transform: translate(-48%, 100%);
           z-index: 1000;
           display: none;
+          padding: 4rem;
+        }
+        .nav_link_absolute_first {
+          h3 {
+            color: $drop;
+            margin-bottom: 1rem;
+          }
+          li {
+            margin: 0.5rem 0;
+            list-style-type: none;
+            color: $drop;
+            transition: 0.5s;
+            cursor: pointer;
+            font-weight: 500;
+            &:hover {
+              color: $main;
+            }
+          }
+          h3 {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+          }
+          li {
+            font-size: 1rem;
+          }
+          .nav_link_absolute_solutions {
+            // width: 25%;
+          }
+          .nav_link_absolute_inter {
+            // width: 40%;
+            h3 {
+              text-align: center;
+            }
+            .ds_flex {
+              display: flex;
+              justify-content: space-between;
+              gap: 2rem;
+              .import_finance {
+                flex-shrink: 0;
+                h4 {
+                  color: $drop;
+                }
+              }
+            }
+          }
+          .nav_link_absolute_domestic {
+            // width: 25%;
+          }
+        }
+        .nav_link_absolute_second {
+          color: $drop;
+          p {
+            margin-top: 0.5rem;
+            transition: 0.5s;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            &:hover {
+              color: $main;
+            }
+          }
+          .link_chash {
+            width: 30%;
+          }
+        }
+        .nav_link_absolute_third {
+          color: $drop;
+          // width: 100%;
+          .nav_vision {
+            flex-shrink: 0;
+            flex-basis: 30%;
+          }
+          .nav_company_second {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            flex-shrink: 0;
+            flex-basis: 40%;
+            button {
+              background-color: transparent;
+              border: none;
+              margin-top: 0.5rem;
+              border-bottom: 1px solid $drop;
+              transition: 0.5s;
+              cursor: pointer;
+              &:hover {
+                border-bottom: 1px solid $light;
+                color: $light;
+              }
+            }
+            .nav_about {
+              flex-shrink: 1;
+              // margin-top: 1rem;
+            }
+            .nav_career {
+              flex-shrink: 1;
+              margin-top: 1rem;
+            }
+            .nav_contact {
+              margin-top: 1rem;
+            }
+          }
+          .nav_company_third {
+            flex-shrink: 0;
+            flex-basis: 20%;
+            .find_image_cont {
+              display: flex;
+              gap: 7px;
+              margin-top: 1rem;
+              img {
+                width: 5rem;
+              }
+            }
+          }
         }
       }
       .nav_link_overflow {
@@ -75,15 +191,18 @@
         transition: 0.5s;
         padding: 0.5rem 0;
         overflow: hidden;
+        display: flex;
+        align-items: flex-end;
+        gap: 5px;
         &::before {
-          transition: 0.5s;
-          content: "";
-          position: absolute;
-          bottom: -0px;
-          left: -100%;
-          width: 100%;
-          height: 3px;
-          background-color: $second;
+          // transition: 0.5s;
+          // content: "";
+          // position: absolute;
+          // bottom: -0px;
+          // left: -100%;
+          // width: 100%;
+          // height: 3px;
+          // background-color: $second;
         }
       }
       .active {
@@ -135,7 +254,9 @@
   }
 }
 .display_block {
-  display: block !important;
+  display: flex !important;
+  gap: 3rem;
+  justify-content: space-between;
 }
 @keyframes drawLine {
   0% {

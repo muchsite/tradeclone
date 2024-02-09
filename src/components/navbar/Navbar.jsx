@@ -6,9 +6,11 @@ import {
   FaInstagramSquare,
   FaPhoneAlt,
 } from "react-icons/fa";
+import { IoMdArrowDropdown } from "react-icons/io";
 import { MdEmail } from "react-icons/md";
 import { NavLink } from "react-router-dom";
 import logo from "../../images/logo.svg";
+import of from "../../images/of.webp";
 const Navbar = () => {
   const [navHover, setNavHover] = useState(-1);
   return (
@@ -50,14 +52,54 @@ const Navbar = () => {
                   navHover == 0 && "hover_link"
                 }`}
               >
-                Home
+                <p>Trade Finance</p>
+                <IoMdArrowDropdown />
               </NavLink>
             </div>
             <div
-              className={`nav_link_absolute ${
+              className={`nav_link_absolute nav_link_absolute_first ${
                 navHover == 0 && "display_block"
               }`}
-            ></div>
+            >
+              <div className="nav_link_absolute_solutions">
+                <h3>SOLUTIONS</h3>
+                <ul>
+                  <li>Unlock Lowest Trade Finane</li>
+                  <li>Intrest Rates</li>
+                  <li>Optimazed Funding Solutions</li>
+                  <li>Ensure Smooth Financing Operation For Buisnesses</li>
+                </ul>
+              </div>
+              <div className="nav_link_absolute_inter">
+                <h3>INTERNATIONAL</h3>
+                <div className="ds_flex">
+                  <div className="import_finance">
+                    <h4>Import Finance</h4>
+                    <ul>
+                      <li>Buyer's Credit</li>
+                      <li>Supplier's Credit</li>
+                      <li>RA Financing </li>
+                    </ul>
+                  </div>
+                  <div className="import_finance">
+                    <h4>Import Finance</h4>
+                    <ul>
+                      <li>Export Finance</li>
+                      <li>
+                        Export Letter Of <br /> Credit Discounting
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div className="nav_link_absolute_domestic">
+                <h3>DOMESTIC</h3>
+                <ul>
+                  <li>Local Letter Of Credit Bill Discounting</li>
+                  <li>Discounting</li>
+                </ul>
+              </div>
+            </div>
           </div>
           <div
             className={`nav_link_relative ${
@@ -74,14 +116,36 @@ const Navbar = () => {
                   navHover == 1 && "hover_link"
                 }`}
               >
-                Contact
+                <p>Resources</p>
+                <IoMdArrowDropdown />
               </NavLink>
             </div>
             <div
-              className={`nav_link_absolute ${
+              className={`nav_link_absolute nav_link_absolute_second ${
                 navHover == 1 && "display_block"
               }`}
-            ></div>
+            >
+              <div className="link_chash">
+                <h3>Enhance Cash Flows</h3>
+                <p>
+                  Discover how to enhance operating cash flows and recuce
+                  interest expenses through TradeFlair on global and local trade
+                  finance transactions, by establishing tailored proceses and
+                  lowest financing rates in the market.
+                </p>
+              </div>
+              <div className="link_publications">
+                <h3>Publications</h3>
+                <p>Blogs</p>
+                <p>Case Stdies</p>
+                <p>FAQs</p>
+              </div>
+              <div className="link_calc">
+                <h3>Cost Calculators</h3>
+                <p>Domestic Finance</p>
+                <p>Import / Export Finance</p>
+              </div>
+            </div>
           </div>
           <div
             className={`nav_link_relative ${
@@ -98,14 +162,61 @@ const Navbar = () => {
                   navHover == 2 && "hover_link"
                 }`}
               >
-                About
+                <p>Company</p>
+                <IoMdArrowDropdown />
               </NavLink>
             </div>
             <div
-              className={`nav_link_absolute ${
+              className={`nav_link_absolute nav_link_absolute_third ${
                 navHover == 2 && "display_block"
               }`}
-            ></div>
+            >
+              <div className="nav_vision">
+                <h3>Our Vision</h3>
+                <p>
+                  TradeFlair aims to redefine trade finance, offering tailored
+                  and local financing solutions to businesses designed with
+                  simplicity, and speed and offering the lowest interest rates,
+                  transactions some time, and cost and enhance efficiency.
+                </p>
+              </div>
+              <div className="nav_company_second">
+                <div className="nav_about">
+                  <h3>About</h3>
+                  <p>
+                    We are revolutionizing Trade finance accessibility. Learn
+                    more the TradeFlair
+                  </p>
+                  <button>Learn More</button>
+                </div>
+                <div className="nav_career">
+                  <h3>Career</h3>
+                  <p>
+                    Become a partner of a rapidly expanding team of experts and
+                    visionaries today.
+                  </p>
+                  <button>Transform with TradeFlair</button>
+                </div>
+                <div className="nav_contact">
+                  <h3>Contact</h3>
+                  <p>Connect with a TradeFlair expert today.</p>
+                  <p>Trade@tradeflaircorporate.com</p>
+                  <p>+91-9458703128</p>
+                  <button>Contact Us</button>
+                </div>
+              </div>
+              <div className="nav_company_third">
+                <h3>Where to find us</h3>
+                <h4>Sector 3, Nodia</h4>
+                <div className="find_image_cont">
+                  <img src={of} alt="" />
+                  <div>
+                    <p>Block G - 31, 1st floor, sectort 3, Nodia</p>
+                    <p>PINCODE - 201301</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <div className="nav_btns">

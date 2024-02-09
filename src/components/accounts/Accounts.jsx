@@ -10,20 +10,27 @@ import z from "../../images/banks/7.png";
 import x from "../../images/banks/8.png";
 import c from "../../images/banks/9.png";
 import r from "../../images/banks/10.png";
-import t from "../../images/banks/11.png";
 import f from "../../images/banks/12.png";
 import g from "../../images/banks/13.png";
-import h from "../../images/banks/14.png";
-import v from "../../images/banks/15.png";
+
+import g1 from "../../images/banks/21.png";
+import g12 from "../../images/banks/22.png";
+import g13 from "../../images/banks/23.png";
+import g14 from "../../images/banks/24.png";
+import g15 from "../../images/banks/25.png";
+import g16 from "../../images/banks/26.png";
+import g17 from "../../images/banks/27.png";
+import g18 from "../../images/banks/28.png";
+import g19 from "../../images/banks/29.png";
+import g2 from "../../images/banks/30.png";
+import g3 from "../../images/banks/31.png";
+import g4 from "../../images/banks/32.png";
+
 import globe from "../../images/globe.svg";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
-import { FaMoneyBillWave } from "react-icons/fa";
-import { RiMoneyDollarBoxFill } from "react-icons/ri";
-import { GrDocumentTransfer } from "react-icons/gr";
-import { FaCalculator } from "react-icons/fa6";
-import { BiSolidUserAccount } from "react-icons/bi";
 const Accounts = () => {
-  const arr = [q, w, t, a, s, d, f, g, z, x, c, v, h, e, r];
+  const arr = [q, w, a, s, d, f, g, z, x, c, e, r];
+  const arr2 = [g1, g12, g13, g14, g15, g16, g17, g18, g19, g2, g3, g4];
   const [left, setLEft] = useState(0);
   const hadleClick = (e) => {
     if (e < 0 && left > 0) {
@@ -35,21 +42,21 @@ const Accounts = () => {
   };
   return (
     <div className="acc_container">
-      <h2>Serving retirement savers with trusted firms</h2>
       <div className="acc_slider_container">
-        <FaAngleLeft
-          className="acc_icon acc_left"
-          onClick={() => hadleClick(-1)}
-        />
-        <div className="acc_slider" style={{ left: `-${left * 23.75}vw` }}>
+        <h2>INTERNATIONAL PARTNERS</h2>
+        <div className="acc_slider toL">
           {arr.map((item, index) => {
             return <img src={item} id={index} alt="" />;
           })}
         </div>
-        <FaAngleRight
-          className="acc_icon acc_right"
-          onClick={() => hadleClick(1)}
-        />
+      </div>
+      <div className="acc_slider_container">
+        <h2>INDIAN PARTNERS</h2>
+        <div className="acc_slider toRight">
+          {arr2.map((item, index) => {
+            return <img src={item} id={index} alt="" />;
+          })}
+        </div>
       </div>
       <div className="acc_dark">
         <div className="acc_dark_info">

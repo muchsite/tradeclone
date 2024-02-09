@@ -12,6 +12,9 @@
     overflow: hidden;
     position: relative;
     padding-left: 4vw;
+    h2 {
+      margin: 1rem 0;
+    }
     .acc_icon {
       position: absolute;
       font-size: 3rem;
@@ -39,8 +42,9 @@
     gap: 5vw;
     position: relative;
     transition: 0.5s;
+
     img {
-      width: 18.75vw;
+      width: 14.75vw;
       height: fit-content;
       object-fit: cover;
       user-select: none;
@@ -140,7 +144,34 @@
     }
   }
 }
-
+.toL {
+  animation: toLeft 40s infinite linear;
+}
+.toRight {
+  animation: toRight 40s infinite linear;
+}
+@keyframes toLeft {
+  0% {
+    left: 0;
+  }
+  50% {
+    left: -148vw;
+  }
+  100% {
+    left: 0;
+  }
+}
+@keyframes toRight {
+  0% {
+    left: -148vw;
+  }
+  50% {
+    left: 0;
+  }
+  100% {
+    left: -148vw;
+  }
+}
 @keyframes rotate {
   0% {
     transform: rotate(0);
