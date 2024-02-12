@@ -13,6 +13,7 @@
     overflow: hidden;
     padding: 2rem 0;
     height: 30rem;
+    color: $second;
     .test_item {
       flex-shrink: 0;
       width: 20vw;
@@ -23,10 +24,38 @@
       position: absolute;
       transition: 0.3s;
       height: 90%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 2rem;
+      .test_message {
+        position: relative;
+        &::after {
+          font-family: "Protest Revolution", sans-serif;
+          content: "\201C";
+          position: absolute;
+          font-weight: 600;
+          font-size: 3rem;
+          color: $main;
+          top: -1.5rem;
+          left: -1.5rem;
+        }
+        &::before {
+          font-family: "Protest Revolution", sans-serif;
+          content: "\201D";
+          position: absolute;
+          font-weight: 600;
+          font-size: 3rem;
+          color: $main;
+          bottom: -3rem;
+          right: -1rem;
+        }
+      }
       .test_top {
         display: flex;
         justify-content: space-between;
-        margin-bottom: 2rem;
+        margin-top: 2rem;
+
         img {
           width: 4rem;
           height: 4rem;

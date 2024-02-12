@@ -1,44 +1,43 @@
 import React, { useState } from "react";
 import "./contact.scss";
-import { FaMessage } from "react-icons/fa6";
-import { FaWindowClose } from "react-icons/fa";
-import logo from "../../images/footerlogo.svg";
+import { FaPhoneSquareAlt } from "react-icons/fa";
+import { IoMail } from "react-icons/io5";
+import { FaLocationDot } from "react-icons/fa6";
+import logo from "../../images/logo.svg";
 const Contact = () => {
   const [open, setOpen] = useState(false);
   return (
     <div className="contact_container">
-      <div className={`contact_form_container ${open && "contact_diplay"}`}>
-        <div className="contact_form_head">
+      <div className="contact_back">
+        <div className="contact_left">
           <img src={logo} alt="" />
-          <p>Contact Us!</p>
-        </div>
-        <form action="">
-          <div className="contact_input_container">
-            <div className="contact_input">
-              <label htmlFor="">Name:</label>
-              <input type="text" />
+          <div className="contact_info">
+            <div className="contact_info_div">
+              <FaPhoneSquareAlt className="contact_icon" />
+              <p>777-777-777</p>
             </div>
-            <div className="contact_input">
-              <label htmlFor="">Emial:</label>
-              <input type="text" />
+            <div className="contact_info_div">
+              <IoMail className="contact_icon" />
+              <p>example@gmail.com</p>
             </div>
-            <div className="contact_input">
-              <label htmlFor="">Message:</label>
-              <textarea type="text" />
+            <div className="contact_info_div">
+              <FaLocationDot className="contact_icon" />
+              <p>Block G - 31, 1st floor, sectort 3, Nodia PINCODE - 201301</p>
             </div>
           </div>
-          <button>Send</button>
-        </form>
-      </div>
-      <div className="message_icon_container ">
-        <FaMessage
-          className={`message_icon ${open && "close_message"}`}
-          onClick={() => setOpen(true)}
-        />
-        <FaWindowClose
-          className={`message_icon ${!open && "close_message"}`}
-          onClick={() => setOpen(false)}
-        />
+        </div>
+        <div className="contact_right">
+          <div className="contact_title">
+            <h3>Get in Touch</h3>
+            <p>Any question or remarks? Let us know!</p>
+          </div>
+          <form className="contact_form">
+            <input type="text" placeholder="Enter your name" />
+            <input type="text" placeholder="Enter your email" />
+            <textarea name="" placeholder="Type your message here"></textarea>
+            <button>Submit</button>
+          </form>
+        </div>
       </div>
     </div>
   );

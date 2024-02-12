@@ -95,15 +95,12 @@ const Test = () => {
               }`}
               id={i}
             >
+              <p className="test_message">{item.message}</p>
               <div className="test_top">
-                <img src={item.image} alt="" />
                 <div className="test_top_info">
                   <h3>{item.name}</h3>
                   <h4>{item.profession}</h4>
                 </div>
-              </div>
-              <div>
-                <p className="test_message">{item.message}</p>
               </div>
             </div>
           );
