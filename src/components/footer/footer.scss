@@ -5,6 +5,11 @@
   display: flex;
   padding: 3rem;
   justify-content: space-between;
+  @include breack_down(large) {
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+  }
   .footer_logo {
     cursor: pointer;
     img {
@@ -36,6 +41,10 @@
       height: 3rem;
       cursor: pointer;
       transition: 0.5s;
+      @include breack_down(medium) {
+        width: 1.5rem;
+        height: 1.5rem;
+      }
       &:hover {
         color: $main;
       }

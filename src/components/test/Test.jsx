@@ -93,7 +93,7 @@ const Test = () => {
                   ? "prevT"
                   : "nextT"
               }`}
-              id={i}
+              key={i}
             >
               <p className="test_message">{item.message}</p>
               <div className="test_top">

@@ -8,18 +8,43 @@
   // height: 80vh;
   max-width: 100%;
   overflow: hidden;
+  margin-top: 10rem;
+  @include breack_down(large) {
+    margin-top: 5rem;
+    flex-direction: column;
+    padding: 1rem 2rem;
+  }
   .hero_text {
     display: flex;
     flex-direction: column;
     gap: 2rem;
+    @include breack_down(large) {
+      align-items: center;
+      gap: 1rem;
+      margin-top: 3rem;
+    }
     h1 {
       font-size: 80px;
       color: $second2;
+      @include breack_down(large) {
+        font-size: 43px;
+        text-align: center;
+      }
+      @include breack_down(medium) {
+        font-size: 33px;
+      }
     }
     p {
       font-size: 20px;
       font-weight: 400;
       color: $second2;
+      @include breack_down(large) {
+        font-size: 14px;
+        text-align: center;
+      }
+      @include breack_down(medium) {
+        font-size: 12px;
+      }
     }
     button {
       width: fit-content;
@@ -34,6 +59,10 @@
       box-shadow: 4px 4px 11px #293148;
       font-weight: 500;
       cursor: pointer;
+      @include breack_down(large) {
+        font-size: 12px;
+        padding: 0.3rem 0.6rem;
+      }
       &:hover {
         background-color: transparent;
         color: $light;
@@ -48,6 +77,16 @@
   height: 60vh;
   object-fit: cover;
   position: relative;
+  @include breack_down(large) {
+    width: 100vw;
+    height: auto;
+  }
+  svg {
+    @include breack_down(large) {
+      width: 100%;
+      height: fit-content;
+    }
+  }
 }
 #inline_id {
   opacity: 0;
@@ -80,18 +119,33 @@
   top: 0;
   display: flex;
   gap: 2rem;
+  @include breack_down(medium) {
+    gap: 1rem;
+  }
   .coin_1 {
     opacity: 0;
     animation: bounceIn forwards 1s 1.3s;
     margin-top: 1rem;
+    @include breack_down(medium) {
+      margin-top: 0.5rem;
+    }
   }
   .coin_2 {
     opacity: 0;
     animation: bounceIn forwards 1s 1.9s;
     margin-top: 3rem;
+    @include breack_down(medium) {
+      margin-top: 1.5rem;
+    }
   }
   .coin_3 {
     opacity: 0;
     animation: bounceIn forwards 1s 2.5s;
+  }
+}
+.hero_coins * {
+  @include breack_down(large) {
+    width: 4rem;
+    height: 4rem;
   }
 }

@@ -1,3 +1,4 @@
+@use "../../App.scss" as *;
 .blogs_container {
   margin: 6rem 0;
   h2 {
@@ -7,7 +8,11 @@
   .blogs_content {
     display: flex;
     justify-content: center;
-    gap: 5rem;
+    gap: 5vw;
+    @include breack_down(large) {
+      flex-direction: column;
+      gap: 5rem;
+    }
     .blog {
       position: relative;
       overflow: hidden;
@@ -16,6 +21,14 @@
         width: 25rem;
         height: 20rem;
         object-fit: cover;
+        @include breack_down(medium) {
+          width: 100vw;
+        }
+      }
+      h3 {
+        @include breack_down(large) {
+          text-align: center;
+        }
       }
       .blog_hover {
         background: rgba(53, 107, 179, 0.63);
@@ -34,6 +47,44 @@
         color: #fff;
         transition: 0.5s;
         top: -100vh;
+        @include breack_down(large) {
+          display: none !important;
+        }
+        p {
+          text-align: center;
+        }
+        button {
+          padding: 10px 15px;
+          background-color: #fff;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          transition: 0.5s;
+          &:hover {
+            opacity: 0.5;
+          }
+        }
+      }
+      .blog_click {
+        background: rgba(53, 107, 179, 0.63);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(12.9px);
+        -webkit-backdrop-filter: blur(12.9px);
+        border: 1px solid rgba(53, 107, 179, 0.3);
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        color: #fff;
+        transition: 0.5s;
+        top: -100vh;
+        @include breack_up(medium) {
+          display: none !important;
+        }
         p {
           text-align: center;
         }
@@ -52,7 +103,23 @@
     }
   }
 }
-
+.blog_click_container {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  @include breack_up(medium) {
+    display: none !important;
+  }
+  .blog_icon {
+    transition: 0.5s;
+    width: 2rem;
+    height: 2rem;
+    color: $light;
+  }
+  .blog_icon_0 {
+    width: 0;
+  }
+}
 .top_0 {
   top: 0 !important;
 }

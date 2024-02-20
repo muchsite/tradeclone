@@ -46,7 +46,7 @@ const Accounts = () => {
         <h2>INTERNATIONAL PARTNERS</h2>
         <div className="acc_slider toL">
           {arr.map((item, index) => {
-            return <img src={item} id={index} alt="" />;
+            return <img src={item} id={index} alt="" key={index} />;
           })}
         </div>
       </div>
@@ -54,7 +54,7 @@ const Accounts = () => {
         <h2>INDIAN PARTNERS</h2>
         <div className="acc_slider toRight">
           {arr2.map((item, index) => {
-            return <img src={item} id={index} alt="" />;
+            return <img src={item} id={index} alt="" key={index} />;
           })}
         </div>
       </div>
@@ -85,32 +85,6 @@ const Accounts = () => {
         </div>
         <div className="acc_dark_globe">
           <img src={globe} alt="" className="globe" />
-          {/* <div className="dark_car">
-            <div className="dark_car_item dark_car_item_1">
-              <FaMoneyBillWave />
-              <p>Title One1</p>
-            </div>
-            <div className="dark_car_item dark_car_item_2">
-              <RiMoneyDollarBoxFill />
-              <p>Title One2</p>
-            </div>
-            <div className="dark_car_item dark_car_item_3">
-              <GrDocumentTransfer />
-              <p>Title One3</p>
-            </div>
-            <div className="dark_car_item dark_car_item_4">
-              <FaCalculator />
-              <p>Title One4</p>
-            </div>
-            <div className="dark_car_item dark_car_item_5">
-              <BiSolidUserAccount />
-              <p>Title One5</p>
-            </div>
-            <div className="dark_car_item dark_car_item_6">
-              <GrDocumentTransfer />
-              <p>Title One6</p>
-            </div>
-          </div> */}
         </div>
       </div>
     </div>

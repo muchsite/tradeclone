@@ -11,8 +11,34 @@ import { MdEmail } from "react-icons/md";
 import { NavLink } from "react-router-dom";
 import logo from "../../images/logo.svg";
 import of from "../../images/of.webp";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { FaWindowClose } from "react-icons/fa";
+import { IoIosArrowDropdownCircle } from "react-icons/io";
+
 const Navbar = () => {
   const [navHover, setNavHover] = useState(-1);
+  const [openHam, setOpaenHam] = useState(false);
+  const [openIndex, setOpenIndex] = useState(null);
+  const handleIndex = (i) => {
+    if (i == 1 && openIndex !== 1) {
+      setOpenIndex(1);
+    }
+    if (i == 1 && openIndex == 1) {
+      setOpenIndex(null);
+    }
+    if (i == 2 && openIndex !== 2) {
+      setOpenIndex(2);
+    }
+    if (i == 2 && openIndex == 2) {
+      setOpenIndex(null);
+    }
+    if (i == 3 && openIndex !== 3) {
+      setOpenIndex(3);
+    }
+    if (i == 3 && openIndex == 3) {
+      setOpenIndex(null);
+    }
+  };
   return (
     <nav className="nav_container">
       <div className="nav_footer">
@@ -22,11 +48,11 @@ const Navbar = () => {
           <FaInstagramSquare color="#fff" />
         </div>
         <div className="nav_numbers">
-          <div className="nav_number_container">
+          <div className="nav_number_container nav_phone">
             <FaPhoneAlt color="#fff" />
             <p>777-777-777</p>
           </div>
-          <div className="nav_number_container">
+          <div className="nav_number_container ">
             <MdEmail color="#fff" />
             <p>example@gmail.com</p>
           </div>
@@ -221,6 +247,135 @@ const Navbar = () => {
         </div>
         <div className="nav_btns">
           <button className="start_btn">Get Started</button>
+          <div className="ham_container">
+            <GiHamburgerMenu
+              className={`ham_icon ${openHam && "openHam"}`}
+              onClick={() => setOpaenHam(true)}
+            />
+            <FaWindowClose
+              className={`ham_icon ${!openHam && "openHam"}`}
+              onClick={() => setOpaenHam(false)}
+            />
+          </div>
+        </div>
+      </div>
+      <div className={`ham_content_container ${openHam && "top_ham"}`}>
+        <div className="ham_nav_link">
+          <div className="han_nav_link_inner">
+            <div className="ham_nav_link_text_container">
+              <div className="ham_nav_link_text" onClick={() => handleIndex(1)}>
+                <p>Trade Finance</p>
+                <IoIosArrowDropdownCircle />
+              </div>
+              <div
+                className={`ham_wraper ${openIndex == 1 && "ham_wraper_open"}`}
+              >
+                <div className="ham_expand">
+                  <p>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                    Quis, consequatur laborum dolore, voluptatibus alias,
+                    explicabo quod quasi molestiae non praesentium consequuntur!
+                    Deserunt voluptatibus vero quisquam quibusdam, corrupti a
+                    error dolorum!
+                  </p>
+                  <p>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                    Quis, consequatur laborum dolore, voluptatibus alias,
+                    explicabo quod quasi molestiae non praesentium consequuntur!
+                    Deserunt voluptatibus vero quisquam quibusdam, corrupti a
+                    error dolorum!
+                  </p>
+                  <p>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                    Quis, consequatur laborum dolore, voluptatibus alias,
+                    explicabo quod quasi molestiae non praesentium consequuntur!
+                    Deserunt voluptatibus vero quisquam quibusdam, corrupti a
+                    error dolorum!
+                  </p>
+                  <p>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                    Quis, consequatur laborum dolore, voluptatibus alias,
+                    explicabo quod quasi molestiae non praesentium consequuntur!
+                    Deserunt voluptatibus vero quisquam quibusdam, corrupti a
+                    error dolorum!
+                  </p>
+                  <p>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                    Quis, consequatur laborum dolore, voluptatibus alias,
+                    explicabo quod quasi molestiae non praesentium consequuntur!
+                    Deserunt voluptatibus vero quisquam quibusdam, corrupti a
+                    error dolorum!
+                  </p>
+                  <p>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                    Quis, consequatur laborum dolore, voluptatibus alias,
+                    explicabo quod quasi molestiae non praesentium consequuntur!
+                    Deserunt voluptatibus vero quisquam quibusdam, corrupti a
+                    error dolorum!
+                  </p>
+                  <p>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                    Quis, consequatur laborum dolore, voluptatibus alias,
+                    explicabo quod quasi molestiae non praesentium consequuntur!
+                    Deserunt voluptatibus vero quisquam quibusdam, corrupti a
+                    error dolorum!
+                  </p>
+                  <p>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                    Quis, consequatur laborum dolore, voluptatibus alias,
+                    explicabo quod quasi molestiae non praesentium consequuntur!
+                    Deserunt voluptatibus vero quisquam quibusdam, corrupti a
+                    error dolorum!
+                  </p>
+                  <p>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                    Quis, consequatur laborum dolore, voluptatibus alias,
+                    explicabo quod quasi molestiae non praesentium consequuntur!
+                    Deserunt voluptatibus vero quisquam quibusdam, corrupti a
+                    error dolorum!
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="ham_nav_link_text_container">
+              <div className="ham_nav_link_text" onClick={() => handleIndex(2)}>
+                <p>Resource</p>
+                <IoIosArrowDropdownCircle />
+              </div>
+              <div
+                className={`ham_wraper ${openIndex == 2 && "ham_wraper_open"}`}
+              >
+                <div className="ham_expand">
+                  <p>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                    Quis, consequatur laborum dolore, voluptatibus alias,
+                    explicabo quod quasi molestiae non praesentium consequuntur!
+                    Deserunt voluptatibus vero quisquam quibusdam, corrupti a
+                    error dolorum!
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="ham_nav_link_text_container">
+              <div className="ham_nav_link_text" onClick={() => handleIndex(3)}>
+                <p>Company</p>
+                <IoIosArrowDropdownCircle />
+              </div>
+              <div
+                className={`ham_wraper ${openIndex == 3 && "ham_wraper_open"}`}
+              >
+                <div className="ham_expand">
+                  <p>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                    Quis, consequatur laborum dolore, voluptatibus alias,
+                    explicabo quod quasi molestiae non praesentium consequuntur!
+                    Deserunt voluptatibus vero quisquam quibusdam, corrupti a
+                    error dolorum!
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </nav>

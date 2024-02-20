@@ -3,8 +3,19 @@ import "./blogs.scss";
 import b1 from "../../images/blog1.jpeg";
 import b2 from "../../images/blog2.jpeg";
 import b3 from "../../images/blog3.jpg";
+
+import { AiFillPlusSquare, AiFillMinusSquare } from "react-icons/ai";
 const Blogs = () => {
   const [hover, setHover] = useState(-1);
+  const [click, setClik] = useState(-1);
+  const handleClick = (index) => {
+    if (index == click) {
+      setClik(-1);
+    } else {
+      setClik(index);
+    }
+  };
+
   const arr = [
     {
       img: b1,
@@ -22,7 +33,7 @@ const Blogs = () => {
       desc: "libero ipsa incidunt laudantium beatae, veritatis placeat rerum rem expedita minima veniam.",
     },
   ];
-  console.log(hover);
+  console.log(click);
   return (
     <div className="blogs_container">
       <h2>Our Blogs</h2>
@@ -41,6 +52,23 @@ const Blogs = () => {
                 <h3>{item.title}</h3>
                 <p>{item.desc}</p>
                 <button>Learn More</button>
+              </div>
+              <div className={`blog_click ${click == index && "top_0"}`}>
+                <h3>{item.title}</h3>
+                <p>{item.desc}</p>
+                <button>Learn More</button>
+              </div>
+              <div className="blog_click_container">
+                <AiFillPlusSquare
+                  onClick={() => handleClick(index)}
+                  className={`blog_icon ${click == index ? "blog_icon_0" : ""}`}
+                />
+                <AiFillMinusSquare
+                  className={`blog_icon ${
+                    click !== index ? "blog_icon_0" : ""
+                  }`}
+                  onClick={() => handleClick(index)}
+                />
               </div>
             </div>
           );

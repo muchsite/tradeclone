@@ -5,17 +5,29 @@
     justify-content: center;
     gap: 10vw;
     padding: 6rem;
-    border-radius: 20px;
-    color: $second;
-    background-image: url("../../images/ab.webp");
 
+    color: $second;
+    background-image: url("../../images/cb.webp");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    @include breack_down(large) {
+      flex-direction: column-reverse;
+      padding: 2rem;
+    }
     .contact_left {
       display: flex;
       flex-direction: column;
       justify-content: center;
       gap: 4rem;
+      @include breack_down(large) {
+        align-items: center;
+      }
       img {
         width: 40vw;
+        @include breack_down(large) {
+          width: 50vw;
+        }
       }
       .contact_info {
         display: flex;
@@ -29,6 +41,10 @@
             color: $main;
             width: 2rem;
             height: 2rem;
+            @include breack_down(medium) {
+              width: 1.3rem;
+              height: 1.3rem;
+            }
           }
         }
       }
@@ -44,21 +60,33 @@
           font-size: 2rem;
           margin-bottom: 1rem;
           color: $main;
+          @include breack_down(large) {
+            text-align: center;
+          }
         }
         p {
           color: $main;
+          @include breack_down(large) {
+            text-align: center;
+          }
         }
       }
       .contact_form {
         display: flex;
         flex-direction: column;
         gap: 3rem;
+        @include breack_down(large) {
+          align-items: center;
+        }
         input {
           padding: 1rem;
           border-radius: 4px;
           border: none;
-          //   outline: 1px solid $second;
           width: 25rem;
+          // background-color: red;
+          @include breack_down(large) {
+            width: 80vw;
+          }
           &:focus {
             outline: 1px solid $main;
           }
@@ -71,6 +99,9 @@
           width: 25rem !important;
           min-height: 15rem !important;
           max-height: 20rem !important;
+          @include breack_down(large) {
+            width: 80vw !important;
+          }
           &:focus {
             outline: 1px solid $main;
           }
@@ -86,6 +117,9 @@
           font-weight: 500;
           transition: 0.5s;
           cursor: pointer;
+          @include breack_down(large) {
+            padding: 0.5rem 1rem;
+          }
           &:hover {
             background-color: transparent;
             color: $main;

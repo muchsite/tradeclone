@@ -5,6 +5,9 @@
   h2 {
     margin-bottom: 4rem;
     text-align: center;
+    @include breack_down(large) {
+      margin-bottom: 2rem;
+    }
   }
   .test_contetnt {
     display: flex;
@@ -28,6 +31,9 @@
       flex-direction: column;
       justify-content: center;
       gap: 2rem;
+      @include breack_down(large) {
+        width: 70vw;
+      }
       .test_message {
         position: relative;
         &::after {
@@ -66,25 +72,40 @@
     }
     .firstT {
       left: 10vw;
+      @include breack_down(large) {
+        left: 15vw;
+      }
     }
     .secondT {
       left: 40vw;
+      @include breack_down(large) {
+        left: 120vw;
+      }
     }
     .thirdT {
       left: 70vw;
+      @include breack_down(large) {
+        left: 120vw;
+      }
     }
     .prevT {
-      left: -40vw;
+      left: -80vw;
     }
     .nextT {
       left: 100vw;
+      @include breack_down(large) {
+        left: 120vw;
+      }
     }
     .test_arrow {
       position: absolute;
-      font-size: 8rem;
+      font-size: 5rem;
       color: $light;
       cursor: pointer;
       transition: 0.5s;
+      @include breack_down(large) {
+        font-size: 3rem;
+      }
       &:hover {
         scale: 1.05;
       }
