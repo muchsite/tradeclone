@@ -9,7 +9,7 @@ const Hero = () => {
     <>
       <div className="hero_container">
         <div className="hero_text">
-          <h1>A better way to save</h1>
+          <h1>A BETTER way to save</h1>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur
             voluptatibus harum, beatae, voluptatem est aut molestiae architecto
