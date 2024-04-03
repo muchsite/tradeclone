@@ -3,43 +3,17 @@ import "./products.scss";
 import impor from "../../images/import.svg";
 import exprot from "../../images/export.svg";
 import domestic from "../../images/domestic.svg";
+import { BASE } from "../../App";
 
-const Products = () => {
+const Products = ({ data, loading }) => {
   const [activeP, setActiveP] = useState(true);
   const [clicked, setClicked] = useState(false);
   const handleclick = () => {
     setActiveP(!activeP);
     setClicked(true);
   };
-  const items = [
-    {
-      img: impor,
-      title: "IMPORT FINANCE",
-      desc: "SUPPLIER'S CREDIT",
-    },
-    {
-      img: exprot,
-      title: "IMPORT FINANCE",
-      desc: "BUYER'S CREDIT",
-    },
-    {
-      img: domestic,
-      title: "EXPORT FINANCE",
-      desc: "LC DISCOUNTING",
-    },
-  ];
-  const items2 = [
-    {
-      img: impor,
-      title: "LOCAL LETTER OF CREDIT BILL DISCOUNTING",
-      // desc: "SUPPLIER'S CREDIT",
-    },
-    {
-      img: exprot,
-      title: "INVOICE DISCOUNTING",
-      // desc: "BUYER'S CREDIT",
-    },
-  ];
+  const items = data;
+
   useEffect(() => {
     if (!clicked) {
       const intervalId = setInterval(() => {
@@ -67,30 +41,34 @@ const Products = () => {
       </div>
       <div className="products_items_container">
         {activeP
-          ? items.map((item, index) => {
-              return (
-                <div className="product" key={index}>
-                  <img src={item.img} alt="" />
-                  <div className="products_info">
-                    <h3>{item.title}</h3>
-                    <p>{item.desc}</p>
-                    <button>Learn More!</button>
+          ? items
+              .filter((i) => i.service_type == "International")
+              .map((item, index) => {
+                return (
+                  <div className="product" key={index}>
+                    <img src={BASE + item.image} alt="Image" />
+                    <div className="products_info">
+                      <h3>{item.title}</h3>
+                      <p>{item.description}</p>
+                      <button>Learn More!</button>
+                    </div>
                   </div>
-                </div>
-              );
-            })
-          : items2.map((item, index) => {
-              return (
-                <div className="product" key={index}>
-                  <img src={item.img} alt="" />
-                  <div className="products_info">
-                    <h3>{item.title}</h3>
-                    <p>{item.desc}</p>
-                    <button>Learn More!</button>
+                );
+              })
+          : items
+              .filter((i) => i.service_type !== "International")
+              .map((item, index) => {
+                return (
+                  <div className="product" key={index}>
+                    <img src={item.image} alt="Image" />
+                    <div className="products_info">
+                      <h3>{item.title}</h3>
+                      <p>{item.description}</p>
+                      <button>Learn More!</button>
+                    </div>
                   </div>
-                </div>
-              );
-            })}
+                );
+              })}
       </div>
     </div>
   );

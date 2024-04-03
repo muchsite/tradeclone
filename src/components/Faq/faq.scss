@@ -1,0 +1,90 @@
+@use "../../App.scss" as *;
+.faq_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  padding: 3rem 0;
+  min-height: 50vh;
+  .faq_text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+    width: 60%;
+    text-align: center;
+  }
+}
+.faq_map {
+  margin: 5rem 0;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  padding: 0 5rem;
+  width: 100%;
+  align-items: center;
+  .faq_top {
+    display: flex;
+    justify-content: center;
+    width: fit-content;
+    outline: 1px solid $light;
+    .faq_top_item {
+      padding: 1rem;
+      width: 20vw;
+      cursor: pointer;
+      transition: 0.6s;
+      color: $second;
+      &:hover {
+        background-color: #b2f2fa;
+      }
+    }
+  }
+  .faq_top_inner {
+    display: none;
+  }
+  .faq_bottom {
+    display: flex;
+    justify-content: space-between;
+    justify-content: center;
+    .faq_item {
+      width: 20vw;
+      padding: 1rem;
+      outline: 1px solid $light;
+      // margin-top: 5px;
+      // border-radius: 10px;
+      transition: 0.5s;
+    }
+    .sub_category {
+      margin: 5px 0;
+      cursor: pointer;
+      color: $second;
+      transition: 0.6s;
+      &:hover {
+        color: $light;
+      }
+    }
+  }
+}
+.faq_q_container {
+  h4 {
+    margin: 5px 0;
+    cursor: pointer;
+    color: $second;
+    transition: 0.6s;
+    &:hover {
+      color: $light;
+    }
+  }
+  p {
+    color: $gr;
+  }
+}
+.faq_top_item_active {
+  background-color: $light;
+  // border-radius: 20px;
+}
+
+.opacity_0 {
+  opacity: 0 !important;
+  pointer-events: none;
+}

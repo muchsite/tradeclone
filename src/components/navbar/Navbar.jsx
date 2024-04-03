@@ -8,7 +8,7 @@ import {
 } from "react-icons/fa";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { MdEmail } from "react-icons/md";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import logo from "../../images/logo.svg";
 import of from "../../images/of.webp";
 import { GiHamburgerMenu } from "react-icons/gi";
@@ -168,8 +168,8 @@ const Navbar = () => {
               </div>
               <div className="link_calc">
                 <h3>Cost Calculators</h3>
-                <p>Domestic Finance</p>
-                <p>Import / Export Finance</p>
+                <Link to="/calculator">Domestic Finance</Link>
+                <Link to="/calculator">Import / Export Finance</Link>
               </div>
             </div>
           </div>

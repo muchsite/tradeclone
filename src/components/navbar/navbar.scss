@@ -172,6 +172,7 @@
         .nav_link_absolute_third {
           color: $drop;
           // width: 100%;
+
           .nav_vision {
             flex-shrink: 0;
             flex-basis: 30%;
@@ -391,6 +392,22 @@
           background-color: black;
         }
       }
+    }
+  }
+}
+.link_calc {
+  display: flex;
+  flex-direction: column;
+  a {
+    text-decoration: none;
+    margin-top: 0.5rem;
+    transition: 0.5s;
+    font-size: 1rem;
+    font-weight: 500;
+    color: $drop;
+    cursor: pointer;
+    &:hover {
+      color: $main;
     }
   }
 }

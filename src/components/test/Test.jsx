@@ -5,51 +5,8 @@ import t3 from "../../images/t3.png";
 import "./test.scss";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
-const Test = () => {
-  const arr = [
-    {
-      name: "John Dow1",
-      message:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, sit? Adipisci maiores dolores officia minima quos eligendi sapiente fuga nostrum omnis, voluptate illum doloremque quo sed, a sint quae. Consectetur.",
-      image: t1,
-      profession: "Teacher",
-    },
-    {
-      name: "Wade Aidan2",
-      message:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, sit? Adipisci maiores dolores officia minima quos eligendi sapiente fuga nostrum omnis, voluptate illum doloremque quo sed, a sint quae. Consectetur.",
-      image: t2,
-      profession: "Teacher",
-    },
-    {
-      name: "Jorge Carlos3",
-      message:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, sit? Adipisci maiores dolores officia minima quos eligendi sapiente fuga nostrum omnis, voluptate illum doloremque quo sed, a sint quae. Consectetur.",
-      image: t3,
-      profession: "Teacher",
-    },
-    {
-      name: "Brian Shane4",
-      message:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, sit? Adipisci maiores dolores officia minima quos eligendi sapiente fuga nostrum omnis, voluptate illum doloremque quo sed, a sint quae. Consectetur.",
-      image: t1,
-      profession: "Teacher",
-    },
-    {
-      name: "Brian Shane5",
-      message:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, sit? Adipisci maiores dolores officia minima quos eligendi sapiente fuga nostrum omnis, voluptate illum doloremque quo sed, a sint quae. Consectetur.",
-      image: t1,
-      profession: "Teacher",
-    },
-    {
-      name: "Brian Shane7",
-      message:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, sit? Adipisci maiores dolores officia minima quos eligendi sapiente fuga nostrum omnis, voluptate illum doloremque quo sed, a sint quae. Consectetur.",
-      image: t1,
-      profession: "Teacher",
-    },
-  ];
+const Test = ({ data }) => {
+  const arr = data;
   const [ind, setInd] = useState(0);
   const handleClick = (arg) => {
     if (arg < 0) {
@@ -67,6 +24,7 @@ const Test = () => {
       }
     }
   };
+
   return (
     <div className="test_container">
       <h2>How Our Clients Rate Us</h2>
@@ -95,7 +53,7 @@ const Test = () => {
               }`}
               key={i}
             >
-              <p className="test_message">{item.message}</p>
+              <p className="test_message">{item.testimonial}</p>
               <div className="test_top">
                 <div className="test_top_info">
                   <h3>{item.name}</h3>

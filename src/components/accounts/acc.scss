@@ -44,7 +44,7 @@
     transition: 0.5s;
 
     img {
-      width: 14.75vw;
+      width: 7vw;
       height: fit-content;
       object-fit: cover;
       user-select: none;
@@ -63,7 +63,10 @@
       padding: 3vw;
     }
     .acc_dark_globe {
-      width: 30vw;
+      overflow: hidden;
+      canvas {
+        width: 30vw;
+      }
       @include breack_down(large) {
         width: 90vw;
         // height: ;
@@ -170,7 +173,7 @@
     left: 0;
   }
   50% {
-    left: -148vw;
+    left: -84vw;
   }
   100% {
     left: 0;
@@ -178,13 +181,13 @@
 }
 @keyframes toRight {
   0% {
-    left: -148vw;
+    left: -84vw;
   }
   50% {
     left: 0;
   }
   100% {
-    left: -148vw;
+    left: -84vw;
   }
 }
 @keyframes rotate {

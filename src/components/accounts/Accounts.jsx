@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef } from "react";
 import "./acc.scss";
 import q from "../../images/banks/1.png";
 import w from "../../images/banks/2.png";
@@ -25,21 +25,35 @@ import g19 from "../../images/banks/29.png";
 import g2 from "../../images/banks/30.png";
 import g3 from "../../images/banks/31.png";
 import g4 from "../../images/banks/32.png";
+import Globe from "react-globe.gl";
+import ea from "../../images/world.svg";
 
-import globe from "../../images/globe.svg";
-import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 const Accounts = () => {
   const arr = [q, w, a, s, d, f, g, z, x, c, e, r];
   const arr2 = [g1, g12, g13, g14, g15, g16, g17, g18, g19, g2, g3, g4];
-  const [left, setLEft] = useState(0);
-  const hadleClick = (e) => {
-    if (e < 0 && left > 0) {
-      setLEft(left - 1);
+  const globeRef = useRef(null);
+
+  useEffect(() => {
+    if (globeRef.current) {
+      globeRef.current.controls().autoRotate =
+        globeRef.current.controls().autoRotateSpeed *= -1;
     }
-    if (e > 0 && left < 11) {
-      setLEft(left + 1);
-    }
-  };
+  }, []);
+  const N = 20;
+  const arcsData = [...Array(N).keys()].map(() => ({
+    startLat: (Math.random() - 1.5) * 180,
+    startLng: (Math.random() - 1.5) * 360,
+    endLat: (Math.random() - 1.5) * 180,
+    endLng: (Math.random() - 1.5) * 360,
+    color: [
+      ["#0f0447", "#120b24", "#0565ff", "#100038"][
+        Math.round(Math.random() * 3)
+      ],
+      ["#0f0447", "#120b24", "#0565ff", "#100038"][
+        Math.round(Math.random() * 3)
+      ],
+    ],
+  }));
   return (
     <div className="acc_container">
       <div className="acc_slider_container">
@@ -84,7 +98,20 @@ const Accounts = () => {
           </div>
         </div>
         <div className="acc_dark_globe">
-          <img src={globe} alt="" className="globe" />
+          <Globe
+            ref={globeRef}
+            globeImageUrl={ea}
+            backgroundColor="rgba(0,0,0,0)"
+            polygonSideColor={() => "rgba(0, 0, 0, 0)"}
+            width={600}
+            height={600}
+            arcsData={arcsData}
+            arcColor={"color"}
+            arcDashLength={() => 0.5}
+            arcDashGap={() => Math.random()}
+            arcDashAnimateTime={() => Math.random() * 4000 + 500}
+          />
+          ,
         </div>
       </div>
     </div>

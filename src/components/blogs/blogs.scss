@@ -16,12 +16,20 @@
     .blog {
       position: relative;
       overflow: hidden;
+      min-width: 25rem;
+      min-height: 20rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      @include breack_down(large) {
+        min-width: 100vw;
+      }
       cursor: pointer;
       img {
         width: 25rem;
         height: 20rem;
         object-fit: cover;
-        @include breack_down(medium) {
+        @include breack_down(large) {
           width: 100vw;
         }
       }
