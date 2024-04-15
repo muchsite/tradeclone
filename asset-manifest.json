@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/tradeclone/static/css/main.3edb7ff9.css",
-    "main.js": "/tradeclone/static/js/main.3149273a.js",
+    "main.css": "/tradeclone/static/css/main.ecf249d1.css",
+    "main.js": "/tradeclone/static/js/main.04338922.js",
     "static/media/t3.png": "/tradeclone/static/media/t3.6e077b0ff98a8d98d897.png",
     "static/media/7.png": "/tradeclone/static/media/7.aaaf749874b253ecab65.png",
     "static/media/export.svg": "/tradeclone/static/media/export.142508ff4e6d3ad5bdf1ce8498278027.svg",
@@ -19,7 +19,6 @@
     "static/media/28.png": "/tradeclone/static/media/28.d6ffacc30ea575b6b4f2.png",
     "static/media/6.png": "/tradeclone/static/media/6.16fca4f301bc5a4bbaac.png",
     "static/media/25.png": "/tradeclone/static/media/25.7ae0af69c96c5af1f533.png",
-    "static/media/blog3.jpg": "/tradeclone/static/media/blog3.7bf2a02f4a85019cce5d.jpg",
     "static/media/30.png": "/tradeclone/static/media/30.045a019da671773872c2.png",
     "static/media/32.png": "/tradeclone/static/media/32.9481a8e243dd8b5c005a.png",
     "static/media/cb.webp": "/tradeclone/static/media/cb.2484ede48d9dd378bcf2.webp",
@@ -38,13 +37,17 @@
     "static/media/eu.svg": "/tradeclone/static/media/eu.ad35c54b21090fe75c3ff22ffe6a140c.svg",
     "static/media/footerlogo.svg": "/tradeclone/static/media/footerlogo.0e47342ff85baf470cd72e8361287bd9.svg",
     "static/media/logo.svg": "/tradeclone/static/media/logo.1baa6c56b9b25d44982704faa0d4f9fb.svg",
+    "static/media/slick.svg": "/tradeclone/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "/tradeclone/static/media/slick.a4e97f5a2a64f0ab1323.eot",
     "static/media/of.webp": "/tradeclone/static/media/of.dc10e56228a823c514b8.webp",
+    "static/media/slick.ttf": "/tradeclone/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "static/media/slick.woff": "/tradeclone/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/tradeclone/index.html",
-    "main.3edb7ff9.css.map": "/tradeclone/static/css/main.3edb7ff9.css.map",
-    "main.3149273a.js.map": "/tradeclone/static/js/main.3149273a.js.map"
+    "main.ecf249d1.css.map": "/tradeclone/static/css/main.ecf249d1.css.map",
+    "main.04338922.js.map": "/tradeclone/static/js/main.04338922.js.map"
   },
   "entrypoints": [
-    "static/css/main.3edb7ff9.css",
-    "static/js/main.3149273a.js"
+    "static/css/main.ecf249d1.css",
+    "static/js/main.04338922.js"
   ]
 }
