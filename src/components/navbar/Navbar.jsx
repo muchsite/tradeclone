@@ -162,8 +162,8 @@ const Navbar = () => {
               </div>
               <div className="link_publications">
                 <h3>Publications</h3>
-                <p>Blogs</p>
-                <p>Case Stdies</p>
+                <Link to="/blogs">Blogs</Link>
+                <Link to="/cases">Case Stdies</Link>
                 <p>FAQs</p>
               </div>
               <div className="link_calc">

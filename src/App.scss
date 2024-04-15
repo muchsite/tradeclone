@@ -8,16 +8,7 @@ $light: #1babe2;
 $bacground: #f1f3f7;
 $drop: #596670;
 $gr: rgb(55, 58, 61);
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Montserrat", sans-serif;
-}
 
-body {
-  background-color: $bacground;
-}
 $breack-up: (
   "small": "600px",
   "medium": "1164px",

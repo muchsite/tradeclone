@@ -411,3 +411,19 @@
     }
   }
 }
+.link_publications {
+  display: flex;
+  flex-direction: column;
+  a {
+    text-decoration: none;
+    margin-top: 0.5rem;
+    transition: 0.5s;
+    font-size: 1rem;
+    font-weight: 500;
+    color: $drop;
+    cursor: pointer;
+    &:hover {
+      color: $main;
+    }
+  }
+}

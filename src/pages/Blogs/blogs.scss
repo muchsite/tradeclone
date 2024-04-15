@@ -1,0 +1,133 @@
+@use "../../App.scss" as *;
+.a_blogs_container {
+  margin-top: 10rem;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .a_blogs_content {
+    margin-top: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    .a_blogs_item {
+      gap: 1rem;
+      width: 30vw;
+      min-height: 15rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      @include breack_down(large) {
+        width: 40vw;
+      }
+      @include breack_down(medium) {
+        width: 80vw;
+      }
+      .a_blog_hover {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        gap: 1rem;
+        padding: 0 10px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: rgba(27, 171, 226, 0.73);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(7.3px);
+        -webkit-backdrop-filter: blur(7.3px);
+        bottom: -120%;
+        transition: 0.5s;
+        @include breack_down(large) {
+          display: none !important;
+        }
+        button {
+          padding: 10px 15px;
+          background-color: #fff;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          transition: 0.5s;
+          a {
+            text-decoration: none;
+            color: $second;
+          }
+          &:hover {
+            opacity: 0.5;
+          }
+        }
+      }
+      .a_blog_click {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        gap: 1rem;
+        padding: 0 10px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: rgba(27, 171, 226, 0.73);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(7.3px);
+        -webkit-backdrop-filter: blur(7.3px);
+        bottom: -120%;
+        transition: 0.5s;
+        @include breack_up(medium) {
+          display: none !important;
+        }
+        p {
+          font-size: 12px;
+        }
+        h3 {
+          font-size: 18px;
+          margin: 0 2rem;
+        }
+        button {
+          padding: 5px 13px;
+          background-color: #fff;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          transition: 0.5s;
+          a {
+            text-decoration: none;
+            color: $second;
+          }
+        }
+      }
+
+      img {
+        width: 100%;
+        height: 20vh;
+      }
+    }
+  }
+}
+
+.blog_bottom_zero {
+  bottom: 0 !important;
+}
+.a_blog_click_container {
+  position: absolute;
+  top: 0rem;
+  right: 0rem;
+  @include breack_up(medium) {
+    display: none !important;
+  }
+  .a_blog_icon {
+    transition: 0.5s;
+    width: 2rem;
+    height: 2rem;
+    color: $second;
+  }
+  .a_blog_icon_0 {
+    width: 0;
+  }
+}

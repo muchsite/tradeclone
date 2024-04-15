@@ -4,8 +4,19 @@ import { FaPhoneSquareAlt } from "react-icons/fa";
 import { IoMail } from "react-icons/io5";
 import { FaLocationDot } from "react-icons/fa6";
 import logo from "../../images/logo.svg";
+import axios from "axios";
+import { BASE } from "../../App";
 const Contact = () => {
-  const [open, setOpen] = useState(false);
+  const [full_name, setfull_name] = useState("");
+  const [email, setemail] = useState("");
+  const [message, setMessage] = useState("");
+  const states = { full_name, email, message };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await axios.post(BASE + "/contact", states);
+    } catch (error) {}
+  };
   return (
     <div className="contact_container">
       <div className="contact_back">
@@ -31,10 +42,31 @@ const Contact = () => {
             <h3>Get in Touch</h3>
             <p>Any question or remarks? Let us know!</p>
           </div>
-          <form className="contact_form">
-            <input type="text" placeholder="Enter your name" />
-            <input type="text" placeholder="Enter your email" />
-            <textarea name="" placeholder="Type your message here"></textarea>
+          <form className="contact_form" onSubmit={handleSubmit}>
+            <div className="contact_div">
+              <input
+                type="text"
+                placeholder="Enter your name"
+                value={full_name}
+                onChange={(e) => setfull_name(e.currentTarget.value)}
+              />
+            </div>
+            <div className="contact_div">
+              <input
+                type="text"
+                placeholder="Enter your email"
+                value={email}
+                onChange={(e) => setemail(e.currentTarget.value)}
+              />
+            </div>
+            <div className="contact_div">
+              <textarea
+                name=""
+                placeholder="Type your message here"
+                value={message}
+                onChange={(e) => setMessage(e.currentTarget.value)}
+              ></textarea>
+            </div>
             <button>Submit</button>
           </form>
         </div>

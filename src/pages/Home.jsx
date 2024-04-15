@@ -14,6 +14,7 @@ const Home = () => {
   const url = BASE;
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);

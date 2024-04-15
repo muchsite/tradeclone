@@ -46,7 +46,7 @@ const Products = ({ data, loading }) => {
               .map((item, index) => {
                 return (
                   <div className="product" key={index}>
-                    <img src={BASE + item.image} alt="Image" />
+                    <img src={item.image} alt="Image" />
                     <div className="products_info">
                       <h3>{item.title}</h3>
                       <p>{item.description}</p>

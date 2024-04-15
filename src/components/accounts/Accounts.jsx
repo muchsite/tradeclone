@@ -37,6 +37,8 @@ const Accounts = () => {
     if (globeRef.current) {
       globeRef.current.controls().autoRotate =
         globeRef.current.controls().autoRotateSpeed *= -1;
+      globeRef.current.controls().enableZoom = false;
+      globeRef.current.controls().autoRotateSpeed = -3;
     }
   }, []);
   const N = 20;
@@ -110,6 +112,7 @@ const Accounts = () => {
             arcDashLength={() => 0.5}
             arcDashGap={() => Math.random()}
             arcDashAnimateTime={() => Math.random() * 4000 + 500}
+            onZoom={() => {}}
           />
           ,
         </div>

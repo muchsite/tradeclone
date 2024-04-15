@@ -1,42 +1,33 @@
 @use "../../App.scss" as *;
 .blogs_container {
-  margin: 6rem 0;
+  overflow: hidden;
+  padding: 6rem 0;
+  @include breack_down(large) {
+    padding: 3rem;
+  }
   h2 {
     text-align: center;
     margin-bottom: 4rem;
   }
   .blogs_content {
-    display: flex;
-    justify-content: center;
-    gap: 5vw;
-    @include breack_down(large) {
-      flex-direction: column;
-      gap: 5rem;
-    }
+    padding: 2rem;
+    cursor: pointer;
     .blog {
       position: relative;
+      display: block;
       overflow: hidden;
-      min-width: 25rem;
-      min-height: 20rem;
-      display: flex;
+      // min-width: 25rem;
+      min-height: 25rem;
+      display: flex !important;
       flex-direction: column;
       justify-content: space-between;
-      @include breack_down(large) {
-        min-width: 100vw;
-      }
       cursor: pointer;
       img {
-        width: 25rem;
-        height: 20rem;
         object-fit: cover;
-        @include breack_down(large) {
-          width: 100vw;
-        }
+        height: 80%;
       }
       h3 {
-        @include breack_down(large) {
-          text-align: center;
-        }
+        text-align: center;
       }
       .blog_hover {
         background: rgba(53, 107, 179, 0.63);
@@ -130,4 +121,13 @@
 }
 .top_0 {
   top: 0 !important;
+}
+.slick-slide {
+  padding: 0 27px;
+  @include breack_down(large) {
+    padding: 0;
+  }
+}
+.slick-dots {
+  bottom: -4rem !important;
 }
