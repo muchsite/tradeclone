@@ -11,6 +11,9 @@
   }
   .blogs_content {
     padding: 2rem;
+    @include breack_down(large) {
+      padding: 0;
+    }
     cursor: pointer;
     .blog {
       position: relative;
@@ -104,8 +107,8 @@
 }
 .blog_click_container {
   position: absolute;
-  top: 2rem;
-  right: 2rem;
+  top: 1rem;
+  right: 1rem;
   @include breack_up(medium) {
     display: none !important;
   }

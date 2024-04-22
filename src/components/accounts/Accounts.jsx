@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./acc.scss";
 import q from "../../images/banks/1.png";
 import w from "../../images/banks/2.png";
@@ -56,6 +56,8 @@ const Accounts = () => {
       ],
     ],
   }));
+  const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
+  console.log(viewportWidth);
   return (
     <div className="acc_container">
       <div className="acc_slider_container">
@@ -105,8 +107,8 @@ const Accounts = () => {
             globeImageUrl={ea}
             backgroundColor="rgba(0,0,0,0)"
             polygonSideColor={() => "rgba(0, 0, 0, 0)"}
-            width={600}
-            height={600}
+            width={viewportWidth < 600 ? 250 : 600}
+            height={viewportWidth < 600 ? 250 : 600}
             arcsData={arcsData}
             arcColor={"color"}
             arcDashLength={() => 0.5}
@@ -114,7 +116,6 @@ const Accounts = () => {
             arcDashAnimateTime={() => Math.random() * 4000 + 500}
             onZoom={() => {}}
           />
-          ,
         </div>
       </div>
     </div>

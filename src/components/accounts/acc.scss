@@ -67,10 +67,7 @@
       canvas {
         width: 30vw;
       }
-      @include breack_down(large) {
-        width: 90vw;
-        // height: ;
-      }
+
       .globe {
         width: 100%;
       }

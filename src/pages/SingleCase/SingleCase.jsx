@@ -12,7 +12,7 @@ const SingleCase = () => {
     const fetchData = async () => {
       setLoading(true);
       try {
-        const res = await axios.get(BASE + `/blog/${caseId}`);
+        const res = await axios.get(BASE + `/case/${caseId}`);
         setData(res.data.blogs);
         setLoading(false);
       } catch (error) {

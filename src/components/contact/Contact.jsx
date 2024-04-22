@@ -15,7 +15,9 @@ const Contact = () => {
     e.preventDefault();
     try {
       const res = await axios.post(BASE + "/contact", states);
-    } catch (error) {}
+    } catch (error) {
+      console.log(error);
+    }
   };
   return (
     <div className="contact_container">
