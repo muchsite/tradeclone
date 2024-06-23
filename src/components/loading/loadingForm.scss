@@ -1,11 +1,10 @@
-.loader_container {
-  width: 100%;
-  height: 30vw;
+.loader_container_form {
   display: flex;
   flex-direction: column;
   gap: 5rem;
   align-items: center;
   justify-content: center;
+
   h2 {
     text-transform: uppercase;
   }
@@ -85,12 +84,12 @@
     top: 56px;
     left: 12px;
   }
-}
-@keyframes lds-roller {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
+  @keyframes lds-roller {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
   }
 }

@@ -10,6 +10,7 @@ import Blogs from "./pages/Blogs/Blogs";
 import Cases from "./pages/Cases/Cases";
 import Blog from "./pages/Blog/Blog";
 import SingleCase from "./pages/SingleCase/SingleCase";
+import Product from "./pages/product/Product";
 
 export const BASE = "https://tradeflaircorp.in";
 function App() {
@@ -23,6 +24,7 @@ function App() {
         <Route element={<Blog />} path="/blog/:blogId" />
         <Route element={<Cases />} path="/cases" />
         <Route element={<SingleCase />} path="/case/:caseId" />
+        <Route element={<Product />} path="/product" />
       </Routes>
       <Footer />
     </HashRouter>
