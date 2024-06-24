@@ -56,7 +56,7 @@ const Product = () => {
     threshold: 0.2,
   });
   const { ref: con, inView: conW } = useInView({
-    threshold: 0.2,
+    threshold: 0.4,
   });
   const { ref: fa, inView: faW } = useInView({
     threshold: 0.2,
