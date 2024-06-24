@@ -2,6 +2,9 @@
 .product_container {
   min-height: 100vh;
   padding-top: 10rem;
+  @include breack_down(large) {
+    padding-top: 7rem;
+  }
 }
 .product_hero {
   display: flex;
@@ -13,15 +16,24 @@
   h2 {
     color: $main;
     font-size: 3rem;
+    @include breack_down(large) {
+      font-size: 2rem;
+    }
   }
   h3 {
     color: $main;
     font-size: 1.2rem;
+    @include breack_down(large) {
+      font-size: 1rem;
+    }
   }
   p {
     width: 70%;
     color: $second;
-    // font-size: 0.75rem;
+    @include breack_down(large) {
+      font-size: 0.75rem;
+      width: 90%;
+    }
   }
   button {
     border: none;
@@ -33,6 +45,10 @@
     cursor: pointer;
     outline: 1px solid $light;
     transition: 0.5s;
+    @include breack_down(large) {
+      padding: 0.5rem 1rem;
+      font-size: 0.75rem;
+    }
     &:hover {
       background-color: transparent;
       color: $light;
@@ -40,12 +56,14 @@
   }
 }
 .solutions {
-  margin-top: 4rem;
   padding: 2rem;
   display: flex;
   align-items: center;
   gap: 4rem;
   background-color: #fff;
+  @include breack_down(large) {
+    flex-direction: column-reverse;
+  }
   img {
     width: 5rem;
     height: 5rem;
@@ -54,6 +72,9 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
+    @include breack_down(large) {
+      grid-template-columns: 1fr;
+    }
     .solution_item {
       height: 15rem;
       background-color: #fff;
@@ -107,6 +128,9 @@
     width: 70%;
     text-align: center;
     margin-bottom: 2rem;
+    @include breack_down(large) {
+      width: 90%;
+    }
     h3 {
       color: $main;
     }
@@ -118,6 +142,14 @@
     display: flex;
     align-items: center;
     gap: 3rem;
+    @include breack_down(large) {
+      flex-direction: column;
+    }
+    img {
+      @include breack_down(large) {
+        width: 100%;
+      }
+    }
     .process_left {
       display: flex;
       flex-direction: column;
@@ -142,6 +174,9 @@
     align-items: center;
     gap: 5rem;
     margin-top: 5rem;
+    @include breack_down(large) {
+      gap: 1rem;
+    }
     .benefits_item {
       display: flex;
       gap: 1rem;
@@ -151,10 +186,62 @@
       border-radius: 10px;
       min-height: 10rem;
       box-shadow: 0 0 20px #031c6e49;
+      @include breack_down(large) {
+        width: 90%;
+      }
       img {
         width: 3rem;
         height: 3rem;
       }
     }
+  }
+}
+.sticky_nav {
+  margin-top: 4rem;
+  position: sticky;
+  width: fit-content;
+  top: 10rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  z-index: 1;
+  border-radius: 10px;
+  outline: 1px solid $main;
+  overflow: hidden;
+  @include breack_down(large) {
+    left: 0%;
+    transform: translateX(0%);
+    width: 100%;
+    top: 5rem;
+    display: flex;
+    justify-content: space-between;
+  }
+  .sticky_btn {
+    @include breack_down(large) {
+      font-size: 10px;
+      // padding: 0.4rem;
+      width: 100%;
+    }
+    border: none;
+    background-color: transparent;
+    padding: 0.4rem 1rem;
+    cursor: pointer;
+    color: #fff;
+    transition: 0.5s;
+
+    font-weight: 600;
+    color: $main;
+    @include breack_up(medium) {
+      &:hover {
+        background-color: $main;
+        color: #fff;
+      }
+    }
+  }
+  .sticky_btn_active {
+    background-color: $main;
+    color: #fff;
   }
 }
