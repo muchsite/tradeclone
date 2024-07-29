@@ -160,17 +160,17 @@
   }
 }
 .toL {
-  animation: toLeft 40s infinite linear;
+  animation: toLeft 20s infinite linear;
 }
 .toRight {
-  animation: toRight 40s infinite linear;
+  animation: toRight 20s infinite linear;
 }
 @keyframes toLeft {
   0% {
     left: 0;
   }
   50% {
-    left: -84vw;
+    left: -25vw;
   }
   100% {
     left: 0;
@@ -178,13 +178,13 @@
 }
 @keyframes toRight {
   0% {
-    left: -84vw;
+    left: -74vw;
   }
   50% {
     left: 0;
   }
   100% {
-    left: -84vw;
+    left: -74vw;
   }
 }
 @keyframes rotate {

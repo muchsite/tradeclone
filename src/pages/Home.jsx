@@ -10,7 +10,7 @@ import { BASE } from "../App";
 import axios from "axios";
 import Loading from "../components/loading/Loading";
 
-const Home = () => {
+const Home = ({ scrollToElement, myElementRef }) => {
   const url = BASE;
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -31,7 +31,7 @@ const Home = () => {
 
   return (
     <>
-      <Hero />
+      <Hero scrollToElement={scrollToElement} />
 
       {loading ? (
         <Loading title={"TAILORED TRADE FINANCE SOLUTIONS"} />
@@ -40,15 +40,9 @@ const Home = () => {
           <Products data={data.service} />
         </>
       )}
-      {loading ? (
-        <Loading title={"Testimonials"} />
-      ) : (
-        <>
-          <Test data={data.testimonials} />
-        </>
-      )}
+      <Test />
       <Accounts />
-      <Contact />
+      <Contact myElementRef={myElementRef} />
       {loading ? (
         <Loading title={"BLOGS"} />
       ) : (

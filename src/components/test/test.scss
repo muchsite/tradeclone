@@ -1,124 +1,45 @@
-@use "../../App.scss" as *;
+.test {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .test_container {
-  background-color: #fff;
-  padding: 4rem 0;
-  h2 {
-    margin-bottom: 4rem;
-    text-align: center;
-    @include breack_down(large) {
-      margin-bottom: 2rem;
-    }
-  }
-  .test_contetnt {
+  margin: 4rem 0;
+  width: 85%;
+  .test_head {
     display: flex;
     justify-content: center;
-    position: relative;
-    overflow: hidden;
-    padding: 2rem 0;
-    height: 30rem;
-    color: $second;
-    .test_item {
-      flex-shrink: 0;
-      width: 20vw;
-      padding: 2rem;
-      box-shadow: 5px 5px 20px rgba(6, 71, 87, 0.575);
-      border-radius: 10px;
-      background-color: $bacground;
-      position: absolute;
-      transition: 0.3s;
-      height: 90%;
+    .test_image_container {
+      width: 12%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 3px solid rgb(146, 146, 146);
+      cursor: pointer;
+    }
+  }
+  .test_body {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 3rem;
+    .test_body_text {
       display: flex;
       flex-direction: column;
       justify-content: center;
-      gap: 2rem;
-      @include breack_down(large) {
-        width: 70vw;
+      gap: 1rem;
+      h4 {
+        font-size: 1.7rem;
+        font-weight: 400;
+        color: #182d55;
+        width: 80%;
       }
-      .test_message {
-        position: relative;
-        &::after {
-          font-family: "Protest Revolution", sans-serif;
-          content: "\201C";
-          position: absolute;
-          font-weight: 600;
-          font-size: 3rem;
-          color: $main;
-          top: -1.5rem;
-          left: -1.5rem;
-        }
-        &::before {
-          font-family: "Protest Revolution", sans-serif;
-          content: "\201D";
-          position: absolute;
-          font-weight: 600;
-          font-size: 3rem;
-          color: $main;
-          bottom: -3rem;
-          right: -1rem;
-        }
+      p {
+        font-size: 1.2rem;
+        color: #1babe2;
       }
-      .test_top {
-        display: flex;
-        justify-content: space-between;
-        margin-top: 2rem;
-
-        img {
-          width: 4rem;
-          height: 4rem;
-          border-radius: 50%;
-          object-fit: cover;
-        }
-      }
-    }
-    .firstT {
-      left: 10vw;
-      @include breack_down(large) {
-        left: 15vw;
-      }
-    }
-    .secondT {
-      left: 40vw;
-      @include breack_down(large) {
-        left: 120vw;
-      }
-    }
-    .thirdT {
-      left: 70vw;
-      @include breack_down(large) {
-        left: 120vw;
-      }
-    }
-    .prevT {
-      left: -80vw;
-    }
-    .nextT {
-      left: 100vw;
-      @include breack_down(large) {
-        left: 120vw;
-      }
-    }
-    .test_arrow {
-      position: absolute;
-      font-size: 5rem;
-      color: $light;
-      cursor: pointer;
-      transition: 0.5s;
-      @include breack_down(large) {
-        font-size: 3rem;
-      }
-      &:hover {
-        scale: 1.05;
-      }
-    }
-    .test_left {
-      left: 0;
-      top: 50%;
-      transform: translateY(-50%);
-    }
-    .test_right {
-      right: 0;
-      top: 50%;
-      transform: translateY(-50%);
     }
   }
+}
+.active_testimonial {
+  border-bottom: 3px solid rgb(102, 156, 226) !important ;
 }

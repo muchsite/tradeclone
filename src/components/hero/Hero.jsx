@@ -4,7 +4,8 @@ import Coin from "../coin/Coin";
 import dolar from "../../images/dolar.svg";
 import eu from "../../images/eu.svg";
 import ru from "../../images/ru.svg";
-const Hero = () => {
+import yen from "../../images/yen.svg";
+const Hero = ({ scrollToElement }) => {
   return (
     <>
       <div className="hero_container">
@@ -16,7 +17,7 @@ const Hero = () => {
             alias commodi consequatur vel nihil repellat, sequi fugit odio
             nostrum cum saepe tempora.
           </p>
-          <button>Get Started</button>
+          <button onClick={scrollToElement}>Get Started</button>
         </div>
         <div className="hero_n_image">
           <svg
@@ -605,6 +606,9 @@ const Hero = () => {
             </div>
             <div className="coin_3">
               <Coin front={ru} x={0.2} y={0.2} z={0.4} />
+            </div>
+            <div className="coin_4">
+              <Coin front={yen} x={0.1} y={0.3} z={0.2} />
             </div>
           </div>
         </div>

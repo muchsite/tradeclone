@@ -29,8 +29,8 @@ import Globe from "react-globe.gl";
 import ea from "../../images/world.svg";
 
 const Accounts = () => {
-  const arr = [q, w, a, s, d, f, g, z, x, c, e, r];
-  const arr2 = [g1, g12, g13, g14, g15, g16, g17, g18, g19, g2, g3, g4];
+  const arr = [q, w, a, s, f, g, z, x, e, r];
+  const arr2 = [c, d, g1, g12, g13, g14, g15, g16, g17, g18, g19, g2, g3, g4];
   const globeRef = useRef(null);
 
   useEffect(() => {
@@ -107,8 +107,8 @@ const Accounts = () => {
             globeImageUrl={ea}
             backgroundColor="rgba(0,0,0,0)"
             polygonSideColor={() => "rgba(0, 0, 0, 0)"}
-            width={viewportWidth < 600 ? 250 : 600}
-            height={viewportWidth < 600 ? 250 : 600}
+            width={viewportWidth < 600 ? 250 : 350}
+            height={viewportWidth < 600 ? 250 : 350}
             arcsData={arcsData}
             arcColor={"color"}
             arcDashLength={() => 0.5}

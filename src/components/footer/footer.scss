@@ -5,10 +5,12 @@
   display: flex;
   padding: 3rem;
   justify-content: space-between;
+
   @include breack_down(large) {
     flex-direction: column;
     gap: 2rem;
     align-items: center;
+    padding: 1rem;
   }
   .footer_logo {
     cursor: pointer;
@@ -18,8 +20,12 @@
   }
   .footer_links {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 2rem;
+    @include breack_down(large) {
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
     a {
       cursor: pointer;
       transition: 0.5s;

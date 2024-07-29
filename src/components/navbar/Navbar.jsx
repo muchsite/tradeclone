@@ -15,7 +15,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { FaWindowClose } from "react-icons/fa";
 import { IoIosArrowDropdownCircle } from "react-icons/io";
 
-const Navbar = () => {
+const Navbar = ({ scrollToElement }) => {
   const [navHover, setNavHover] = useState(-1);
   const [openHam, setOpaenHam] = useState(false);
   const [openIndex, setOpenIndex] = useState(null);
@@ -60,7 +60,9 @@ const Navbar = () => {
       </div>
       <div className="nav_content">
         <div className="nav_logo">
-          <img src={logo} alt="" />
+          <Link to="/">
+            <img src={logo} alt="" />
+          </Link>
         </div>
         <div className="nav_links">
           <div
@@ -246,7 +248,9 @@ const Navbar = () => {
           </div>
         </div>
         <div className="nav_btns">
-          <button className="start_btn">Get Started</button>
+          <button className="start_btn" onClick={scrollToElement}>
+            Get Started
+          </button>
           <div className="ham_container">
             <GiHamburgerMenu
               className={`ham_icon ${openHam && "openHam"}`}

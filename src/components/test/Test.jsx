@@ -1,68 +1,91 @@
 import React, { useState } from "react";
-import t1 from "../../images/t1.jpg";
-import t2 from "../../images/t2.jpg";
-import t3 from "../../images/t3.png";
+import test1 from "../../images/test/test1.svg";
+import test2 from "../../images/test/test2.svg";
+import test3 from "../../images/test/test2.svg";
+import test4 from "../../images/test/test4.svg";
+import test5 from "../../images/test/test5.svg";
+import test6 from "../../images/test/test6.svg";
+
 import "./test.scss";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
-const Test = ({ data }) => {
-  const arr = data;
-  const [ind, setInd] = useState(0);
-  const handleClick = (arg) => {
-    if (arg < 0) {
-      if (ind == 0) {
-        setInd(3);
-      } else {
-        setInd(ind - 1);
-      }
-    }
-    if (arg > 0) {
-      if (ind == 3) {
-        setInd(0);
-      } else {
-        setInd(ind + 1);
-      }
-    }
-  };
-
+const Test = () => {
+  const data = [
+    {
+      img: test1,
+      text: "Fast, reliable, and transparent service. They made financing simple and stress-free!",
+      text2: "See More!",
+      name: "Sarah Thompson",
+      position: "Chief Financial Officer",
+    },
+    {
+      img: test2,
+      text: "Excellent customer support and flexible payment options. Highly recommend!",
+      text2: "See More!",
+      name: "Emily Martinez",
+      position: "Marketing Director",
+    },
+    {
+      img: test3,
+      text: "Quick approval process and competitive rates. Our go-to financing partner!",
+      text2: "See More!",
+      name: "James Anderson",
+      position: "Chief Executive Officer",
+    },
+    {
+      img: test4,
+      text: "Professional and efficient. They made our business expansion possible.",
+      text2: "See More!",
+      name: "Jessica Lee",
+      position: "Chief Marketing Officer",
+    },
+    {
+      img: test5,
+      text: "Outstanding service! They tailored the perfect financing plan for us.",
+      text2: "See More!",
+      name: "Michael Johnson",
+      position: "Chief Investment Officer",
+    },
+    {
+      img: test6,
+      text: "Hassle-free experience with great communication. Truly trustworthy and efficient.",
+      text2: "See More!",
+      name: "David Patel",
+      position: "Chief Technology Officer",
+    },
+  ];
+  const [testInfo, setTestInfo] = useState(0);
+  const [hover, setHover] = useState(0);
   return (
-    <div className="test_container">
-      <h2>How Our Clients Rate Us</h2>
-      <div className="test_contetnt">
-        <AiOutlineLeft
-          className="test_arrow test_left"
-          onClick={() => handleClick(-1)}
-        />
-        <AiOutlineRight
-          className="test_arrow test_right"
-          onClick={() => handleClick(1)}
-        />
-        {arr.map((item, i) => {
-          return (
-            <div
-              className={`test_item ${
-                i == ind
-                  ? "firstT"
-                  : i == ind + 1
-                  ? "secondT"
-                  : i == ind + 2
-                  ? "thirdT"
-                  : i < ind
-                  ? "prevT"
-                  : "nextT"
-              }`}
-              key={i}
-            >
-              <p className="test_message">{item.testimonial}</p>
-              <div className="test_top">
-                <div className="test_top_info">
-                  <h3>{item.name}</h3>
-                  <h4>{item.profession}</h4>
-                </div>
+    <div className="test">
+      <div className="test_container">
+        <div className="test_head">
+          {data.map((item, index) => {
+            return (
+              <div
+                className={`test_image_container ${
+                  testInfo === index && "active_testimonial"
+                } ${hover === index && "active_testimonial"}`}
+                onMouseEnter={() => setHover(index)}
+                onMouseLeave={() => setHover(-1)}
+                onClick={() => setTestInfo(index)}
+              >
+                <img src={item.img} alt="" />
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
+        <div className="test_body">
+          <div className="test_body_text">
+            <h4>"{data[testInfo].text}"</h4>
+            <p>{data[testInfo].text2}</p>
+          </div>
+          <div className="test_body_info">
+            <img src={data[testInfo].img} alt="" />
+            <h3>{data[testInfo].name}</h3>
+            <p>{data[testInfo].position}</p>
+          </div>
+        </div>
       </div>
     </div>
   );

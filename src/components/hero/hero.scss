@@ -142,6 +142,14 @@
     opacity: 0;
     animation: bounceIn forwards 1s 2.5s;
   }
+  .coin_4 {
+    opacity: 0;
+    animation: bounceIn forwards 1s 3.1s;
+    margin-top: 4rem;
+    @include breack_down(medium) {
+      margin-top: 0.5rem;
+    }
+  }
 }
 .hero_coins * {
   @include breack_down(large) {

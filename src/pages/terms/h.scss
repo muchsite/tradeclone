@@ -1,0 +1,22 @@
+@use "../../App.scss" as *;
+
+.terms_container {
+  margin-top: 10rem;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  @include breack_down(large) {
+    margin-top: 5rem;
+    padding: 1.4rem;
+  }
+  h1 {
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  h2 {
+    margin: 2rem 0 0.5rem 0;
+  }
+  p {
+    margin: 0.5rem 0;
+  }
+}

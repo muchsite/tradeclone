@@ -16,10 +16,15 @@ const Footer = () => {
         <img src={logo} alt="" />
       </div>
       <div className="footer_links">
-        <Link>Home</Link>
+        <Link to="/">Home</Link>
         <Link>Contact</Link>
         <Link>About</Link>
         <Link>Products</Link>
+        <Link to="/terms">Terms and Conditions</Link>
+        <Link to="/refunds">Refund Policy</Link>
+        <Link to="/disclaimer">Disclaimer </Link>
+        <Link to="/cookies">Cookies Policy</Link>
+        <Link to="/privacy">Privacy Policy</Link>
       </div>
       <div className="footer_media">
         <FaFacebookSquare />
