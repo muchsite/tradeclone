@@ -17,6 +17,9 @@ import Refunds from "./pages/terms/Refunds";
 import Disc from "./pages/terms/Disc";
 import Cookies from "./pages/terms/Cookies";
 import Privacy from "./pages/terms/Privacy";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import ContactPage from "./pages/contact/ContactPage";
 
 export const BASE = "https://tradeflaircorp.in";
 function App() {
@@ -51,6 +54,7 @@ function App() {
         <Route element={<Cookies />} path="/cookies" />
         <Route element={<Privacy />} path="/privacy" />
         <Route element={<Refunds />} path="/refunds" />
+        <Route element={<ContactPage />} path="/contact" />
       </Routes>
       <Footer />
     </HashRouter>

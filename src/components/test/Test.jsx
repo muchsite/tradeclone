@@ -9,6 +9,10 @@ import test6 from "../../images/test/test6.svg";
 import "./test.scss";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 const Test = () => {
   const data = [
     {
@@ -54,26 +58,56 @@ const Test = () => {
       position: "Chief Technology Officer",
     },
   ];
+  var settings = {
+    dots: true,
+    infinite: false,
+    speed: 500,
+    slidesToShow: 6,
+    slidesToScroll: 1,
+  };
+
   const [testInfo, setTestInfo] = useState(0);
   const [hover, setHover] = useState(0);
   return (
     <div className="test">
       <div className="test_container">
-        <div className="test_head">
-          {data.map((item, index) => {
-            return (
-              <div
-                className={`test_image_container ${
-                  testInfo === index && "active_testimonial"
-                } ${hover === index && "active_testimonial"}`}
-                onMouseEnter={() => setHover(index)}
-                onMouseLeave={() => setHover(-1)}
-                onClick={() => setTestInfo(index)}
-              >
-                <img src={item.img} alt="" />
-              </div>
-            );
-          })}
+        <div className={`test_head ${data.length <= 6 && "test_flex"}`}>
+          {data.length > 6 ? (
+            <Slider {...settings}>
+              {data.map((item, index) => {
+                return (
+                  <div
+                    className={`test_image_container ${
+                      testInfo === index && "active_testimonial"
+                    } ${hover === index && "active_testimonial"}`}
+                    onMouseEnter={() => setHover(index)}
+                    onMouseLeave={() => setHover(-1)}
+                    onClick={() => setTestInfo(index)}
+                  >
+                    <img src={item.img} alt="" />
+                  </div>
+                );
+              })}
+            </Slider>
+          ) : (
+            <>
+              {" "}
+              {data.map((item, index) => {
+                return (
+                  <div
+                    className={`test_image_container ${
+                      testInfo === index && "active_testimonial"
+                    } ${hover === index && "active_testimonial"}`}
+                    onMouseEnter={() => setHover(index)}
+                    onMouseLeave={() => setHover(-1)}
+                    onClick={() => setTestInfo(index)}
+                  >
+                    <img src={item.img} alt="" />
+                  </div>
+                );
+              })}
+            </>
+          )}
         </div>
         <div className="test_body">
           <div className="test_body_text">

@@ -4,7 +4,7 @@
     display: flex;
     justify-content: center;
     gap: 10vw;
-    padding: 6rem;
+    padding: 3rem;
 
     color: $second;
     background-image: url("../../images/cb.webp");
@@ -16,6 +16,23 @@
       padding: 2rem;
     }
     .contact_left {
+      .contact_title {
+        h3 {
+          font-size: 3rem;
+          margin-bottom: 1rem;
+          color: $main;
+          @include breack_down(large) {
+            text-align: center;
+          }
+        }
+        p {
+          color: $main;
+          font-size: 1.5rem;
+          @include breack_down(large) {
+            text-align: center;
+          }
+        }
+      }
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -50,31 +67,28 @@
       }
     }
     .contact_right {
+      background-color: #fff;
+      padding: 1rem;
+      border-radius: 10px;
       display: flex;
       flex-direction: column;
       gap: 2rem;
       justify-content: space-between;
-
-      .contact_title {
-        h3 {
-          font-size: 2rem;
-          margin-bottom: 1rem;
-          color: $main;
-          @include breack_down(large) {
-            text-align: center;
-          }
+      .contact_logo {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        img {
+          width: 5rem;
         }
-        p {
+        h3 {
           color: $main;
-          @include breack_down(large) {
-            text-align: center;
-          }
         }
       }
       .contact_form {
         display: flex;
         flex-direction: column;
-        gap: 3rem;
+        gap: 1rem;
         @include breack_down(large) {
           align-items: center;
         }
@@ -83,7 +97,7 @@
           border-radius: 4px;
           border: none;
           width: 25rem;
-          // background-color: red;
+          background-color: $bacground;
           @include breack_down(large) {
             width: 80vw;
           }
@@ -97,8 +111,9 @@
           border: none;
           //   outline: 1px solid $second;
           width: 25rem !important;
-          min-height: 15rem !important;
+          min-height: 5rem !important;
           max-height: 20rem !important;
+          background-color: $bacground;
           @include breack_down(large) {
             width: 80vw !important;
           }

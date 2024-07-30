@@ -38,7 +38,10 @@ const Contact = ({ myElementRef }) => {
     <div className="contact_container" ref={myElementRef}>
       <div className="contact_back">
         <div className="contact_left">
-          <img src={logo} alt="" />
+          <div className="contact_title">
+            <h3>Get in Touch</h3>
+            <p>Any question or remarks? Let us know!</p>
+          </div>
           <div className="contact_info">
             <div className="contact_info_div">
               <FaPhoneSquareAlt className="contact_icon" />
@@ -55,9 +58,9 @@ const Contact = ({ myElementRef }) => {
           </div>
         </div>
         <div className="contact_right">
-          <div className="contact_title">
-            <h3>Get in Touch</h3>
-            <p>Any question or remarks? Let us know!</p>
+          <div className="contact_logo">
+            <img src={logo} alt="" />
+            <h3>Contact Us!</h3>
           </div>
           <form className="contact_form" onSubmit={handleSubmit}>
             <div className="contact_div">

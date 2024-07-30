@@ -205,6 +205,20 @@
             }
             .nav_contact {
               margin-top: 1rem;
+              a {
+                background-color: transparent;
+                text-decoration: none;
+                border: none;
+                margin-top: 0.5rem;
+                border-bottom: 1px solid $drop;
+                transition: 0.5s;
+                color: #000;
+                cursor: pointer;
+                &:hover {
+                  border-bottom: 1px solid $light;
+                  color: $light;
+                }
+              }
             }
           }
           .nav_company_third {

@@ -230,7 +230,7 @@ const Navbar = ({ scrollToElement }) => {
                   <p>Connect with a TradeFlair expert today.</p>
                   <p>Trade@tradeflaircorporate.com</p>
                   <p>+91-9458703128</p>
-                  <button>Contact Us</button>
+                  <Link to="/contact">Contact Us</Link>
                 </div>
               </div>
               <div className="nav_company_third">
