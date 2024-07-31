@@ -23,6 +23,7 @@
           color: $main;
           @include breack_down(large) {
             text-align: center;
+            font-size: 2rem;
           }
         }
         p {
@@ -30,6 +31,7 @@
           font-size: 1.5rem;
           @include breack_down(large) {
             text-align: center;
+            font-size: 1rem;
           }
         }
       }

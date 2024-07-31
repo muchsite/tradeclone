@@ -10,7 +10,9 @@
     display: flex;
     flex-direction: column;
     gap: 2rem;
-
+    @include breack_down(large) {
+      width: 100%;
+    }
     ul {
       display: flex;
       flex-direction: column;
@@ -21,6 +23,9 @@
       display: flex;
       align-items: flex-start;
       gap: 1rem;
+      @include breack_down(large) {
+        gap: 0.5rem;
+      }
     }
   }
   .cp_right {
@@ -30,6 +35,9 @@
     height: fit-content;
     position: relative;
     top: -15rem;
+    @include breack_down(large) {
+      top: 0;
+    }
     .cp_form_title {
       display: flex;
       justify-content: space-between;
@@ -48,6 +56,10 @@
         border: none;
         background-color: $bacground;
         border-radius: 3px;
+        @include breack_down(large) {
+          width: 100%;
+          max-width: 100%;
+        }
         &:focus {
           outline: 1px solid $main;
         }
@@ -81,6 +93,9 @@
           border: none;
           background-color: $bacground;
           border-radius: 3px;
+          @include breack_down(large) {
+            width: 100%;
+          }
           &:focus {
             outline: 1px solid $main;
           }
@@ -110,23 +125,40 @@
 .cp_back_top {
   padding: 13rem 10vw 3rem 10vw;
   background-image: url("../../images/cb.svg");
+  @include breack_down(large) {
+    padding: 7rem 1rem 2rem 1rem;
+  }
   .cp_left_title {
     width: 50%;
+    @include breack_down(large) {
+      width: 100%;
+    }
     h1 {
       font-size: 44px;
       color: #fff;
       margin-bottom: 1rem;
+      @include breack_down(large) {
+        font-size: 2rem;
+        text-align: center;
+      }
     }
     p {
       color: #fff;
+      @include breack_down(large) {
+        text-align: center;
+        font-size: 0.8rem;
+      }
     }
   }
 }
 .cp_bottom {
   display: flex;
-  // margin-top: 5rem;
   padding: 5rem 10vw 0 10vw;
   justify-content: space-between;
   background-color: #dcf0fd;
-  // padding: 1rem;
+  @include breack_down(large) {
+    flex-direction: column-reverse;
+    padding: 2rem 1rem;
+    gap: 2rem;
+  }
 }

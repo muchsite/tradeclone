@@ -59,11 +59,26 @@ const Test = () => {
     },
   ];
   var settings = {
-    dots: true,
+    dots: data.length > 6,
     infinite: false,
     speed: 500,
     slidesToShow: 6,
     slidesToScroll: 1,
+    arrows: false,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 1,
+          dots: false,
+          arrows: true,
+          beforeChange: (current, next) => {
+            setHover(next);
+            setTestInfo(next);
+          },
+        },
+      },
+    ],
   };
 
   const [testInfo, setTestInfo] = useState(0);
@@ -71,43 +86,23 @@ const Test = () => {
   return (
     <div className="test">
       <div className="test_container">
-        <div className={`test_head ${data.length <= 6 && "test_flex"}`}>
-          {data.length > 6 ? (
-            <Slider {...settings}>
-              {data.map((item, index) => {
-                return (
-                  <div
-                    className={`test_image_container ${
-                      testInfo === index && "active_testimonial"
-                    } ${hover === index && "active_testimonial"}`}
-                    onMouseEnter={() => setHover(index)}
-                    onMouseLeave={() => setHover(-1)}
-                    onClick={() => setTestInfo(index)}
-                  >
-                    <img src={item.img} alt="" />
-                  </div>
-                );
-              })}
-            </Slider>
-          ) : (
-            <>
-              {" "}
-              {data.map((item, index) => {
-                return (
-                  <div
-                    className={`test_image_container ${
-                      testInfo === index && "active_testimonial"
-                    } ${hover === index && "active_testimonial"}`}
-                    onMouseEnter={() => setHover(index)}
-                    onMouseLeave={() => setHover(-1)}
-                    onClick={() => setTestInfo(index)}
-                  >
-                    <img src={item.img} alt="" />
-                  </div>
-                );
-              })}
-            </>
-          )}
+        <div className={`test_head `}>
+          <Slider {...settings}>
+            {data.map((item, index) => {
+              return (
+                <div
+                  className={`test_image_container ${
+                    testInfo === index && "active_testimonial"
+                  } ${hover === index && "active_testimonial"}`}
+                  onMouseEnter={() => setHover(index)}
+                  onMouseLeave={() => setHover(-1)}
+                  onClick={() => setTestInfo(index)}
+                >
+                  <img src={item.img} alt="" />
+                </div>
+              );
+            })}
+          </Slider>
         </div>
         <div className="test_body">
           <div className="test_body_text">

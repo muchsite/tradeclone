@@ -1,3 +1,4 @@
+@use "../../App.scss" as *;
 .test {
   display: flex;
   flex-direction: column;
@@ -18,6 +19,12 @@
       img {
         width: 85%;
         height: 5rem;
+        @include breack_down(large) {
+          width: 95%;
+        }
+      }
+      &:focus {
+        outline: none !important;
       }
     }
   }
@@ -25,6 +32,11 @@
     display: flex;
     justify-content: space-around;
     margin-top: 3rem;
+    @include breack_down(large) {
+      flex-direction: column;
+      // margin-top: 1rem;
+      gap: 1rem;
+    }
     .test_body_text {
       display: flex;
       flex-direction: column;
@@ -35,10 +47,19 @@
         font-weight: 400;
         color: #182d55;
         width: 80%;
+        @include breack_down(large) {
+          width: 100%;
+          text-align: center;
+          font-size: 1rem;
+        }
       }
       p {
         font-size: 1.2rem;
         color: #1babe2;
+        @include breack_down(large) {
+          font-size: 1rem;
+          text-align: center;
+        }
       }
     }
     .test_body_info {
@@ -53,6 +74,12 @@
       p {
         color: #182d55;
       }
+      img {
+        width: 15rem;
+        @include breack_down(large) {
+          width: 8rem;
+        }
+      }
     }
   }
 }
@@ -66,4 +93,13 @@
 .test_flex {
   display: flex;
   justify-content: center;
+}
+.slick-dots {
+  @include breack_down(large) {
+    top: 100%;
+  }
+}
+.slick-prev:before,
+.slick-next:before {
+  color: $main !important;
 }
