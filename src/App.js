@@ -11,7 +11,7 @@ import Cases from "./pages/Cases/Cases";
 import Blog from "./pages/Blog/Blog";
 import SingleCase from "./pages/SingleCase/SingleCase";
 import Product from "./pages/product/Product";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import Terms from "./pages/terms/Terms";
 import Refunds from "./pages/terms/Refunds";
 import Disc from "./pages/terms/Disc";
@@ -20,29 +20,16 @@ import Privacy from "./pages/terms/Privacy";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import ContactPage from "./pages/contact/ContactPage";
-
+import "react-multi-carousel/lib/styles.css";
 export const BASE = "https://tradeflaircorp.in";
 function App() {
-  const myElementRef = useRef(null);
+  const [openC, setOpenC] = useState(false);
 
-  const scrollToElement = () => {
-    if (myElementRef.current) {
-      myElementRef.current.scrollIntoView({ behavior: "smooth" });
-    }
-  };
   return (
     <HashRouter>
-      <Navbar scrollToElement={scrollToElement} />
+      <Navbar setOpenC={setOpenC} openC={openC} />
       <Routes>
-        <Route
-          element={
-            <Home
-              scrollToElement={scrollToElement}
-              myElementRef={myElementRef}
-            />
-          }
-          path="/"
-        />
+        <Route element={<Home setOpenC={setOpenC} openC={openC} />} path="/" />
         <Route element={<Calc />} path="/calculator" />
         <Route element={<Blogs />} path="/blogs" />
         <Route element={<Blog />} path="/blog/:blogId" />

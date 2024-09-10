@@ -25,31 +25,30 @@ const ContactPage = () => {
               Give us a call or fill out our contact form, and one of our
               TradeFlair team members will be in touch
             </p>
-            <ul>
+
+            <div className="cp_info_icons">
+              <RiHome2Line color="#356bb3" />
+              <p>
+                <span>Office timing:</span> 9:00 am - 7:00 pm (Monday -
+                Saturday)
+              </p>
+            </div>
+            <div className="cp_info_icons">
+              <MdOutlineLocalPhone color="#356bb3" />
+              <p>
+                <span>Phone Number:</span> +91 9810911531
+              </p>
+            </div>
+            <div className="email_list">
               <div className="cp_info_icons">
-                <RiHome2Line color="#356bb3" />
-                <p>
-                  <span>Office timing:</span> 9:00 am - 7:00 pm (Monday -
-                  Saturday)
-                </p>
+                <MdOutlineMailOutline color="#356bb3" />
+                <span>Email:</span>
               </div>
-              <div className="cp_info_icons">
-                <MdOutlineLocalPhone color="#356bb3" />
-                <p>
-                  <span>Phone Number:</span> 999-999-999
-                </p>
+              <div>
+                <p>sales@tradeflaircorporate.com</p>
+                <p>support@tradeflaircorporate.com</p>
               </div>
-              <li className="email_list">
-                <div className="cp_info_icons">
-                  <MdOutlineMailOutline color="#356bb3" />
-                  <span>Email:</span>
-                </div>
-                <div>
-                  <p>sales@tradeflaircorporate.com</p>
-                  <p>support@tradeflaircorporate.com</p>
-                </div>
-              </li>
-            </ul>
+            </div>
           </div>
         </div>
         <div className="cp_right">

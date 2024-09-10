@@ -8,7 +8,7 @@ import axios from "axios";
 import { BASE } from "../../App";
 import LoadingForm from "../loading/LoadingForm";
 import y from "../../images/y.svg";
-const Contact = ({ myElementRef }) => {
+const Contact = ({}) => {
   const [full_name, setfull_name] = useState("");
   const [email, setemail] = useState("");
   const [message, setMessage] = useState("");
@@ -35,7 +35,7 @@ const Contact = ({ myElementRef }) => {
   };
 
   return (
-    <div className="contact_container" ref={myElementRef}>
+    <div className="contact_container">
       <div className="contact_back">
         <div className="contact_left">
           <div className="contact_title">

@@ -27,6 +27,8 @@ import g3 from "../../images/banks/31.png";
 import g4 from "../../images/banks/32.png";
 import Globe from "react-globe.gl";
 import ea from "../../images/world.svg";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 
 const Accounts = () => {
   const arr = [q, w, a, s, f, g, z, x, e, r];
@@ -57,24 +59,74 @@ const Accounts = () => {
     ],
   }));
   const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
-  console.log(viewportWidth);
+  const responsive = {
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 5,
+      slidesToSlide: 1,
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 3,
+      slidesToSlide: 1,
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 3,
+      slidesToSlide: 1, // optional, default to 1.
+    },
+  };
   return (
     <div className="acc_container">
       <div className="acc_slider_container">
         <h2>INTERNATIONAL PARTNERS</h2>
-        <div className="acc_slider toL">
-          {arr.map((item, index) => {
-            return <img src={item} id={index} alt="" key={index} />;
-          })}
-        </div>
+
+        <Carousel
+          swipeable={true} // Changed to true to allow swiping
+          draggable={true} // Changed to true to allow dragging
+          showDots={false}
+          responsive={responsive}
+          ssr={true}
+          infinite={true}
+          autoPlay={true}
+          autoPlaySpeed={3000} // Adjusted speed for better visibility
+          keyBoardControl={true}
+          customTransition="all .5s"
+          transitionDuration={500}
+          containerClass="carousel-container"
+          arrows={false}
+          dotListClass="custom-dot-list-style"
+          itemClass="carousel-item-padding-40-px"
+        >
+          {arr.map((item, index) => (
+            <img src={item} id={index} alt="" key={index} />
+          ))}
+        </Carousel>
       </div>
       <div className="acc_slider_container">
         <h2>INDIAN PARTNERS</h2>
-        <div className="acc_slider toRight">
-          {arr2.map((item, index) => {
-            return <img src={item} id={index} alt="" key={index} />;
-          })}
-        </div>
+        <Carousel
+          swipeable={true} // Changed to true to allow swiping
+          draggable={true} // Changed to true to allow dragging
+          showDots={false}
+          responsive={responsive}
+          ssr={true}
+          infinite={true}
+          autoPlay={true}
+          autoPlaySpeed={3000} // Adjusted speed for better visibility
+          keyBoardControl={true}
+          customTransition="all .5s"
+          transitionDuration={500}
+          containerClass="carousel-container"
+          arrows={false}
+          dotListClass="custom-dot-list-style"
+          itemClass="carousel-item-padding-40-px"
+          rtl={true}
+        >
+          {arr2.map((item, index) => (
+            <img src={item} id={index} alt="" key={index} />
+          ))}
+        </Carousel>
       </div>
       <div className="acc_dark">
         <div className="acc_dark_info">

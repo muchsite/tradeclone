@@ -10,7 +10,7 @@ import { BASE } from "../App";
 import axios from "axios";
 import Loading from "../components/loading/Loading";
 
-const Home = ({ scrollToElement, myElementRef }) => {
+const Home = ({ setOpenC, openC }) => {
   const url = BASE;
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -31,8 +31,7 @@ const Home = ({ scrollToElement, myElementRef }) => {
 
   return (
     <>
-      <Hero scrollToElement={scrollToElement} />
-
+      <Hero setOpenC={setOpenC} openC={openC} />
       {loading ? (
         <Loading title={"TAILORED TRADE FINANCE SOLUTIONS"} />
       ) : (
@@ -42,7 +41,7 @@ const Home = ({ scrollToElement, myElementRef }) => {
       )}
       <Test />
       <Accounts />
-      <Contact myElementRef={myElementRef} />
+      <Contact />
       {loading ? (
         <Loading title={"BLOGS"} />
       ) : (

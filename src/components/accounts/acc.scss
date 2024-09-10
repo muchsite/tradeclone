@@ -11,7 +11,7 @@
   .acc_slider_container {
     overflow: hidden;
     position: relative;
-    padding-left: 4vw;
+
     h2 {
       margin: 1rem 0;
     }
@@ -202,4 +202,22 @@
   100% {
     transform: rotate(-360deg);
   }
+}
+/* acc.scss */
+.carousel-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.carousel-item-padding-40-px {
+  padding: 0 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel-item-padding-40-px img {
+  max-width: 100%;
+  max-height: 4rem;
+  display: block;
 }

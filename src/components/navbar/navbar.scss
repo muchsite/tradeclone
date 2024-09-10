@@ -93,6 +93,22 @@
       .nav_link_relative {
         padding: 0;
         .nav_link_absolute {
+          a {
+            margin-top: 1rem;
+            background-color: transparent;
+            text-decoration: none;
+            border: none;
+            margin-top: 0.5rem;
+            border-bottom: 1px solid $drop;
+            transition: 0.5s;
+            color: #000;
+            cursor: pointer;
+            width: fit-content;
+            &:hover {
+              border-bottom: 1px solid $light;
+              color: $light;
+            }
+          }
           position: absolute;
           width: 80vw;
           min-height: 50vh;
@@ -116,11 +132,7 @@
             list-style-type: none;
             color: $drop;
             transition: 0.5s;
-            cursor: pointer;
             font-weight: 500;
-            &:hover {
-              color: $main;
-            }
           }
           h3 {
             font-size: 1.5rem;
@@ -143,6 +155,12 @@
               gap: 2rem;
               .import_finance {
                 flex-shrink: 0;
+                ul {
+                  display: flex;
+                  flex-direction: column;
+                  gap: 10px;
+                  margin-top: 1rem;
+                }
                 h4 {
                   color: $drop;
                 }
@@ -202,23 +220,6 @@
             .nav_career {
               flex-shrink: 1;
               margin-top: 1rem;
-            }
-            .nav_contact {
-              margin-top: 1rem;
-              a {
-                background-color: transparent;
-                text-decoration: none;
-                border: none;
-                margin-top: 0.5rem;
-                border-bottom: 1px solid $drop;
-                transition: 0.5s;
-                color: #000;
-                cursor: pointer;
-                &:hover {
-                  border-bottom: 1px solid $light;
-                  color: $light;
-                }
-              }
             }
           }
           .nav_company_third {

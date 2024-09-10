@@ -7,9 +7,12 @@
   }
   .cp_left {
     width: 50%;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
+
+    .cp_left_info {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
     @include breack_down(large) {
       width: 100%;
     }
@@ -30,7 +33,7 @@
   }
   .cp_right {
     padding: 1.5rem;
-    background-color: #fff;
+    background-color: #dcf0fd;
     border-radius: 5px;
     height: fit-content;
     position: relative;
@@ -50,11 +53,11 @@
       flex-direction: column;
       gap: 1.4rem;
       textarea {
-        max-width: 20rem;
+        max-width: 30rem;
         max-height: 5rem;
         padding: 0.4rem;
         border: none;
-        background-color: $bacground;
+        background-color: #fff;
         border-radius: 3px;
         @include breack_down(large) {
           width: 100%;
@@ -88,10 +91,10 @@
         flex-direction: column;
         gap: 0.5rem;
         input {
-          width: 20rem;
+          width: 30rem;
           padding: 0.4rem;
           border: none;
-          background-color: $bacground;
+          background-color: #fff;
           border-radius: 3px;
           @include breack_down(large) {
             width: 100%;
@@ -155,7 +158,13 @@
   display: flex;
   padding: 5rem 10vw 0 10vw;
   justify-content: space-between;
-  background-color: #dcf0fd;
+  background-color: #ffffff;
+  p {
+    font-size: 1.2rem;
+  }
+  span {
+    font-size: 1.3rem;
+  }
   @include breack_down(large) {
     flex-direction: column-reverse;
     padding: 2rem 1rem;

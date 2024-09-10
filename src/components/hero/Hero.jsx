@@ -5,7 +5,8 @@ import dolar from "../../images/dolar.svg";
 import eu from "../../images/eu.svg";
 import ru from "../../images/ru.svg";
 import yen from "../../images/yen.svg";
-const Hero = ({ scrollToElement }) => {
+import Pop from "../pop/Pop";
+const Hero = ({ setOpenC, openC }) => {
   return (
     <>
       <div className="hero_container">
@@ -17,7 +18,7 @@ const Hero = ({ scrollToElement }) => {
             alias commodi consequatur vel nihil repellat, sequi fugit odio
             nostrum cum saepe tempora.
           </p>
-          <button onClick={scrollToElement}>Get Started</button>
+          <button onClick={() => setOpenC(true)}>Get Started</button>
         </div>
         <div className="hero_n_image">
           <svg
