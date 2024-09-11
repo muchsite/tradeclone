@@ -12,10 +12,11 @@ const Contact = ({}) => {
   const [full_name, setfull_name] = useState("");
   const [email, setemail] = useState("");
   const [message, setMessage] = useState("");
+  const [number, setNumber] = useState("");
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
   const [err, setError] = useState({});
-  const states = { full_name, email, message };
+  const states = { full_name, email, message, number };
   const handleSubmit = async (e) => {
     e.preventDefault();
     setSending(true);
@@ -26,6 +27,7 @@ const Contact = ({}) => {
       setemail("");
       setMessage("");
       setfull_name("");
+      setNumber("");
       setSent(true);
     } catch (error) {
       setSending(false);
@@ -45,15 +47,18 @@ const Contact = ({}) => {
           <div className="contact_info">
             <div className="contact_info_div">
               <FaPhoneSquareAlt className="contact_icon" />
-              <p>777-777-777</p>
+              <p>+91 9810911531</p>
             </div>
             <div className="contact_info_div">
               <IoMail className="contact_icon" />
-              <p>example@gmail.com</p>
+              <p>sales@tradeflaircorporate.com</p>
             </div>
             <div className="contact_info_div">
               <FaLocationDot className="contact_icon" />
-              <p>Block G - 31, 1st floor, sectort 3, Nodia PINCODE - 201301</p>
+              <p>
+                1st Floor, G-31, Block G, Sector 3, Noida 201301 PINCODE -
+                201301
+              </p>
             </div>
           </div>
         </div>
@@ -81,6 +86,15 @@ const Contact = ({}) => {
                 onChange={(e) => setemail(e.currentTarget.value)}
               />
               {"email" in err && <p>Please Enter Valid Email!</p>}
+            </div>
+            <div className="contact_div">
+              <input
+                type="text"
+                placeholder="Enter your number"
+                required
+                value={number}
+                onChange={(e) => setNumber(e.currentTarget.value)}
+              />
             </div>
             <div className="contact_div">
               <textarea

@@ -153,6 +153,69 @@ const Product = () => {
         </p>
         <button>Rates starts from 1.00% p.a.</button>
       </div>
+      <div className="product_calc">
+        <div className="product_clac_lef">
+          <div className="product_calc_top">
+            <div className="product_calc_input">
+              <label htmlFor="">Product</label>
+              <select name="cars" id="cars">
+                <option value="Buyer's Credit">Buyer's Credit</option>
+              </select>
+            </div>
+            <div className="product_calc_input">
+              <label htmlFor="">Currency</label>
+              <select name="cars" id="cars">
+                <option value="Buyer's Credit">USD</option>
+                <option value="Buyer's Credit">INR</option>
+                <option value="Buyer's Credit">EURO</option>
+                <option value="Buyer's Credit">JPY</option>
+              </select>
+            </div>
+            <div className="product_calc_input">
+              <label htmlFor="">Amount</label>
+              <input type="text" name="" id="" />
+            </div>
+            <div className="product_calc_input">
+              <label htmlFor="">Tenor</label>
+              <input type="text" name="" id="" />
+            </div>
+          </div>
+          <div className="product_calc_bottom">
+            <div className="product_calc_input">
+              <label htmlFor="">Importer Name</label>
+              <input type="text" name="" id="" />
+            </div>
+            <div className="product_calc_input">
+              <label htmlFor="">Phone Number</label>
+              <input type="text" name="" id="" />
+            </div>
+            <div className="product_calc_input">
+              <label htmlFor="">Email</label>
+              <input type="text" name="" id="" />
+            </div>
+          </div>
+          <button>FIND BEST RATE</button>
+        </div>
+        <div className="product_calc_riht">
+          <h2>INTEREST RATE</h2>
+          <div className="product_calc_div">
+            <p>Benchmark Rate</p>
+            <h3>3 month</h3>
+          </div>
+          <div className="product_calc_div">
+            <p>Financing Spread</p>
+            <h3>00000000</h3>
+          </div>
+          <div className="product_calc_div">
+            <p>Total Interest Rate</p>
+            <h3>33333333</h3>
+          </div>
+          <div className="product_calc_right_buttons">
+            <button>Get Quote</button>
+            <button>Calculate Cost</button>
+          </div>
+        </div>
+      </div>
       <div className="sticky_nav_container">
         <div className="sticky_nav">
           <button

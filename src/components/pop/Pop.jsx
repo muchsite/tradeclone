@@ -11,10 +11,11 @@ const Pop = ({ setOpenC, openC }) => {
   const [full_name, setfull_name] = useState("");
   const [email, setemail] = useState("");
   const [message, setMessage] = useState("");
+  const [number, setNumber] = useState("");
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
   const [err, setError] = useState({});
-  const states = { full_name, email, message };
+  const states = { full_name, email, message, number };
   const handleSubmit = async (e) => {
     e.preventDefault();
     setSending(true);
@@ -25,6 +26,7 @@ const Pop = ({ setOpenC, openC }) => {
       setemail("");
       setMessage("");
       setfull_name("");
+      setNumber("");
       setSent(true);
     } catch (error) {
       setSending(false);
@@ -64,6 +66,15 @@ const Pop = ({ setOpenC, openC }) => {
               onChange={(e) => setemail(e.currentTarget.value)}
             />
             {"email" in err && <p>Please Enter Valid Email!</p>}
+          </div>
+          <div className="contact_div">
+            <input
+              type="text"
+              placeholder="Enter your number"
+              required
+              value={number}
+              onChange={(e) => setNumber(e.currentTarget.value)}
+            />
           </div>
           <div className="contact_div">
             <textarea

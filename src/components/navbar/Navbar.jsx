@@ -94,12 +94,10 @@ const Navbar = ({ setOpenC, openC }) => {
               >
                 <div className="nav_link_absolute_solutions">
                   <h3>SOLUTIONS</h3>
-                  <ul>
-                    <li>Unlock Lowest Trade Finane</li>
-                    <li>Intrest Rates</li>
-                    <li>Optimazed Funding Solutions</li>
-                    <li>Ensure Smooth Financing Operation For Buisnesses</li>
-                  </ul>
+                  <p className="unlock_div">
+                    Unlock Lowest Trade Finane Intrest Rates Optimazed Funding
+                    Solutions Ensure Smooth Financing Operation For Buisnesses
+                  </p>
                 </div>
                 <div className="nav_link_absolute_inter">
                   <h3>INTERNATIONAL</h3>
@@ -113,9 +111,8 @@ const Navbar = ({ setOpenC, openC }) => {
                       </ul>
                     </div>
                     <div className="import_finance">
-                      <h4>Import Finance</h4>
+                      <h4>Export Finance</h4>
                       <ul>
-                        <Link>Export Finance</Link>
                         <Link>
                           Export Letter Of <br /> Credit Discounting
                         </Link>
@@ -127,7 +124,6 @@ const Navbar = ({ setOpenC, openC }) => {
                   <h3>DOMESTIC</h3>
                   <ul>
                     <li>Local Letter Of Credit Bill Discounting</li>
-                    <li>Discounting</li>
                   </ul>
                 </div>
               </div>
@@ -239,11 +235,10 @@ const Navbar = ({ setOpenC, openC }) => {
                 </div>
                 <div className="nav_company_third">
                   <h3>Where to find us</h3>
-                  <h4>Sector 3, Nodia</h4>
                   <div className="find_image_cont">
                     <img src={of} alt="" />
                     <div>
-                      <p>Block G - 31, 1st floor, sectort 3, Nodia</p>
+                      <p>1st Floor, G-31, Block G, Sector 3, Noida 201301</p>
                       <p>PINCODE - 201301</p>
                     </div>
                   </div>
