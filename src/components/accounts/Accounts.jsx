@@ -30,11 +30,11 @@ import ea from "../../images/world.svg";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
-const Accounts = () => {
+const Accounts = ({ data }) => {
   const arr = [q, w, a, s, f, g, z, x, e, r];
   const arr2 = [c, d, g1, g12, g13, g14, g15, g16, g17, g18, g19, g2, g3, g4];
   const globeRef = useRef(null);
-
+  console.log(data);
   useEffect(() => {
     if (globeRef.current) {
       globeRef.current.controls().autoRotate =
@@ -136,20 +136,20 @@ const Accounts = () => {
           </h3>
           <div className="acc_dark_numbers">
             <div className="acc_number border_right">
-              <h4>5000+</h4>
-              <p>Projects Completed</p>
+              <h4>{data.field_text_1}+</h4>
+              <p>{data.number_text_1}</p>
             </div>
             <div className="acc_number border_right">
-              <h4>200+</h4>
-              <p>Ongoing Projects</p>
+              <h4>{data.field_text_2}+</h4>
+              <p>{data.number_text_2}</p>
             </div>
             <div className="acc_number border_right">
-              <h4>700+</h4>
-              <p>Retuning Clients</p>
+              <h4>{data.field_text_3}+</h4>
+              <p>{data.number_text_3}</p>
             </div>
             <div className="acc_number ">
-              <h4>10+</h4>
-              <p>Awards</p>
+              <h4>{data.field_text_4}+</h4>
+              <p>{data.number_text_4}</p>
             </div>
           </div>
         </div>

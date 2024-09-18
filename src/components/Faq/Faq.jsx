@@ -9,6 +9,8 @@ const Faq = () => {
   const [catIndex, setCatIndex] = useState(null);
   const [innerCat, setInnerCat] = useState(-1);
   const [qIndex, setQindex] = useState(-1);
+  const [title, setTitle] = useState("");
+  const [pr, setPr] = useState("");
   const handleCategory = (index) => {
     if (index === catIndex) {
       setCatIndex(-1);
@@ -40,29 +42,31 @@ const Faq = () => {
     const fetchData = async () => {
       try {
         const res = await axios.get(BASE + "/faq");
-        const data = res.data;
+        const data = res.data.data.faqs;
+        setTitle(res.data.data.faq_page.header);
+        setPr(res.data.data.faq_page.paragraph);
         const arrF = [];
         for (let i = 0; i < data.length; i++) {
           const category = arrF.find(
-            (item) => item.category === data[i].sub_category.category.category
+            (item) => item.category === data[i].product.title
           );
           if (!category) {
             arrF.push({
-              category: data[i].sub_category.category.category,
+              category: data[i].product.title,
               sub: [
                 {
-                  inner: data[i].sub_category.sub_category,
+                  inner: data[i].product.category.sub_category,
                   q2: [{ quset: data[i].question, ans: data[i].answer }],
                 },
               ],
             });
           } else {
             const sub = category.sub.find(
-              (inner) => inner.inner === data[i].sub_category.sub_category
+              (inner) => inner.inner === data[i].product.category.sub_category
             );
             if (!sub) {
               const subObject = {
-                inner: data[i].sub_category.sub_category,
+                inner: data[i].product.category.sub_category,
                 q2: [{ quset: data[i].question, ans: data[i].answer }],
               };
               category.sub.push(subObject);
@@ -83,19 +87,15 @@ const Faq = () => {
   const cats = data.map((item) => {
     return item.category;
   });
+
   return (
     <>
       {!loading ? (
         <>
           <div className="faq_container">
             <div className="faq_text">
-              <h2>F.A.Q</h2>
-              <p>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                Officia, perspiciatis temporibus. Provident modi voluptatibus
-                est placeat enim temporibus iusto inventore facilis nesciunt,
-                aut, illo odit impedit, dolore accusamus dignissimos maiores?
-              </p>
+              <h2>{title}</h2>
+              <p>{pr}</p>
             </div>
             <div className="faq_map">
               <div className="faq_top">

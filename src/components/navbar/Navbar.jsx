@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./navbar.scss";
 import {
   FaFacebookSquare,
@@ -15,6 +15,8 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { FaWindowClose } from "react-icons/fa";
 import { IoIosArrowDropdownCircle } from "react-icons/io";
 import Pop from "../pop/Pop";
+import axios from "axios";
+import { BASE } from "../../App";
 
 const Navbar = ({ setOpenC, openC }) => {
   const [navHover, setNavHover] = useState(-1);
@@ -40,6 +42,40 @@ const Navbar = ({ setOpenC, openC }) => {
       setOpenIndex(null);
     }
   };
+  const [tr, setTr] = useState("");
+  const [tr1, setTr1] = useState("");
+  const [tr2, setTr2] = useState("");
+  const [importLink, setImport] = useState([]);
+  const [exportLink, setExport] = useState([]);
+  const [domesticLink, setDomestic] = useState([]);
+  useEffect(() => {
+    const fetch = async () => {
+      try {
+        const res = await axios.get(BASE + "/navbar/");
+        const p = res.data.data.navbar;
+        setTr(p.trade_finance);
+        setTr1(p.resource);
+        setTr2(p.company);
+        const links = res.data.data.product_navbar;
+
+        for (let i = 0; i < links.length; i++) {
+          if (links[i].category.sub_category === "Import Finance") {
+            importLink.push(links[i]);
+          }
+          if (links[i].category.sub_category === "Export Finance") {
+            exportLink.push(links[i]);
+          }
+          if (links[i].category.sub_category === "Domestic Finance") {
+            domesticLink.push(links[i]);
+          }
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetch();
+  }, []);
+
   return (
     <>
       <Pop setOpenC={setOpenC} openC={openC} />
@@ -94,10 +130,7 @@ const Navbar = ({ setOpenC, openC }) => {
               >
                 <div className="nav_link_absolute_solutions">
                   <h3>SOLUTIONS</h3>
-                  <p className="unlock_div">
-                    Unlock Lowest Trade Finane Intrest Rates Optimazed Funding
-                    Solutions Ensure Smooth Financing Operation For Buisnesses
-                  </p>
+                  {tr && <p className="unlock_div">{tr}</p>}
                 </div>
                 <div className="nav_link_absolute_inter">
                   <h3>INTERNATIONAL</h3>
@@ -105,17 +138,25 @@ const Navbar = ({ setOpenC, openC }) => {
                     <div className="import_finance">
                       <h4>Import Finance</h4>
                       <ul>
-                        <Link>Buyer's Credit</Link>
-                        <Link>Supplier's Credit</Link>
-                        <Link>RA Financing </Link>
+                        {importLink.map((item, i) => {
+                          return (
+                            <Link key={item.id} to={`/product/${item.id}`}>
+                              {item.title}
+                            </Link>
+                          );
+                        })}
                       </ul>
                     </div>
                     <div className="import_finance">
                       <h4>Export Finance</h4>
                       <ul>
-                        <Link>
-                          Export Letter Of <br /> Credit Discounting
-                        </Link>
+                        {exportLink.map((item, i) => {
+                          return (
+                            <Link key={item.id} to={`/product/${item.id}`}>
+                              {item.title}
+                            </Link>
+                          );
+                        })}
                       </ul>
                     </div>
                   </div>
@@ -123,7 +164,13 @@ const Navbar = ({ setOpenC, openC }) => {
                 <div className="nav_link_absolute_domestic">
                   <h3>DOMESTIC</h3>
                   <ul>
-                    <li>Local Letter Of Credit Bill Discounting</li>
+                    {domesticLink.map((item, i) => {
+                      return (
+                        <Link key={item.id} to={`/product/${item.id}`}>
+                          {item.title}
+                        </Link>
+                      );
+                    })}
                   </ul>
                 </div>
               </div>
@@ -154,18 +201,13 @@ const Navbar = ({ setOpenC, openC }) => {
               >
                 <div className="link_chash">
                   <h3>Enhance Cash Flows</h3>
-                  <p>
-                    Discover how to enhance operating cash flows and recuce
-                    interest expenses through TradeFlair on global and local
-                    trade finance transactions, by establishing tailored
-                    proceses and lowest financing rates in the market.
-                  </p>
+                  {tr1 && <p>{tr1}</p>}
                 </div>
                 <div className="link_publications">
                   <h3>Publications</h3>
                   <Link to="/blogs">Blogs</Link>
                   <Link to="/cases">Case Stdies</Link>
-                  <Link>FAQs</Link>
+                  <Link to="/faq">FAQs</Link>
                 </div>
                 <div className="link_calc">
                   <h3>Cost Calculators</h3>
@@ -200,13 +242,7 @@ const Navbar = ({ setOpenC, openC }) => {
               >
                 <div className="nav_vision">
                   <h3>Our Vision</h3>
-                  <p>
-                    TradeFlair aims to redefine trade finance, offering tailored
-                    and local financing solutions to businesses designed with
-                    simplicity, and speed and offering the lowest interest
-                    rates, transactions some time, and cost and enhance
-                    efficiency.
-                  </p>
+                  {tr2 && <p>{tr2}</p>}
                 </div>
                 <div className="nav_company_second">
                   <div className="nav_about">

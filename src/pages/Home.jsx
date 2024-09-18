@@ -35,18 +35,28 @@ const Home = ({ setOpenC, openC }) => {
       {loading ? (
         <Loading title={"TAILORED TRADE FINANCE SOLUTIONS"} />
       ) : (
+        <>{/* <Products data={data.service} /> */}</>
+      )}
+      {loading ? (
+        <Loading />
+      ) : (
         <>
-          <Products data={data.service} />
+          <Test data={data.testimonials} />
         </>
       )}
-      <Test />
-      <Accounts />
+      {loading ? (
+        <Loading />
+      ) : (
+        <>
+          <Accounts data={data.home_page} />{" "}
+        </>
+      )}
       <Contact />
       {loading ? (
         <Loading title={"BLOGS"} />
       ) : (
         <>
-          <Blogs data={data.blogs} />
+          <Blogs data={data.blogs} />{" "}
         </>
       )}
       <Faq />

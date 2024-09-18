@@ -19,6 +19,7 @@
       img {
         width: 85%;
         height: 5rem;
+        object-fit: cover;
         @include breack_down(large) {
           width: 95%;
         }
