@@ -1,0 +1,51 @@
+@use "../../App.scss" as *;
+.fc_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  background-color: #fff;
+  padding: 4rem 0;
+  .fc_map {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    .fc_single {
+      background-color: $main;
+      color: #fff;
+      padding: 0.6rem;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgb(177, 247, 250);
+      width: 70vw;
+      @include breack_down(large) {
+        width: 95vw;
+      }
+      .fc_q {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        .fc_icon_container {
+          cursor: pointer;
+          .ai_minus {
+          }
+          .w_0 {
+            width: 0;
+          }
+        }
+      }
+      .fc_ans_container {
+        margin-left: 1.7rem;
+        display: grid;
+        grid-template-rows: 0fr;
+        overflow: hidden;
+        transition: 0.2s;
+      }
+      .fc_ans_container_open {
+        grid-template-rows: 1fr;
+      }
+      .fc_ans {
+        min-height: 0;
+      }
+    }
+  }
+}

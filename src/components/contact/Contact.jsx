@@ -8,7 +8,7 @@ import axios from "axios";
 import { BASE } from "../../App";
 import LoadingForm from "../loading/LoadingForm";
 import y from "../../images/y.svg";
-const Contact = ({}) => {
+const Contact = ({ h, p }) => {
   const [full_name, setfull_name] = useState("");
   const [email, setemail] = useState("");
   const [message, setMessage] = useState("");
@@ -41,8 +41,8 @@ const Contact = ({}) => {
       <div className="contact_back">
         <div className="contact_left">
           <div className="contact_title">
-            <h3>Get in Touch</h3>
-            <p>Any question or remarks? Let us know!</p>
+            <h3>{h ? h : "Get in Touch"}</h3>
+            <p>{p ? p : "Any question or remarks? Let us know!"}</p>
           </div>
           <div className="contact_info">
             <div className="contact_info_div">

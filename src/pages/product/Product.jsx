@@ -2,64 +2,52 @@ import React, { useEffect, useRef, useState } from "react";
 import "./product.scss";
 import axios from "axios";
 import { BASE } from "../../App";
-import f from "../../images/1.svg";
-import s from "../../images/2.svg";
-import t from "../../images/3.svg";
-import r from "../../images/4.svg";
+
 import pImage from "../../images/process.svg";
 import Contact from "../../components/contact/Contact";
 import Faq from "../../components/Faq/Faq";
 import { useInView } from "react-intersection-observer";
-import cost from "../../images/product/save.svg";
-import flex from "../../images/product/flex.svg";
-import quck from "../../images/product/time.svg";
-import global from "../../images/product/global.svg";
-import funds from "../../images/product/funds.svg";
-import pro from "../../images/product/undraw_processing_thoughts_d8ha.svg";
-import doc from "../../images/product/doc.svg";
-import office from "../../images/product/office.svg";
+
+import { useParams } from "react-router-dom";
 const Product = () => {
-  const barray = [cost, flex, quck, global, funds, pro, doc, office];
   const [solutions, setSolutions] = useState([]);
   const [process, setProcess] = useState([]);
   const [benefits, setBenefits] = useState([]);
-  const imgs = [f, s, t, r];
+  const [d, setD] = useState({});
+  const { productId } = useParams();
   useEffect(() => {
     const fetch = async () => {
       try {
-        const res = await axios(BASE + "/product");
-        const sol = res.data.data.product_page_data.filter(
-          (item) => item.category == "Solution"
+        const res = await axios(BASE + `/product/${productId}`);
+
+        const sol = res.data.data.product_solutions.filter(
+          (item) => item.category == "product_solutions"
         );
-        const pro = res.data.data.product_page_data.filter(
-          (item) => item.category == "Process"
-        );
-        const ben = res.data.data.product_page_data.filter(
-          (item) => item.category == "Benefits"
-        );
-        setSolutions(sol);
-        setProcess(pro);
-        setBenefits(ben);
+
+        setSolutions(res.data.data.product_solutions);
+        setProcess(res.data.data.product_process);
+        setBenefits(res.data.data.product_benefits);
+        setD(res.data.data.product_page);
       } catch (error) {
         console.log(error);
       }
     };
     fetch();
-  }, []);
+  }, [productId]);
   const { ref: sol, inView: solW } = useInView({
-    threshold: 0.2,
+    threshold: 0.6,
   });
   const { ref: proc, inView: procW } = useInView({
-    threshold: 0.2,
+    threshold: 1,
   });
   const { ref: ben, inView: benW } = useInView({
-    threshold: 0.2,
+    threshold: 0.5,
   });
   const { ref: con, inView: conW } = useInView({
-    threshold: 0.4,
+    threshold: 0.5,
   });
   const { ref: fa, inView: faW } = useInView({
-    threshold: 0.2,
+    threshold: 0.5,
   });
   const [active, setActive] = useState("sol");
   useEffect(() => {
@@ -72,7 +60,7 @@ const Product = () => {
     if (procW && !solW) {
       setActive("proc");
     }
-    console.log({ benW, procW });
+
     if (benW && !procW) {
       setActive("ben");
     }
@@ -95,7 +83,7 @@ const Product = () => {
           solRef.current.getBoundingClientRect().top +
           window.scrollY -
           document.documentElement.clientTop -
-          350;
+          700;
         window.scrollTo({ top: top, behavior: "smooth" });
       }
     }
@@ -143,14 +131,8 @@ const Product = () => {
   return (
     <div className="product_container">
       <div className="product_hero">
-        <h2>BUYER'S CREDIT</h2>
-        <h3>FOR IMPORTERS</h3>
-        <h3>UNLOCK EASY IMPORT FINANCING AT LOWEST RATES</h3>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, nemo
-          vitae accusamus sunt voluptatum a sit veritatis nisi! Voluptates
-          officia ut sint quis quos ea quod voluptas magnam omnis quam.
-        </p>
+        <h2>{d.title}</h2>
+        <p>{d.description}</p>
         <button>Rates starts from 1.00% p.a.</button>
       </div>
       <div className="product_calc">
@@ -261,39 +243,31 @@ const Product = () => {
                     className={`solution_item ${index % 2 !== 0 && "margin_t"}`}
                     key={index}
                   >
-                    <img src={imgs[index]} alt="" />
-                    <p>{item.description}</p>
+                    <img src={item.p_sol_image} alt="" />
+                    <p>{item.p_sol_paragraph}</p>
                   </div>
                 );
               })}
             </div>
             <div className="solutions_right">
-              <h3 ref={solRef}>OUR SMART SOLUTION</h3>
-              <p>
-                TradeFlair offers low-cost and fast processing for buyer’s
-                credit transactions, ensuring importers save on costs and time
-                while guaranteeing timely payments to supplier
-              </p>
+              <h3 ref={solRef}>{d.solution_heading}</h3>
+              <p>{d.solution_paragraph}</p>
               <button>Schedule a call with our team</button>
             </div>
           </div>
         </div>
         <div className="process">
           <div className="process_text" ref={procRef}>
-            <h3 ref={proc}>How buyer’ credit (SBLC backed) financing works</h3>
-            <p>
-              Remit funds to your international supplier within 2 days by
-              issuing an SBLC. Avail credit for imports: up to 360 days for raw
-              materials and up to 1080 days for capital goods.
-            </p>
+            <h3>{d.process_heading}</h3>
+            <p ref={proc}>{d.process_paragraph}</p>
           </div>
           <div className="process_body">
             <div className="process_left">
               {process.map((item, index) => {
                 return (
                   <div className="process_item" key={index}>
-                    <h4>• {item.title}</h4>
-                    <p>- {item.description}</p>
+                    <h4>• {item.p_product_heading}</h4>
+                    <p>- {item.p_product_paragraph}</p>
                   </div>
                 );
               })}
@@ -307,10 +281,10 @@ const Product = () => {
             {benefits?.map((item, index) => {
               return (
                 <div className="benefits_item" key={index}>
-                  <img src={barray[index]} alt="" />
+                  <img src={item.p_benefit_image} alt="" />
                   <div>
-                    <h4>{item.title}</h4>
-                    <p>{item.description}</p>
+                    <h4>{item.p_benefit_heading}</h4>
+                    <p>{item.p_benefit_paragraph}</p>
                   </div>
                 </div>
               );
@@ -319,7 +293,7 @@ const Product = () => {
         </div>
         <div ref={con}>
           <div ref={conRef}></div>
-          <Contact />
+          <Contact h={d.contact_heading} p={d.contact_paragraph} />
         </div>
         <div ref={fa}>
           <div ref={faRef}></div>

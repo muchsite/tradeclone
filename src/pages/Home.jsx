@@ -9,6 +9,7 @@ import Faq from "../components/Faq/Faq";
 import { BASE } from "../App";
 import axios from "axios";
 import Loading from "../components/loading/Loading";
+import FaqC from "../components/Faq/FaqC";
 
 const Home = ({ setOpenC, openC }) => {
   const url = BASE;
@@ -33,33 +34,16 @@ const Home = ({ setOpenC, openC }) => {
     <>
       <Hero setOpenC={setOpenC} openC={openC} />
       {loading ? (
-        <Loading title={"TAILORED TRADE FINANCE SOLUTIONS"} />
-      ) : (
-        <>{/* <Products data={data.service} /> */}</>
-      )}
-      {loading ? (
         <Loading />
       ) : (
         <>
+          {/* <Products data={data.service} /> */}
           <Test data={data.testimonials} />
+          <Accounts data={data.home_page} /> <Contact />
+          <Loading title={"BLOGS"} />
+          <Blogs data={data.blogs} /> <FaqC data={data.faqs} />
         </>
       )}
-      {loading ? (
-        <Loading />
-      ) : (
-        <>
-          <Accounts data={data.home_page} />{" "}
-        </>
-      )}
-      <Contact />
-      {loading ? (
-        <Loading title={"BLOGS"} />
-      ) : (
-        <>
-          <Blogs data={data.blogs} />{" "}
-        </>
-      )}
-      <Faq />
     </>
   );
 };
