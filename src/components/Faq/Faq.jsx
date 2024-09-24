@@ -6,9 +6,9 @@ import Loading from "../loading/Loading";
 const Faq = () => {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
-  const [catIndex, setCatIndex] = useState(null);
-  const [innerCat, setInnerCat] = useState(-1);
-  const [qIndex, setQindex] = useState(-1);
+  const [catIndex, setCatIndex] = useState(0);
+  const [innerCat, setInnerCat] = useState(0);
+  const [qIndex, setQindex] = useState(0);
   const [title, setTitle] = useState("");
   const [pr, setPr] = useState("");
   const handleCategory = (index) => {
@@ -48,25 +48,25 @@ const Faq = () => {
         const arrF = [];
         for (let i = 0; i < data.length; i++) {
           const category = arrF.find(
-            (item) => item.category === data[i].product.title
+            (item) => item.category === data[i].product.category.sub_category
           );
           if (!category) {
             arrF.push({
-              category: data[i].product.title,
+              category: data[i].product.category.sub_category,
               sub: [
                 {
-                  inner: data[i].product.category.sub_category,
+                  inner: data[i].product.title,
                   q2: [{ quset: data[i].question, ans: data[i].answer }],
                 },
               ],
             });
           } else {
             const sub = category.sub.find(
-              (inner) => inner.inner === data[i].product.category.sub_category
+              (inner) => inner.inner === data[i].product.title
             );
             if (!sub) {
               const subObject = {
-                inner: data[i].product.category.sub_category,
+                inner: data[i].product.title,
                 q2: [{ quset: data[i].question, ans: data[i].answer }],
               };
               category.sub.push(subObject);
@@ -87,7 +87,6 @@ const Faq = () => {
   const cats = data.map((item) => {
     return item.category;
   });
-
   return (
     <>
       {!loading ? (
@@ -117,7 +116,7 @@ const Faq = () => {
                     <div
                       key={index}
                       className={`faq_item ${
-                        catIndex !== index && "opacity_0"
+                        catIndex !== index && "display_none"
                       }`}
                     >
                       <div className="faq_category wraper_1">

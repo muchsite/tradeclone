@@ -136,20 +136,20 @@ const Accounts = ({ data }) => {
           </h3>
           <div className="acc_dark_numbers">
             <div className="acc_number border_right">
-              <h4>{data.field_text_1}+</h4>
-              <p>{data.number_text_1}</p>
+              <h4>{data.field_text_1}</h4>
+              <p>{data.number_text_1}+</p>
             </div>
             <div className="acc_number border_right">
-              <h4>{data.field_text_2}+</h4>
-              <p>{data.number_text_2}</p>
+              <h4>{data.field_text_2}</h4>
+              <p>{data.number_text_2}+</p>
             </div>
             <div className="acc_number border_right">
-              <h4>{data.field_text_3}+</h4>
-              <p>{data.number_text_3}</p>
+              <h4>{data.field_text_3}</h4>
+              <p>{data.number_text_3}+</p>
             </div>
             <div className="acc_number ">
-              <h4>{data.field_text_4}+</h4>
-              <p>{data.number_text_4}</p>
+              <h4>{data.field_text_4}</h4>
+              <p>{data.number_text_4}+</p>
             </div>
           </div>
         </div>

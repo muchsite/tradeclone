@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./faqC.scss";
 import { AiOutlinePlus } from "react-icons/ai";
 import { AiOutlineMinus } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 const FaqC = ({ data }) => {
   const [ind, setInd] = useState(-1);
@@ -16,7 +17,7 @@ const FaqC = ({ data }) => {
     <div className="fc_container">
       <h2>F.A.Q</h2>
       <div className="fc_map">
-        {data.map((item, index) => {
+        {data?.map((item, index) => {
           return (
             <div className="fc_single" key={index}>
               <div className="fc_q">
@@ -42,6 +43,9 @@ const FaqC = ({ data }) => {
             </div>
           );
         })}
+        <Link target="_blanck" className="faq_see" to={"/faq"}>
+          See All
+        </Link>
       </div>
     </div>
   );

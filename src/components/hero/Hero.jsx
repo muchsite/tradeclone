@@ -6,18 +6,13 @@ import eu from "../../images/eu.svg";
 import ru from "../../images/ru.svg";
 import yen from "../../images/yen.svg";
 import Pop from "../pop/Pop";
-const Hero = ({ setOpenC, openC }) => {
+const Hero = ({ setOpenC, openC, data }) => {
   return (
     <>
       <div className="hero_container">
         <div className="hero_text">
-          <h1>A BETTER way to save</h1>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur
-            voluptatibus harum, beatae, voluptatem est aut molestiae architecto
-            alias commodi consequatur vel nihil repellat, sequi fugit odio
-            nostrum cum saepe tempora.
-          </p>
+          <h1>{data.top_header}</h1>
+          <p>{data.top_paragraph}</p>
           <button onClick={() => setOpenC(true)}>Get Started</button>
         </div>
         <div className="hero_n_image">

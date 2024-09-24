@@ -29,19 +29,19 @@ const Home = ({ setOpenC, openC }) => {
     };
     fetchData();
   }, []);
-
+  console.log(data);
   return (
     <>
-      <Hero setOpenC={setOpenC} openC={openC} />
       {loading ? (
         <Loading />
       ) : (
         <>
+          <Hero setOpenC={setOpenC} openC={openC} data={data.home_page} />
           {/* <Products data={data.service} /> */}
           <Test data={data.testimonials} />
           <Accounts data={data.home_page} /> <Contact />
-          <Loading title={"BLOGS"} />
-          <Blogs data={data.blogs} /> <FaqC data={data.faqs} />
+          <Blogs data={data.blogs} />
+          <FaqC data={data.faqs} />
         </>
       )}
     </>

@@ -9,10 +9,12 @@ import Faq from "../../components/Faq/Faq";
 import { useInView } from "react-intersection-observer";
 
 import { useParams } from "react-router-dom";
+import FaqC from "../../components/Faq/FaqC";
 const Product = () => {
   const [solutions, setSolutions] = useState([]);
   const [process, setProcess] = useState([]);
   const [benefits, setBenefits] = useState([]);
+  const [faqData, setFaqData] = useState([]);
   const [d, setD] = useState({});
   const { productId } = useParams();
   useEffect(() => {
@@ -20,14 +22,11 @@ const Product = () => {
       try {
         const res = await axios(BASE + `/product/${productId}`);
 
-        const sol = res.data.data.product_solutions.filter(
-          (item) => item.category == "product_solutions"
-        );
-
         setSolutions(res.data.data.product_solutions);
         setProcess(res.data.data.product_process);
         setBenefits(res.data.data.product_benefits);
         setD(res.data.data.product_page);
+        setFaqData(res.data.data.faqs);
       } catch (error) {
         console.log(error);
       }
@@ -297,7 +296,7 @@ const Product = () => {
         </div>
         <div ref={fa}>
           <div ref={faRef}></div>
-          <Faq />
+          <FaqC data={faqData} />
         </div>
       </div>
     </div>

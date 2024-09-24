@@ -30,7 +30,7 @@
   justify-content: space-between;
   flex-direction: column;
   padding: 0 5rem;
-  width: 100%;
+  width: 90vw;
   align-items: center;
   @include breack_down(large) {
     display: none !important;
@@ -39,10 +39,13 @@
     display: flex;
     justify-content: center;
     width: fit-content;
-    outline: 1px solid $light;
+    border: 1px solid $light;
+    width: 100%;
+    border-radius: 10px;
     .faq_top_item {
       padding: 1rem;
-      width: 15vw;
+      width: 100%;
+      border-radius: 10px;
       cursor: pointer;
       transition: 0.6s;
       color: $second;
@@ -56,23 +59,30 @@
   }
   .faq_bottom {
     display: flex;
-    justify-content: space-between;
-    justify-content: center;
+    justify-content: flex-start;
+    width: 100%;
+
     .faq_item {
-      width: 15vw;
+      width: 100%;
+      // min-width: 33%;
       padding: 1rem;
-      outline: 1px solid $light;
+      // border: 1px solid $light;
+      border-radius: 10px;
       transition: 0.5s;
       display: flex;
       flex-direction: column;
       justify-content: center;
       height: fit-content;
     }
+    .display_none {
+      display: none !important;
+    }
+
     .sub_category {
       margin: 5px 0;
       cursor: pointer;
       color: $second;
-      transition: 0.6s;
+
       &:hover {
         color: $light;
       }
@@ -81,7 +91,7 @@
 }
 .faq_q_container {
   h4 {
-    margin: 5px 0 5px 5px;
+    margin: 10px 0 10px 15px;
     cursor: pointer;
     color: $second;
     transition: 0.6s;
@@ -91,7 +101,7 @@
   }
   p {
     color: $gr;
-    margin: 5px 0 5px 5px;
+    margin: 10px 0 10px 30px;
   }
 }
 .faq_top_item_active {
@@ -105,20 +115,34 @@
 }
 
 .faq_mobile {
-  margin-top: 2rem;
+  margin: 2rem 0;
   padding: 0 1rem;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  width: fit-content;
+  // width: fit-content;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  .faq_mobile_sub {
+    h4 {
+      margin: 10px 0px 10px 15px;
+    }
+    p {
+      margin: 10px 0px 10px 30px;
+    }
+  }
   @include breack_up(medium) {
     display: none !important;
+  }
+  .faq_item_mobile {
+    width: 100%;
   }
   .faq_top_item_mobile {
     margin: 0.5rem 0;
     padding: 0.5rem;
+    width: 100%;
     outline: 1px solid $light;
-    width: fit-content;
   }
   .faq_top_item_active_mobile {
     background-color: $light;
