@@ -18,27 +18,27 @@ import Pop from "../pop/Pop";
 import axios from "axios";
 import { BASE } from "../../App";
 
-const Navbar = ({ setOpenC, openC }) => {
+const Navbar = ({ setOpenC, openC, setCalc }) => {
   const [navHover, setNavHover] = useState(-1);
   const [openHam, setOpaenHam] = useState(false);
   const [openIndex, setOpenIndex] = useState(null);
   const handleIndex = (i) => {
-    if (i == 1 && openIndex !== 1) {
+    if (i === 1 && openIndex !== 1) {
       setOpenIndex(1);
     }
-    if (i == 1 && openIndex == 1) {
+    if (i === 1 && openIndex === 1) {
       setOpenIndex(null);
     }
-    if (i == 2 && openIndex !== 2) {
+    if (i === 2 && openIndex !== 2) {
       setOpenIndex(2);
     }
-    if (i == 2 && openIndex == 2) {
+    if (i === 2 && openIndex === 2) {
       setOpenIndex(null);
     }
-    if (i == 3 && openIndex !== 3) {
+    if (i === 3 && openIndex !== 3) {
       setOpenIndex(3);
     }
-    if (i == 3 && openIndex == 3) {
+    if (i === 3 && openIndex === 3) {
       setOpenIndex(null);
     }
   };
@@ -116,7 +116,7 @@ const Navbar = ({ setOpenC, openC }) => {
                   to="/"
                   className={`${({ isActive }) =>
                     isActive ? "active" : ""} nav_link ${
-                    navHover == 0 && "hover_link"
+                    navHover === 0 && "hover_link"
                   }`}
                 >
                   <p>Trade Finance</p>
@@ -125,7 +125,7 @@ const Navbar = ({ setOpenC, openC }) => {
               </div>
               <div
                 className={`nav_link_absolute nav_link_absolute_first ${
-                  navHover == 0 && "display_block"
+                  navHover === 0 && "display_block"
                 }`}
               >
                 <div className="nav_link_absolute_solutions">
@@ -187,7 +187,7 @@ const Navbar = ({ setOpenC, openC }) => {
                   to="/contact"
                   className={`${({ isActive }) =>
                     isActive ? "active" : ""} nav_link ${
-                    navHover == 1 && "hover_link"
+                    navHover === 1 && "hover_link"
                   }`}
                 >
                   <p>Resources</p>
@@ -196,7 +196,7 @@ const Navbar = ({ setOpenC, openC }) => {
               </div>
               <div
                 className={`nav_link_absolute nav_link_absolute_second ${
-                  navHover == 1 && "display_block"
+                  navHover === 1 && "display_block"
                 }`}
               >
                 <div className="link_chash">
@@ -211,8 +211,12 @@ const Navbar = ({ setOpenC, openC }) => {
                 </div>
                 <div className="link_calc">
                   <h3>Cost Calculators</h3>
-                  <Link to="/calculator">Domestic Finance</Link>
-                  <Link to="/calculator">Import / Export Finance</Link>
+                  <Link to="/calculator" onClick={() => setCalc("d")}>
+                    Domestic Finance
+                  </Link>
+                  <Link to="/calculator" onClick={() => setCalc("i")}>
+                    Import / Export Finance
+                  </Link>
                 </div>
               </div>
             </div>
@@ -228,7 +232,7 @@ const Navbar = ({ setOpenC, openC }) => {
                   to="/about"
                   className={`${({ isActive }) =>
                     isActive ? "active" : ""} nav_link ${
-                    navHover == 2 && "hover_link"
+                    navHover === 2 && "hover_link"
                   }`}
                 >
                   <p>Company</p>
@@ -237,7 +241,7 @@ const Navbar = ({ setOpenC, openC }) => {
               </div>
               <div
                 className={`nav_link_absolute nav_link_absolute_third ${
-                  navHover == 2 && "display_block"
+                  navHover === 2 && "display_block"
                 }`}
               >
                 <div className="nav_vision">
@@ -311,7 +315,7 @@ const Navbar = ({ setOpenC, openC }) => {
                 </div>
                 <div
                   className={`ham_wraper ${
-                    openIndex == 1 && "ham_wraper_open"
+                    openIndex === 1 && "ham_wraper_open"
                   }`}
                 >
                   <div className="ham_expand">
@@ -391,7 +395,7 @@ const Navbar = ({ setOpenC, openC }) => {
                 </div>
                 <div
                   className={`ham_wraper ${
-                    openIndex == 2 && "ham_wraper_open"
+                    openIndex === 2 && "ham_wraper_open"
                   }`}
                 >
                   <div className="ham_expand">
@@ -415,7 +419,7 @@ const Navbar = ({ setOpenC, openC }) => {
                 </div>
                 <div
                   className={`ham_wraper ${
-                    openIndex == 3 && "ham_wraper_open"
+                    openIndex === 3 && "ham_wraper_open"
                   }`}
                 >
                   <div className="ham_expand">

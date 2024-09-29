@@ -27,7 +27,7 @@ const Blogs = () => {
   const [hover, setHover] = useState(-1);
   const [click, setClik] = useState(-1);
   const handleClick = (index) => {
-    if (index == click) {
+    if (index === click) {
       setClik(-1);
     } else {
       setClik(index);
@@ -78,7 +78,7 @@ const Blogs = () => {
                   <AiFillPlusSquare
                     onClick={() => handleClick(index)}
                     className={`a_blog_icon ${
-                      click == index ? "a_blog_icon_0" : ""
+                      click === index ? "a_blog_icon_0" : ""
                     }`}
                   />
                   <AiFillMinusSquare

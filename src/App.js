@@ -25,13 +25,16 @@ import Faq from "./components/Faq/Faq";
 export const BASE = "https://tradeflaircorp.in";
 function App() {
   const [openC, setOpenC] = useState(false);
-
+  const [calc, setCalc] = useState("d");
   return (
     <HashRouter>
-      <Navbar setOpenC={setOpenC} openC={openC} />
+      <Navbar setOpenC={setOpenC} openC={openC} setCalc={setCalc} />
       <Routes>
         <Route element={<Home setOpenC={setOpenC} openC={openC} />} path="/" />
-        <Route element={<Calc />} path="/calculator" />
+        <Route
+          element={<Calc calc={calc} setCalc={setCalc} />}
+          path="/calculator"
+        />
         <Route element={<Blogs />} path="/blogs" />
         <Route element={<Blog />} path="/blog/:blogId" />
         <Route element={<Cases />} path="/cases" />
