@@ -2,6 +2,24 @@ import React, { useEffect, useState } from "react";
 import "./calc.scss";
 import axios, { spread } from "axios";
 import { BASE } from "../../App";
+import { Bar } from "react-chartjs-2";
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend,
+} from "chart.js";
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend
+);
 const Calc = ({ calc, setCalc }) => {
   const [cur, setCur] = useState("INR");
   const setN = (v) => {
@@ -101,9 +119,11 @@ const Calc = ({ calc, setCalc }) => {
   const [iSpread, setISpread] = useState("");
   const [iSpreadB, setISpreadB] = useState("");
   const [iRio, setIRio] = useState("");
+  const [iRioB, setIRioB] = useState("");
   const [iBch, setIBch] = useState("");
+  const [iBchB, setIBchB] = useState("");
   const [iTotalC, setITotalC] = useState("");
-  const [iTotalI, setITotalI] = useState("");
+  const [iTotalCB, setITotalCB] = useState("");
   const [interData, setInterData] = useState({});
   useEffect(() => {
     const fetch = async () => {
@@ -118,33 +138,102 @@ const Calc = ({ calc, setCalc }) => {
     fetch();
   }, []);
   const handleTenorInter = (e) => {
-    setITenor(e);
-    if (iTenor >= 0) {
-      const val = interData.international_date.find(
-        (item) => e >= item.min_days && e < item.max_days
-      );
-      if (cur === "USD") {
-        setIBenchB(val.sofr_usd);
-      }
-      if (cur === "EURO") {
-        setIBenchB(val.euribor_euro);
-      }
-      if (cur === "YEN") {
-        setIBenchB(val.tibor_jpy);
+    if (e >= 0) {
+      setITenor(e);
+      if (iTenor >= 0) {
+        const val = interData.international_date.find(
+          (item) => e >= item.min_days && e < item.max_days
+        );
+        if (cur === "USD") {
+          setIBenchB(val.sofr_usd);
+        }
+        if (cur === "EURO") {
+          setIBenchB(val.euribor_euro);
+        }
+        if (cur === "YEN") {
+          setIBenchB(val.tibor_jpy);
+        }
       }
     }
   };
   const handlePrinInter = (e) => {
-    setIPrincipal(e);
-    if (iSpread >= 0) {
-      const val = interData.international_principle.find(
-        (item) => e >= item.min_principle && e < item.max_principle
-      );
-      setIBch(val.bank_charges);
-      setISpreadB(val.tentative_interest_rate);
+    if (e >= 0) {
+      setIPrincipal(e);
+      if (iSpread >= 0) {
+        const val = interData.international_principle.find(
+          (item) => e >= item.min_principle && e < item.max_principle
+        );
+        setIBchB(val.bank_charges);
+        setISpreadB(val.tentative_interest_rate);
+      }
     }
   };
-  // console.log(interData);
+  useEffect(() => {
+    if (iSpread && iBench) {
+      setIRio(Number(iSpread) + Number(iBench));
+    }
+    if (iSpreadB && iBenchB) {
+      setIRioB(Number(iSpreadB) + Number(iBenchB));
+    }
+  }, [iSpread, iBench, iSpreadB, iBenchB]);
+  useEffect(() => {
+    if (iPrincipal && iRio && iTenor && iBch) {
+      const t =
+        Number(iPrincipal) * Number(iRio) * Number(iTenor / 360) + Number(iBch);
+
+      setITotalC(t.toFixed(2));
+    } else {
+      setITotalC();
+    }
+  }, [iPrincipal, iRio, iTenor, iBch, cur]);
+  useEffect(() => {
+    if (iPrincipal && iRioB && iTenor && iBchB) {
+      const t =
+        Number(iPrincipal) * Number(iRioB) * Number(iTenor / 360) +
+        Number(iBchB);
+
+      setITotalCB(t.toFixed(2));
+    } else {
+      setITotalCB();
+    }
+  }, [iPrincipal, iRioB, iTenor, iBchB, cur]);
+  const data = {
+    labels: ["Normal Cost", "TradeFlair Cost"], // Two categories
+    datasets: [
+      {
+        // label: "Values",
+        data: [iTotalC, iTotalCB], // Two data points
+        backgroundColor: ["#FF6384", "#36A2EB"], // Colors for each bar
+      },
+    ],
+  };
+  const data2 = {
+    labels: ["Normal Cost", "TradeFlair Cost"], // Two categories
+    datasets: [
+      {
+        // label: "Values",
+        data: [total, totalB], // Two data points
+        backgroundColor: ["#FF6384", "#36A2EB"], // Colors for each bar
+      },
+    ],
+  };
+  const options = {
+    responsive: true,
+    plugins: {
+      legend: {
+        display: false,
+      },
+      title: {
+        display: false,
+        text: "Simple Bar Chart",
+      },
+    },
+    scales: {
+      y: {
+        beginAtZero: true, // Start y-axis at 0
+      },
+    },
+  };
   return (
     <div className="calc_container">
       <div className="calc_title">
@@ -286,12 +375,12 @@ const Calc = ({ calc, setCalc }) => {
                 <div className="calc_s_input_left">
                   <div className="calc_inp_container">
                     <p>{`Total RIO/Annum`} </p>
-                    <input type="text" />
+                    <input type="number" value={iRio} />
                   </div>
                 </div>
                 <div className="calc_s_input_right">
                   <div className="calc_inp_container">
-                    <input type="text" />
+                    <input type="number" value={iRioB} />
                   </div>
                 </div>
               </div>
@@ -299,12 +388,16 @@ const Calc = ({ calc, setCalc }) => {
                 <div className="calc_s_input_left">
                   <div className="calc_inp_container">
                     <p>{`Bank Charges (Documens, Handling, Swift )`} </p>
-                    <input type="number" />
+                    <input
+                      type="number"
+                      value={iBch}
+                      onChange={(e) => setIBch(e.currentTarget.value)}
+                    />
                   </div>
                 </div>
                 <div className="calc_s_input_right">
                   <div className="calc_inp_container">
-                    <input type="number" />
+                    <input type="number" value={iBchB} />
                   </div>
                 </div>
               </div>
@@ -312,16 +405,16 @@ const Calc = ({ calc, setCalc }) => {
                 <div className="calc_s_input_left">
                   <div className="calc_inp_container">
                     <p>{`Total Charges (In ${cur}) )`} </p>
-                    <input type="number" />
+                    <input type="number" value={iTotalC} />
                   </div>
                 </div>
                 <div className="calc_s_input_right">
                   <div className="calc_inp_container">
-                    <input type="number" />
+                    <input type="number" value={iTotalCB} />
                   </div>
                 </div>
               </div>
-              <div className="calc_s_input">
+              {/* <div className="calc_s_input">
                 <div className="calc_s_input_left">
                   <div className="calc_inp_container">
                     <p>{`Total Charges (In INR) )`} </p>
@@ -333,7 +426,7 @@ const Calc = ({ calc, setCalc }) => {
                     <input type="number" />
                   </div>
                 </div>
-              </div>
+              </div> */}
             </>
           ) : (
             <>
@@ -438,22 +531,48 @@ const Calc = ({ calc, setCalc }) => {
             <div className="calc_graph_item">
               <h4>Normal Cost</h4>
 
-              {calc === "i" && <p>In {cur}</p>}
-              <p>In INR</p>
+              {calc === "i" ? (
+                <p>
+                  In {cur}: {iTotalC}
+                </p>
+              ) : (
+                <p>In INR</p>
+              )}
             </div>
             <div className="graph_middle_line"></div>
             <div className="calc_graph_item">
               <h4>TradeFlair Cost</h4>
-              {calc === "i" && <p>In {cur}</p>}
-              <p>In INR</p>
+              {calc === "i" ? (
+                <p>
+                  In {cur}: {iTotalCB}
+                </p>
+              ) : (
+                <p>In INR</p>
+              )}
             </div>
           </div>
           <div className="graph_text">
             <h3>Congratulation</h3>
-            <p>
-              With TradeFlair, you Could save USD XXX / INR XXX on this
-              transaction
-            </p>
+
+            {calc === "i" ? (
+              <>
+                <p>
+                  {` With TradeFlair, you Could save ${Number(
+                    iTotalC - iTotalCB
+                  ).toFixed(2)} ${cur}`}
+                </p>
+                <Bar data={data} options={options} />;
+              </>
+            ) : (
+              <>
+                <p>
+                  {` With TradeFlair, you Could save ${Number(
+                    total - totalB
+                  ).toFixed(2)} ${cur}`}
+                </p>
+                <Bar data={data2} options={options} />;
+              </>
+            )}
           </div>
           <button>Save Cost Now</button>
         </div>

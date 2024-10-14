@@ -192,6 +192,7 @@
     align-items: center;
     gap: 1rem;
     justify-content: space-between;
+    width: 40%;
     .calc_graph_top {
       display: flex;
       justify-content: space-between;
@@ -207,6 +208,7 @@
       flex-direction: column;
       align-items: center;
       gap: 1rem;
+      width: 100%;
       p {
         width: 80%;
         text-align: center;
