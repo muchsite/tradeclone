@@ -228,8 +228,7 @@ const Navbar = ({ setOpenC, openC, setCalc }) => {
               onMouseLeave={() => setNavHover(-1)}
             >
               <div className="nav_link_overflow">
-                <NavLink
-                  to="/about"
+                <div
                   className={`${({ isActive }) =>
                     isActive ? "active" : ""} nav_link ${
                     navHover === 2 && "hover_link"
@@ -237,7 +236,7 @@ const Navbar = ({ setOpenC, openC, setCalc }) => {
                 >
                   <p>Company</p>
                   <IoMdArrowDropdown />
-                </NavLink>
+                </div>
               </div>
               <div
                 className={`nav_link_absolute nav_link_absolute_third ${
@@ -255,7 +254,7 @@ const Navbar = ({ setOpenC, openC, setCalc }) => {
                       We are revolutionizing Trade finance accessibility. Learn
                       more the TradeFlair
                     </p>
-                    <button>Learn More</button>
+                    <Link to="/about">Learn More</Link>
                   </div>
                   <div className="nav_career">
                     <h3>Career</h3>

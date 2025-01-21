@@ -22,7 +22,8 @@ import "slick-carousel/slick/slick-theme.css";
 import ContactPage from "./pages/contact/ContactPage";
 import "react-multi-carousel/lib/styles.css";
 import Faq from "./components/Faq/Faq";
-export const BASE = "https://tradeflaircorp.in";
+import About from "./pages/about/About";
+export const BASE = "https://backend.tradeflaircorporate.com";
 function App() {
   const [openC, setOpenC] = useState(false);
   const [calc, setCalc] = useState("d");
@@ -47,6 +48,7 @@ function App() {
         <Route element={<Refunds />} path="/refunds" />
         <Route element={<ContactPage />} path="/contact" />
         <Route element={<Faq />} path="/faq" />
+        <Route element={<About />} path="/about" />
       </Routes>
       <Footer />
     </HashRouter>

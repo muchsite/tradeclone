@@ -1,0 +1,58 @@
+@use "../../App.scss" as *;
+.about_container {
+  margin: 10rem 2rem;
+  .about_hero {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    .about_text {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      h3 {
+        color: $main;
+        font-size: 35px;
+      }
+      p {
+        color: $second;
+      }
+    }
+    img {
+      width: 40%;
+    }
+  }
+  .about_nav {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+    .about_nav_top {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      color: $second;
+      .about_nav_item {
+        cursor: pointer;
+        transition: 0.5s;
+        position: relative;
+        padding: 0 0.5rem;
+        &::after {
+          position: absolute;
+          bottom: -5px;
+          left: 50%;
+          translate: -50% 0%;
+          width: 0%;
+          height: 2px;
+          content: "";
+          background-color: $main;
+          transition: 0.5s;
+        }
+      }
+      .active_about {
+        color: $main;
+        &::after {
+          width: 100% !important;
+        }
+      }
+    }
+  }
+}
