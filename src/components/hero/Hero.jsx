@@ -6,13 +6,18 @@ import eu from "../../images/eu.svg";
 import ru from "../../images/ru.svg";
 import yen from "../../images/yen.svg";
 import Pop from "../pop/Pop";
-const Hero = ({ setOpenC, openC, data }) => {
+const Hero = ({ setOpenC, openC }) => {
   return (
     <>
       <div className="hero_container">
         <div className="hero_text">
-          <h1>{data.top_header}</h1>
-          <p>{data.top_paragraph}</p>
+          <h3>Welcome to TradeFlair</h3>
+          <h1>Financing Trade Made Simple</h1>
+          <p>
+            Unlock the lowest rates for Import/Export Finance and Local LC
+            Discounting, offering fast, personalized solutions tailored to your
+            financial needs. Get quotes from more than 250+ banks worldwide.
+          </p>
           <button onClick={() => setOpenC(true)}>Get Started</button>
         </div>
         <div className="hero_n_image">

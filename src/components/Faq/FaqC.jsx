@@ -17,7 +17,7 @@ const FaqC = ({ data }) => {
     <div className="fc_container">
       <h2>F.A.Q</h2>
       <div className="fc_map">
-        {data?.map((item, index) => {
+        {data?.slice(0, 6).map((item, index) => {
           return (
             <div className="fc_single" key={index}>
               <div className="fc_q">

@@ -256,12 +256,11 @@ const Product = () => {
           </div>
         </div>
         <div className="process">
-          <div className="process_text" ref={procRef}>
-            <h3>{d.process_heading}</h3>
-            <p ref={proc}>{d.process_paragraph}</p>
-          </div>
+          <div className="process_text" ref={procRef}></div>
           <div className="process_body">
             <div className="process_left">
+              <h2>{d.process_heading}</h2>
+              <p ref={proc}>{d.process_paragraph}</p>
               {process.map((item, index) => {
                 return (
                   <div className="process_item" key={index}>

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import "./acc.scss";
 import q from "../../images/banks/1.png";
 import w from "../../images/banks/2.png";
@@ -27,14 +27,13 @@ import g3 from "../../images/banks/31.png";
 import g4 from "../../images/banks/32.png";
 import Globe from "react-globe.gl";
 import ea from "../../images/world.svg";
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
 
+import { motion } from "framer-motion";
 const Accounts = ({ data }) => {
   const arr = [q, w, a, s, f, g, z, x, e, r];
   const arr2 = [c, d, g1, g12, g13, g14, g15, g16, g17, g18, g19, g2, g3, g4];
   const globeRef = useRef(null);
-  console.log(data);
+
   useEffect(() => {
     if (globeRef.current) {
       globeRef.current.controls().autoRotate =
@@ -58,98 +57,71 @@ const Accounts = ({ data }) => {
       ],
     ],
   }));
-  const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
-  const responsive = {
-    desktop: {
-      breakpoint: { max: 3000, min: 1024 },
-      items: 5,
-      slidesToSlide: 1,
-    },
-    tablet: {
-      breakpoint: { max: 1024, min: 464 },
-      items: 3,
-      slidesToSlide: 1,
-    },
-    mobile: {
-      breakpoint: { max: 464, min: 0 },
-      items: 3,
-      slidesToSlide: 1, // optional, default to 1.
-    },
-  };
+
+  const viewportWidth = window.innerWidth;
   return (
     <div className="acc_container">
       <div className="acc_slider_container">
         <h2>INTERNATIONAL PARTNERS</h2>
-
-        <Carousel
-          swipeable={true} // Changed to true to allow swiping
-          draggable={true} // Changed to true to allow dragging
-          showDots={false}
-          responsive={responsive}
-          ssr={true}
-          infinite={true}
-          autoPlay={true}
-          autoPlaySpeed={3000} // Adjusted speed for better visibility
-          keyBoardControl={true}
-          customTransition="all .5s"
-          transitionDuration={500}
-          containerClass="carousel-container"
-          arrows={false}
-          dotListClass="custom-dot-list-style"
-          itemClass="carousel-item-padding-40-px"
-        >
-          {arr.map((item, index) => (
-            <img src={item} id={index} alt="" key={index} />
-          ))}
-        </Carousel>
+        <div className="carousel-container">
+          <motion.div
+            className="carousel-track"
+            animate={{ x: ["0%", "-50%"] }}
+            transition={{ ease: "linear", duration: 100, repeat: Infinity }}
+          >
+            {[...arr, ...arr, ...arr, ...arr, ...arr].map((src, index) => (
+              <img
+                key={index}
+                src={src}
+                alt="carousel"
+                className="carousel-image"
+              />
+            ))}
+          </motion.div>
+        </div>
       </div>
       <div className="acc_slider_container">
         <h2>INDIAN PARTNERS</h2>
-        <Carousel
-          swipeable={true} // Changed to true to allow swiping
-          draggable={true} // Changed to true to allow dragging
-          showDots={false}
-          responsive={responsive}
-          ssr={true}
-          infinite={true}
-          autoPlay={true}
-          autoPlaySpeed={3000} // Adjusted speed for better visibility
-          keyBoardControl={true}
-          customTransition="all .5s"
-          transitionDuration={500}
-          containerClass="carousel-container"
-          arrows={false}
-          dotListClass="custom-dot-list-style"
-          itemClass="carousel-item-padding-40-px"
-          rtl={true}
-        >
-          {arr2.map((item, index) => (
-            <img src={item} id={index} alt="" key={index} />
-          ))}
-        </Carousel>
+        <div className="carousel-container">
+          <motion.div
+            className="carousel-track"
+            animate={{ x: ["0%", "50%"] }}
+            transition={{ ease: "linear", duration: 105, repeat: Infinity }}
+          >
+            {[...arr2, ...arr2, ...arr2, ...arr2, ...arr2].map((src, index) => (
+              <img
+                key={index}
+                src={src}
+                alt="carousel"
+                className="carousel-image"
+              />
+            ))}
+          </motion.div>
+        </div>
       </div>
       <div className="acc_dark">
         <div className="acc_dark_info">
           <h3>
-            This figures speaks about our leadership. <br /> Take the advantage
-            of our vast experience.
+            Our numbers highlight our leadership's expertise. Maximize the
+            benefits of our seasoned experience, enriched by a combined
+            expertise of over 30 years.
           </h3>
           <div className="acc_dark_numbers">
             <div className="acc_number border_right">
               <h4>{data.field_text_1}</h4>
               <p>{data.number_text_1}+</p>
             </div>
-            <div className="acc_number border_right">
+            <div className="acc_number border_right border_right_none">
               <h4>{data.field_text_2}</h4>
-              <p>{data.number_text_2}+</p>
+              <p>{data.number_text_2} </p>
             </div>
             <div className="acc_number border_right">
               <h4>{data.field_text_3}</h4>
-              <p>{data.number_text_3}+</p>
+              <p>{data.number_text_3} </p>
             </div>
             <div className="acc_number ">
               <h4>{data.field_text_4}</h4>
-              <p>{data.number_text_4}+</p>
+              <p> {data.number_text_4} </p>
             </div>
           </div>
         </div>

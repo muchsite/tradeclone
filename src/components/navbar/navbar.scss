@@ -99,13 +99,13 @@
             text-decoration: none;
             border: none;
             margin-top: 0.5rem;
-            border-bottom: 1px solid $drop;
+            // border-bottom: 1px solid $drop;
             transition: 0.5s;
             color: #000;
             cursor: pointer;
             width: fit-content;
+            text-underline-offset: 3px;
             &:hover {
-              border-bottom: 1px solid $light;
               color: $light;
             }
           }
@@ -151,9 +151,10 @@
             }
             .ds_flex {
               display: flex;
-              justify-content: space-between;
+              justify-content: center;
               gap: 2rem;
               .import_finance {
+                max-width: 50%;
                 flex-shrink: 0;
                 ul {
                   display: flex;
@@ -169,6 +170,11 @@
           }
           .nav_link_absolute_domestic {
             // width: 25%;
+            ul {
+              display: flex;
+              flex-direction: column;
+              gap: 5px;
+            }
           }
         }
         .nav_link_absolute_second {
@@ -392,10 +398,12 @@
           margin-top: 2rem;
           display: flex;
           align-items: center;
-          width: 50vw;
+          width: 100%;
+          padding: 0 1rem;
           justify-content: space-between;
           cursor: pointer;
           transition: 0.5s;
+          font-size: 20px;
           &:hover {
             color: $light;
           }
@@ -406,13 +414,29 @@
           overflow: hidden;
           transition: 0.5s;
           margin-top: 1rem;
+          align-self: flex-start;
         }
         .ham_wraper_open {
           grid-template-rows: 1fr;
         }
         .ham_expand {
           min-height: 0;
-          background-color: black;
+          padding: 0 1rem;
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+          h3 {
+            color: $second;
+            font-size: 18px;
+          }
+          .nav_links_mobile_container {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            a {
+              color: #000;
+            }
+          }
         }
       }
     }
@@ -448,5 +472,23 @@
     &:hover {
       color: $main;
     }
+  }
+}
+
+.nav_height {
+  // height: 7rem;
+}
+.nav_career_mobile {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-top: 1rem;
+  a {
+    color: #000;
+  }
+}
+.find_image_cont_mobile {
+  img {
+    width: 3rem;
   }
 }

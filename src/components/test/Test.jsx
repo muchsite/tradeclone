@@ -54,6 +54,7 @@ const Test = ({ data }) => {
                   onMouseEnter={() => setHover(index)}
                   onMouseLeave={() => setHover(-1)}
                   onClick={() => setTestInfo(index)}
+                  key={index}
                 >
                   <img src={item.logo} alt="" />
                 </div>

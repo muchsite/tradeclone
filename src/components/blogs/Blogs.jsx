@@ -5,6 +5,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { BASE } from "../../App";
 import { AiFillPlusSquare, AiFillMinusSquare } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 const Blogs = ({ data }) => {
   const [hover, setHover] = useState(-1);
@@ -39,7 +40,12 @@ const Blogs = ({ data }) => {
   };
   return (
     <div className="blogs_container">
-      <h2>Our Blogs</h2>
+      <div className="blogs_title_container">
+        <h2>Our Blogs</h2>
+        <Link target="_blanck" className="blog_see" to={"/blogs"}>
+          See All
+        </Link>
+      </div>
       <div className="blogs_content slider-container">
         <Slider {...settings}>
           {data.map((item, index) => {
@@ -55,12 +61,12 @@ const Blogs = ({ data }) => {
                 <div className={`blog_hover ${hover == index && "top_0"}`}>
                   <h3>{item.title}</h3>
                   <p>{item.details}</p>
-                  <button>Learn More</button>
+                  <Link to={`/blog/${item.slug}`}>Learn More</Link>
                 </div>
                 <div className={`blog_click ${click == index && "top_0"}`}>
                   <h3>{item.title}</h3>
                   <p>{item.details}</p>
-                  <button>Learn More</button>
+                  <Link to={`/blog/${item.slug}`}>Learn More</Link>
                 </div>
                 <div className="blog_click_container">
                   <AiFillPlusSquare

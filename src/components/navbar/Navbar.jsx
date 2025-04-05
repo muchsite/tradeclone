@@ -57,16 +57,18 @@ const Navbar = ({ setOpenC, openC, setCalc }) => {
         setTr1(p.resource);
         setTr2(p.company);
         const links = res.data.data.product_navbar;
-
+        setImport([]);
+        setExport([]);
+        setDomestic([]);
         for (let i = 0; i < links.length; i++) {
           if (links[i].category.sub_category === "Import Finance") {
-            importLink.push(links[i]);
+            setImport((prev) => [...prev, links[i]]);
           }
           if (links[i].category.sub_category === "Export Finance") {
-            exportLink.push(links[i]);
+            setExport((prev) => [...prev, links[i]]);
           }
           if (links[i].category.sub_category === "Domestic Finance") {
-            domesticLink.push(links[i]);
+            setDomestic((prev) => [...prev, links[i]]);
           }
         }
       } catch (error) {
@@ -248,7 +250,7 @@ const Navbar = ({ setOpenC, openC, setCalc }) => {
                   {tr2 && <p>{tr2}</p>}
                 </div>
                 <div className="nav_company_second">
-                  <div className="nav_about">
+                  <div className="nav_career">
                     <h3>About</h3>
                     <p>
                       We are revolutionizing Trade finance accessibility. Learn
@@ -262,14 +264,16 @@ const Navbar = ({ setOpenC, openC, setCalc }) => {
                       Become a partner of a rapidly expanding team of experts
                       and visionaries today.
                     </p>
-                    <button>Transform with TradeFlair</button>
+                    <Link>Transform with TradeFlair</Link>
                   </div>
-                  <div className="nav_contact">
+                  <div className="nav_career">
                     <h3>Contact</h3>
                     <p>Connect with a TradeFlair expert today.</p>
                     <p>Trade@tradeflaircorporate.com</p>
                     <p>+91-9458703128</p>
-                    <Link to="/contact">Contact Us</Link>
+                    <Link to="/contact" onClick={() => setOpaenHam(false)}>
+                      Contact Us
+                    </Link>
                   </div>
                 </div>
                 <div className="nav_company_third">
@@ -318,69 +322,42 @@ const Navbar = ({ setOpenC, openC, setCalc }) => {
                   }`}
                 >
                   <div className="ham_expand">
-                    <p>
-                      Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                      Quis, consequatur laborum dolore, voluptatibus alias,
-                      explicabo quod quasi molestiae non praesentium
-                      consequuntur! Deserunt voluptatibus vero quisquam
-                      quibusdam, corrupti a error dolorum!
-                    </p>
-                    <p>
-                      Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                      Quis, consequatur laborum dolore, voluptatibus alias,
-                      explicabo quod quasi molestiae non praesentium
-                      consequuntur! Deserunt voluptatibus vero quisquam
-                      quibusdam, corrupti a error dolorum!
-                    </p>
-                    <p>
-                      Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                      Quis, consequatur laborum dolore, voluptatibus alias,
-                      explicabo quod quasi molestiae non praesentium
-                      consequuntur! Deserunt voluptatibus vero quisquam
-                      quibusdam, corrupti a error dolorum!
-                    </p>
-                    <p>
-                      Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                      Quis, consequatur laborum dolore, voluptatibus alias,
-                      explicabo quod quasi molestiae non praesentium
-                      consequuntur! Deserunt voluptatibus vero quisquam
-                      quibusdam, corrupti a error dolorum!
-                    </p>
-                    <p>
-                      Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                      Quis, consequatur laborum dolore, voluptatibus alias,
-                      explicabo quod quasi molestiae non praesentium
-                      consequuntur! Deserunt voluptatibus vero quisquam
-                      quibusdam, corrupti a error dolorum!
-                    </p>
-                    <p>
-                      Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                      Quis, consequatur laborum dolore, voluptatibus alias,
-                      explicabo quod quasi molestiae non praesentium
-                      consequuntur! Deserunt voluptatibus vero quisquam
-                      quibusdam, corrupti a error dolorum!
-                    </p>
-                    <p>
-                      Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                      Quis, consequatur laborum dolore, voluptatibus alias,
-                      explicabo quod quasi molestiae non praesentium
-                      consequuntur! Deserunt voluptatibus vero quisquam
-                      quibusdam, corrupti a error dolorum!
-                    </p>
-                    <p>
-                      Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                      Quis, consequatur laborum dolore, voluptatibus alias,
-                      explicabo quod quasi molestiae non praesentium
-                      consequuntur! Deserunt voluptatibus vero quisquam
-                      quibusdam, corrupti a error dolorum!
-                    </p>
-                    <p>
-                      Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                      Quis, consequatur laborum dolore, voluptatibus alias,
-                      explicabo quod quasi molestiae non praesentium
-                      consequuntur! Deserunt voluptatibus vero quisquam
-                      quibusdam, corrupti a error dolorum!
-                    </p>
+                    <div>
+                      <h3>SOLUTIONS</h3>
+                      <p>{tr}</p>
+                    </div>
+                    <div>
+                      <h3>INTERNATIONAL</h3>
+                      <div className="nav_links_mobile_container">
+                        {[...exportLink, ...importLink].map((item, index) => {
+                          return (
+                            <Link
+                              key={item.id}
+                              onClick={() => setOpaenHam(false)}
+                              to={`/product/${index}`}
+                            >
+                              {item.title}
+                            </Link>
+                          );
+                        })}
+                      </div>
+                    </div>
+                    <div>
+                      <h3>DOMESTIC</h3>
+                      <div className="nav_links_mobile_container">
+                        {domesticLink.map((item, index) => {
+                          return (
+                            <Link
+                              key={item.id}
+                              onClick={() => setOpaenHam(false)}
+                              to={`/product/${index}`}
+                            >
+                              {item.title}
+                            </Link>
+                          );
+                        })}
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -398,13 +375,43 @@ const Navbar = ({ setOpenC, openC, setCalc }) => {
                   }`}
                 >
                   <div className="ham_expand">
-                    <p>
-                      Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                      Quis, consequatur laborum dolore, voluptatibus alias,
-                      explicabo quod quasi molestiae non praesentium
-                      consequuntur! Deserunt voluptatibus vero quisquam
-                      quibusdam, corrupti a error dolorum!
-                    </p>
+                    <div>
+                      <h3>Enhance Cash Flows</h3>
+                      <p>{tr1}</p>
+                    </div>
+                    <div className="nav_links_mobile_container">
+                      <h3>Publications</h3>
+                      <Link onClick={() => setOpaenHam(false)} to="/blogs">
+                        Blogs
+                      </Link>
+                      <Link onClick={() => setOpaenHam(false)} to="/cases">
+                        Case Stdies
+                      </Link>
+                      <Link onClick={() => setOpaenHam(false)} to="/faq">
+                        FAQs
+                      </Link>
+                    </div>
+                    <div className="nav_links_mobile_container">
+                      <h3>Cost Calculators</h3>
+                      <Link
+                        to="/calculator"
+                        onClick={() => {
+                          setCalc("d");
+                          setOpaenHam(false);
+                        }}
+                      >
+                        Domestic Finance
+                      </Link>
+                      <Link
+                        to="/calculator"
+                        onClick={() => {
+                          setCalc("i");
+                          setOpaenHam(false);
+                        }}
+                      >
+                        Import / Export Finance
+                      </Link>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -422,13 +429,47 @@ const Navbar = ({ setOpenC, openC, setCalc }) => {
                   }`}
                 >
                   <div className="ham_expand">
-                    <p>
-                      Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                      Quis, consequatur laborum dolore, voluptatibus alias,
-                      explicabo quod quasi molestiae non praesentium
-                      consequuntur! Deserunt voluptatibus vero quisquam
-                      quibusdam, corrupti a error dolorum!
-                    </p>
+                    <div>
+                      <h3>Our Vision</h3>
+                      <p>{tr2}</p>
+                    </div>
+                    <div className="">
+                      <div className="nav_career_mobile">
+                        <h3>About</h3>
+                        <p>
+                          We are revolutionizing Trade finance accessibility.
+                          Learn more the TradeFlair
+                        </p>
+                        <Link to="/about">Learn More</Link>
+                      </div>
+                      <div className="nav_career_mobile">
+                        <h3>Career</h3>
+                        <p>
+                          Become a partner of a rapidly expanding team of
+                          experts and visionaries today.
+                        </p>
+                        <Link to="/about">Transform with TradeFlair</Link>
+                      </div>
+                      <div className="nav_career_mobile">
+                        <h3>Contact</h3>
+                        <p>Connect with a TradeFlair expert today.</p>
+                        <p>Trade@tradeflaircorporate.com</p>
+                        <p>+91-9458703128</p>
+                        <Link to="/contact">Contact Us</Link>
+                      </div>
+                    </div>
+                    <div className="nav_company_third_mobile">
+                      <h3>Where to find us</h3>
+                      <div className="find_image_cont_mobile">
+                        <img src={of} alt="" />
+                        <div>
+                          <p>
+                            1st Floor, G-31, Block G, Sector 3, Noida 201301
+                          </p>
+                          <p>PINCODE - 201301</p>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -436,6 +477,7 @@ const Navbar = ({ setOpenC, openC, setCalc }) => {
           </div>
         </div>
       </nav>
+      <div className="nav_height"></div>
     </>
   );
 };

@@ -3,6 +3,7 @@ import about from "../../images/about.svg";
 import "./about.scss";
 const About = () => {
   const [activeAbout, setActiveAbout] = useState(0);
+
   return (
     <div className="about_container">
       <div className="about_hero">
@@ -51,6 +52,14 @@ const About = () => {
           >
             Leadship
           </div>
+        </div>
+        <div className="about_nav_content">
+          {activeAbout == 0 && (
+            <div className="about_nav_content">
+              <img src={about} alt="" />
+              <div className=""></div>
+            </div>
+          )}
         </div>
       </div>
     </div>

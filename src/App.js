@@ -1,4 +1,4 @@
-import { BrowserRouter, HashRouter, Route, Routes } from "react-router-dom";
+import { HashRouter, Route, Routes } from "react-router-dom";
 import "./App.scss";
 import "./global.scss";
 import "animate.css";
@@ -11,7 +11,7 @@ import Cases from "./pages/Cases/Cases";
 import Blog from "./pages/Blog/Blog";
 import SingleCase from "./pages/SingleCase/SingleCase";
 import Product from "./pages/product/Product";
-import { useRef, useState } from "react";
+import { useState } from "react";
 import Terms from "./pages/terms/Terms";
 import Refunds from "./pages/terms/Refunds";
 import Disc from "./pages/terms/Disc";
