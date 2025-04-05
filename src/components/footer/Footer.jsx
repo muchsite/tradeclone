@@ -53,7 +53,7 @@ const Footer = () => {
         </div>
         <div className="footer_links">
           <div className="footer_links_item">
-            <h3>ImportFinance</h3>
+            <h3>Import Finance</h3>
             <div className="footer_import_finance_container">
               {importLink.map((item) => {
                 return (

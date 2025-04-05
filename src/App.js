@@ -23,6 +23,7 @@ import ContactPage from "./pages/contact/ContactPage";
 import "react-multi-carousel/lib/styles.css";
 import Faq from "./components/Faq/Faq";
 import About from "./pages/about/About";
+import Career from "./pages/career/Career";
 export const BASE = "https://backend.tradeflaircorporate.com";
 function App() {
   const [openC, setOpenC] = useState(false);
@@ -49,6 +50,7 @@ function App() {
         <Route element={<ContactPage />} path="/contact" />
         <Route element={<Faq />} path="/faq" />
         <Route element={<About />} path="/about" />
+        <Route element={<Career />} path="/career" />
       </Routes>
       <Footer />
     </HashRouter>

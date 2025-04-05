@@ -474,7 +474,13 @@
     }
   }
 }
-
+.link_publications_benchark {
+  margin-top: 1rem;
+  p {
+    max-width: 20rem;
+    margin-bottom: 0.5rem;
+  }
+}
 .nav_height {
   // height: 7rem;
 }

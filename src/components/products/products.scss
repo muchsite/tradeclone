@@ -68,9 +68,18 @@
         }
       }
       img {
-        width: clamp(10vw, 20vw, 20rem);
-        height: clamp(10vw, 20vw, 20rem);
+        height: 60%;
         object-fit: cover;
+      }
+      @media (max-width: 1300px) {
+        img {
+          height: 40%;
+        }
+      }
+      @media (max-width: 599px) {
+        img {
+          height: 50%;
+        }
       }
       .products_info {
         margin-top: 1rem;

@@ -10,7 +10,7 @@ import { IoMdArrowDropdown } from "react-icons/io";
 import { MdEmail } from "react-icons/md";
 import { Link, NavLink } from "react-router-dom";
 import logo from "../../images/logo.svg";
-import of from "../../images/city.svg";
+import of from "../../images/city.jpeg";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { FaWindowClose } from "react-icons/fa";
 import { IoIosArrowDropdownCircle } from "react-icons/io";
@@ -205,11 +205,23 @@ const Navbar = ({ setOpenC, openC, setCalc }) => {
                   <h3>Enhance Cash Flows</h3>
                   {tr1 && <p>{tr1}</p>}
                 </div>
-                <div className="link_publications">
-                  <h3>Publications</h3>
-                  <Link to="/blogs">Blogs</Link>
-                  <Link to="/cases">Case Stdies</Link>
-                  <Link to="/faq">FAQs</Link>
+                <div>
+                  <div className="link_publications">
+                    <h3>Publications</h3>
+                    <Link to="/blogs">Blogs</Link>
+                    <Link to="/cases">Case Stdies</Link>
+                    <Link to="/faq">FAQs</Link>
+                  </div>
+                  <div>
+                    <div className="link_publications_benchark">
+                      <h3>Benchmark Rates</h3>
+                      <p>
+                        Explore latest benchmark rates of the world's leading
+                        currencies: the US Dollar, Euro, Japanese Yen
+                      </p>
+                      <Link to="">Explore rates</Link>
+                    </div>
+                  </div>
                 </div>
                 <div className="link_calc">
                   <h3>Cost Calculators</h3>
@@ -264,7 +276,7 @@ const Navbar = ({ setOpenC, openC, setCalc }) => {
                       Become a partner of a rapidly expanding team of experts
                       and visionaries today.
                     </p>
-                    <Link>Transform with TradeFlair</Link>
+                    <Link to="/career">Transform with TradeFlair</Link>
                   </div>
                   <div className="nav_career">
                     <h3>Contact</h3>
