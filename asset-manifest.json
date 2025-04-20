@@ -1,8 +1,9 @@
 {
   "files": {
-    "main.css": "/tradeclone/static/css/main.c17e1a67.css",
-    "main.js": "/tradeclone/static/js/main.1dbcf8e4.js",
+    "main.css": "/tradeclone/static/css/main.e90313df.css",
+    "main.js": "/tradeclone/static/js/main.566d9fa2.js",
     "static/media/about.svg": "/tradeclone/static/media/about.f92d16f7fe2902fb3f8af2d4b66d6cde.svg",
+    "static/media/landingPhoto.jpg": "/tradeclone/static/media/landingPhoto.4e2f82aea44592a8d0ec.jpg",
     "static/media/7.png": "/tradeclone/static/media/7.aaaf749874b253ecab65.png",
     "static/media/process.svg": "/tradeclone/static/media/process.a4193a94939b8cb3a459267edc7a997d.svg",
     "static/media/9.png": "/tradeclone/static/media/9.171731b2615f4b01fcaa.png",
@@ -38,13 +39,9 @@
     "static/media/test1.svg": "/tradeclone/static/media/test1.c06ea95d031486a3e8fa3335bdba9c42.svg",
     "static/media/revicons.woff": "/tradeclone/static/media/revicons.e8746a624ed098489406.woff",
     "static/media/test5.svg": "/tradeclone/static/media/test5.995ccdd7403c3cf7b8ce27a674402af0.svg",
-    "static/media/dolar.svg": "/tradeclone/static/media/dolar.5d9d9575b8c48cc6a6902601ac28f8e7.svg",
     "static/media/money.svg": "/tradeclone/static/media/money.311e58ff82c560e646018b68248d3517.svg",
-    "static/media/ru.svg": "/tradeclone/static/media/ru.185c50e75e6f99c7311a7c9d8fb4f56c.svg",
-    "static/media/eu.svg": "/tradeclone/static/media/eu.fa9127ee62b13d2823754471c1a775f4.svg",
     "static/media/test2.svg": "/tradeclone/static/media/test2.90537a93d42aaa072710fb664390905c.svg",
     "static/media/team.svg": "/tradeclone/static/media/team.c2c06f32f9132d3563db513cb09d96ef.svg",
-    "static/media/yen.svg": "/tradeclone/static/media/yen.c13bb5c987dc49b88b69bd52ef7d7bca.svg",
     "static/media/footerlogo.svg": "/tradeclone/static/media/footerlogo.8b50f3addb8a852a6382d3c5fe984269.svg",
     "static/media/logo.svg": "/tradeclone/static/media/logo.ac479935e6ed7c8a44f3fcd789df5ca5.svg",
     "static/media/slick.svg": "/tradeclone/static/media/slick.2630a3e3eab21c607e21.svg",
@@ -57,11 +54,11 @@
     "index.html": "/tradeclone/index.html",
     "static/media/close.svg": "/tradeclone/static/media/close.9bb6ecec6faa0c4e975b3e7eb211d177.svg",
     "static/media/yes.svg": "/tradeclone/static/media/yes.4ffc97f12c14bc4bb5cbc9f916b61887.svg",
-    "main.c17e1a67.css.map": "/tradeclone/static/css/main.c17e1a67.css.map",
-    "main.1dbcf8e4.js.map": "/tradeclone/static/js/main.1dbcf8e4.js.map"
+    "main.e90313df.css.map": "/tradeclone/static/css/main.e90313df.css.map",
+    "main.566d9fa2.js.map": "/tradeclone/static/js/main.566d9fa2.js.map"
   },
   "entrypoints": [
-    "static/css/main.c17e1a67.css",
-    "static/js/main.1dbcf8e4.js"
+    "static/css/main.e90313df.css",
+    "static/js/main.566d9fa2.js"
   ]
 }
