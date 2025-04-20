@@ -7,9 +7,9 @@ import Contact from "../../components/contact/Contact";
 import { useInView } from "react-intersection-observer";
 import { useNavigate, useParams } from "react-router-dom";
 import FaqC from "../../components/Faq/FaqC";
-import LoadingForm from "../../components/loading/LoadingForm";
-import LoadingSmall from "../../components/loading/LoadingSmall";
 import LoadingSpiner from "../../components/loading/LoadingSpiner";
+import { FaCommentDollar, FaCalculator } from "react-icons/fa";
+import { FaSackDollar } from "react-icons/fa6";
 
 const Product = () => {
   const [solutions, setSolutions] = useState([]);
@@ -25,6 +25,7 @@ const Product = () => {
   const handleChange = (e) => {
     const newId = e.target.value;
     setSelected(newId);
+    setRes({});
     navigate(`/product/${newId}`);
   };
 
@@ -120,7 +121,7 @@ const Product = () => {
   const conRef = useRef();
   const faRef = useRef();
   const scrollTo = (ar) => {
-    if (ar == "sol") {
+    if (ar === "sol") {
       if (solRef.current) {
         const top =
           solRef.current.getBoundingClientRect().top +
@@ -130,7 +131,7 @@ const Product = () => {
         window.scrollTo({ top: top, behavior: "smooth" });
       }
     }
-    if (ar == "proc") {
+    if (ar === "proc") {
       if (procRef.current) {
         const top =
           procRef.current.getBoundingClientRect().top +
@@ -140,7 +141,7 @@ const Product = () => {
         window.scrollTo({ top: top, behavior: "smooth" });
       }
     }
-    if (ar == "ben") {
+    if (ar === "ben") {
       if (benRef.current) {
         const top =
           benRef.current.getBoundingClientRect().top +
@@ -150,7 +151,7 @@ const Product = () => {
         window.scrollTo({ top: top, behavior: "smooth" });
       }
     }
-    if (ar == "con") {
+    if (ar === "con") {
       if (conRef.current) {
         const top =
           conRef.current.getBoundingClientRect().top +
@@ -160,7 +161,7 @@ const Product = () => {
         window.scrollTo({ top: top, behavior: "smooth" });
       }
     }
-    if (ar == "fa") {
+    if (ar === "fa") {
       if (faRef.current) {
         const top =
           faRef.current.getBoundingClientRect().top +
@@ -217,154 +218,187 @@ const Product = () => {
 
   return (
     <div className="product_container">
-      <div className="product_hero">
-        <h2>{d.title}</h2>
-        <p>{d.description}</p>
-        <button>Rates starts from 1.00% p.a.</button>
-      </div>
-      <div className="product_calc">
-        <form onSubmit={submit}>
-          <div className="product_clac_lef">
-            <div className="product_calc_top">
-              <div className="product_calc_input">
-                <label htmlFor="">Product</label>
-                <select required value={selected} onChange={handleChange}>
-                  {productMap.map((item, index) => {
-                    return (
-                      <option value={item.id} key={index}>
-                        {item.product}
-                      </option>
-                    );
-                  })}
-                </select>
-              </div>
-              <div className="product_calc_input">
-                <label htmlFor="">Currency</label>
-                <select
-                  required
-                  onChange={(e) => setCurrency(e.currentTarget.value)}
-                  value={currency}
-                  className={`${"currency" in errors && "error_input"}`}
-                >
-                  <option value="USD">USD</option>
-                  <option value="INR">INR</option>
-                  <option value="EUR">EURO</option>
-                  <option value="JPY">JPY</option>
-                </select>
-              </div>
-              <div className="product_calc_input">
-                <label htmlFor="">Amount</label>
-                <input
-                  type="number"
-                  required
-                  onChange={(e) => setAmount(e.currentTarget.value)}
-                  value={amount}
-                  className={`${"amount" in errors && "error_input"}`}
-                />
-              </div>
-              <div className="product_calc_input">
-                <label htmlFor="">Tenor</label>
-                <input
-                  type="number"
-                  required
-                  onChange={(e) => setTenor(e.currentTarget.value)}
-                  value={tenor}
-                  className={`${"tenor" in errors && "error_input"}`}
-                />
-              </div>
-            </div>
-            <div className="product_calc_bottom">
-              <div className="product_calc_input">
-                <label htmlFor="">Importer Name</label>
-                <input
-                  type="text"
-                  required
-                  onChange={(e) => setCompanyName(e.currentTarget.value)}
-                  value={company_name}
-                />
-              </div>
-              <div className="product_calc_input">
-                <label htmlFor="">Phone Number</label>
-                <input
-                  type="number"
-                  required
-                  onChange={(e) => setPhoneNumber(e.currentTarget.value)}
-                  className={`${"phone_number" in errors && "error_input"}`}
-                  value={phone_number}
-                />
-              </div>
-              <div className="product_calc_input">
-                <label htmlFor="">Email</label>
-                <input
-                  type="email"
-                  required
-                  onChange={(e) => setEmail(e.currentTarget.value)}
-                  className={`${"email" in errors && "error_input"}`}
-                  value={email}
-                />
-              </div>
-            </div>
-            <div className="product_btn_container">
-              <button>FIND BEST RATE</button>
-              {sending && <LoadingSpiner />}
-              <div className="error_text">
-                {errors &&
-                  Object.entries(errors).map(([field, messages]) =>
-                    messages.map((msg, i) => <p key={`${field}-${i}`}>{msg}</p>)
-                  )}
-              </div>
-            </div>
+      <div className="product_hero_container">
+        <div className="product_hero_container_content">
+          <div className="product_hero">
+            <h2>{d.title}</h2>
+            <p>{d.description}</p>
           </div>
-        </form>
+          <div className="product_calc">
+            <form onSubmit={submit}>
+              <div className="product_clac_lef">
+                <button className="reset_button">
+                  Rates starts from 1.00% p.a.
+                </button>
+                <div className="product_calc_top">
+                  <div className="product_calc_input">
+                    <label htmlFor="">Product</label>
+                    <select required value={selected} onChange={handleChange}>
+                      {productMap.map((item, index) => {
+                        return (
+                          <option value={item.id} key={index}>
+                            {item.product}
+                          </option>
+                        );
+                      })}
+                    </select>
+                  </div>
+                  <div className="product_calc_input">
+                    <label htmlFor="">Currency</label>
+                    <select
+                      required
+                      onChange={(e) => setCurrency(e.currentTarget.value)}
+                      value={currency}
+                      className={`${"currency" in errors && "error_input"}`}
+                    >
+                      <option value="USD">USD</option>
+                      <option value="INR">INR</option>
+                      <option value="EUR">EURO</option>
+                      <option value="JPY">JPY</option>
+                    </select>
+                  </div>
+                </div>
+                <div className="product_calc_top">
+                  <div className="product_calc_input">
+                    <label htmlFor="">Amount</label>
+                    <input
+                      type="number"
+                      required
+                      onChange={(e) => setAmount(e.currentTarget.value)}
+                      value={amount}
+                      className={`${"amount" in errors && "error_input"}`}
+                    />
+                  </div>
+                  <div className="product_calc_input">
+                    <label htmlFor="">Tenor</label>
+                    <input
+                      type="number"
+                      required
+                      onChange={(e) => setTenor(e.currentTarget.value)}
+                      value={tenor}
+                      className={`${"tenor" in errors && "error_input"}`}
+                    />
+                  </div>
+                </div>
+                <div className="product_calc_bottom">
+                  <div className="product_calc_input">
+                    <label htmlFor="">Importer Name</label>
+                    <input
+                      type="text"
+                      required
+                      onChange={(e) => setCompanyName(e.currentTarget.value)}
+                      value={company_name}
+                    />
+                  </div>
+                  <div className="product_calc_input">
+                    <label htmlFor="">Phone Number</label>
+                    <input
+                      type="number"
+                      required
+                      onChange={(e) => setPhoneNumber(e.currentTarget.value)}
+                      className={`${"phone_number" in errors && "error_input"}`}
+                      value={phone_number}
+                    />
+                  </div>
+                  <div className="product_calc_input">
+                    <label htmlFor="">Email</label>
+                    <input
+                      type="email"
+                      required
+                      onChange={(e) => setEmail(e.currentTarget.value)}
+                      className={`${"email" in errors && "error_input"}`}
+                      value={email}
+                    />
+                  </div>
+                </div>
+                <div className="product_btn_container">
+                  <button>FIND BEST RATE</button>
+                  {sending && <LoadingSpiner />}
+                  <div className="error_text">
+                    {errors &&
+                      Object.entries(errors).map(([field, messages]) =>
+                        messages.map((msg, i) => (
+                          <p key={`${field}-${i}`}>{msg}</p>
+                        ))
+                      )}
+                  </div>
+                </div>
+              </div>
+            </form>
 
-        <div className="product_calc_riht">
-          <h2>INTEREST RATE</h2>
-          <div className="product_calc_div">
-            <p>Benchmark Rate</p>
-            <h3>{res["Benchmark Rate"]}</h3>
-          </div>
-          <div className="product_calc_div">
-            <p>Financing Spread</p>
-            <h3>{res["financing Spread"]}</h3>
-          </div>
-          <div className="product_calc_div">
-            <p>Total Interest Rate</p>
-            <h3>{res["total interest rate"]}</h3>
-          </div>
-          <div className="product_calc_right_buttons">
-            <button>Get Quote</button>
-            <button>Calculate Cost</button>
+            <div className="product_calc_right">
+              <h2>INTEREST RATE</h2>
+              <div className="product_calc_div">
+                <FaSackDollar className="product_calc_div_icon" />
+                <div>
+                  <p>Benchmark Rate 3-Month SOFR</p>
+                  {res["Benchmark Rate"] ? (
+                    <h3>
+                      {res["Benchmark Rate"]} <span>p.a</span>
+                    </h3>
+                  ) : (
+                    <h3>--</h3>
+                  )}
+                </div>
+              </div>
+              <div className="product_calc_div">
+                <FaCommentDollar className="product_calc_div_icon" />
+                <div>
+                  <p>Financing Spread</p>
+                  {res["financing Spread"] ? (
+                    <h3>
+                      {res["financing Spread"]} <span>p.a</span>
+                    </h3>
+                  ) : (
+                    <h3>--</h3>
+                  )}
+                </div>
+              </div>
+              <div className="product_calc_div">
+                <FaCalculator className="product_calc_div_icon" />
+                <div>
+                  <p>Total Interest Rate</p>
+                  {res["total interest rate"] ? (
+                    <h3>
+                      {res["total interest rate"]} <span>p.a</span>
+                    </h3>
+                  ) : (
+                    <h3>--</h3>
+                  )}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
       <div className="sticky_nav_container">
         <div className="sticky_nav">
           <button
-            className={`sticky_btn ${active == "sol" && "sticky_btn_active"}`}
+            className={`sticky_btn ${active === "sol" && "sticky_btn_active"}`}
             onClick={() => scrollTo("sol")}
           >
             Solutions
           </button>
           <button
-            className={`sticky_btn ${active == "proc" && "sticky_btn_active"}`}
+            className={`sticky_btn ${active === "proc" && "sticky_btn_active"}`}
             onClick={() => scrollTo("proc")}
           >
             Process
           </button>
           <button
-            className={`sticky_btn ${active == "ben" && "sticky_btn_active"}`}
+            className={`sticky_btn ${active === "ben" && "sticky_btn_active"}`}
             onClick={() => scrollTo("ben")}
           >
             Benefits
           </button>
           <button
-            className={`sticky_btn ${active == "con" && "sticky_btn_active"}`}
+            className={`sticky_btn ${active === "con" && "sticky_btn_active"}`}
             onClick={() => scrollTo("con")}
           >
             Contact
           </button>
           <button
-            className={`sticky_btn ${active == "fa" && "sticky_btn_active"}`}
+            className={`sticky_btn ${active === "fa" && "sticky_btn_active"}`}
             onClick={() => scrollTo("fa")}
           >
             F.A.Q

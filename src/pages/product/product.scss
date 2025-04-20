@@ -6,52 +6,185 @@
     padding-top: 7rem;
   }
 }
-.product_hero {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  text-align: center;
-  h2 {
-    color: $main;
-    font-size: 3rem;
-    @include breack_down(large) {
-      font-size: 2rem;
-    }
-  }
-  h3 {
-    color: $main;
-    font-size: 1.2rem;
-    @include breack_down(large) {
-      font-size: 1rem;
-    }
-  }
-  p {
-    width: 70%;
-    color: $second;
-    @include breack_down(large) {
-      font-size: 0.75rem;
-      width: 90%;
-    }
-  }
-  button {
-    border: none;
-    padding: 1rem 1.5rem;
-    background-color: $light;
-    color: #fff;
+.product_hero_container {
+  background-color: $light;
+  padding: 4rem;
+  .product_hero_container_content {
+    background-color: #fff;
+    padding: 4rem;
     border-radius: 10px;
-    margin-top: 2rem;
-    cursor: pointer;
-    outline: 1px solid $light;
-    transition: 0.5s;
-    @include breack_down(large) {
-      padding: 0.5rem 1rem;
-      font-size: 0.75rem;
+    .product_hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      h2 {
+        color: $main;
+        font-size: 3rem;
+        @include breack_down(large) {
+          font-size: 2rem;
+        }
+      }
+      h3 {
+        color: $main;
+        font-size: 1.2rem;
+        @include breack_down(large) {
+          font-size: 1rem;
+        }
+      }
+      p {
+        color: $second;
+        @include breack_down(large) {
+          font-size: 0.75rem;
+        }
+      }
     }
-    &:hover {
-      background-color: transparent;
-      color: $light;
+    .product_calc {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      padding: 2rem 0;
+
+      .product_clac_lef {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        .reset_button {
+          border: none;
+          padding: 0.5rem 1rem;
+          width: 50%;
+          background-color: $light;
+          color: #fff;
+          border-radius: 10px;
+          margin-top: 2rem;
+          cursor: pointer;
+          outline: 1px solid $light;
+          transition: 0.5s;
+          @include breack_down(large) {
+            padding: 0.5rem 1rem;
+            font-size: 0.75rem;
+          }
+          &:hover {
+            background-color: transparent;
+            color: $light;
+          }
+        }
+        .product_calc_input {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          width: 100%;
+          select {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid $main;
+            border-radius: 5px;
+            background-color: #fff;
+          }
+          input {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid $main;
+            border-radius: 5px;
+          }
+          input:focus {
+            outline: 1px $main solid;
+          }
+          .error_input {
+            border: 1px solid $error;
+            &:focus {
+              outline: none !important;
+              box-shadow: none !important;
+            }
+          }
+        }
+        .product_calc_top,
+        .product_calc_bottom {
+          display: flex;
+          gap: 1rem;
+          justify-content: space-between;
+        }
+        .product_calc_bottom {
+          .product_calc_input {
+            width: 30%;
+          }
+          input {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid $main;
+            border-radius: 5px;
+          }
+          input:focus,
+          select:focus {
+            outline: 1px $main solid;
+          }
+        }
+        .product_btn_container {
+          gap: 1rem;
+          button {
+            background-color: $main;
+            padding: 0.7rem;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            transition: 0.5s;
+            border-radius: 5px;
+            &:hover {
+              outline: 1px solid $main;
+              background-color: transparent;
+              color: $main;
+            }
+          }
+          display: flex;
+          align-items: center;
+          position: relative;
+          .error_text {
+            position: absolute;
+            bottom: 0;
+            translate: 0 120%;
+            color: $error;
+            width: 40rem;
+            display: flex;
+            flex-direction: column;
+          }
+        }
+      }
+      .product_calc_right {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 1rem;
+        width: 30%;
+        background-color: $main;
+        padding: 2rem;
+        border-radius: 10px;
+
+        h2 {
+          text-align: center;
+          color: #fff;
+        }
+        .product_calc_div {
+          display: flex;
+          gap: 2rem;
+          align-items: flex-start;
+          color: #fff;
+          .product_calc_div_icon {
+            font-size: 25px;
+            flex-shrink: 0;
+            color: #a3e7fc;
+          }
+          p,
+          span {
+            color: #e0e0e0;
+            font-size: 16px;
+          }
+          h3 {
+            color: #fff;
+            font-size: 20px;
+          }
+        }
+      }
     }
   }
 }
@@ -59,7 +192,6 @@
   padding: 2rem;
   display: flex;
   align-items: center;
-  gap: 4rem;
   background-color: #fff;
   @include breack_down(large) {
     flex-direction: column-reverse;
@@ -72,6 +204,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
+    width: 50%;
     @include breack_down(large) {
       grid-template-columns: 1fr;
     }
@@ -93,6 +226,11 @@
     align-items: center;
     gap: 2rem;
     text-align: center;
+    width: 50%;
+    padding-left: 4rem;
+    @include breack_down(large) {
+      padding-left: 0;
+    }
     h3 {
       color: $main;
     }
@@ -141,9 +279,10 @@
   .process_body {
     display: flex;
     align-items: center;
-    gap: 3rem;
+    gap: 10rem;
     @include breack_down(large) {
       flex-direction: column;
+      gap: 3rem;
     }
     img {
       @include breack_down(large) {
@@ -252,132 +391,5 @@
   .sticky_btn_active {
     background-color: $main;
     color: #fff;
-  }
-}
-.product_calc {
-  display: flex;
-  justify-content: space-between;
-  padding: 3rem;
-  .product_clac_lef {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    .product_calc_input {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      select {
-        width: 10rem;
-        padding: 0.5rem;
-        border: 1px solid $main;
-        border-radius: 5px;
-        background-color: #fff;
-      }
-      input {
-        width: 10rem;
-        padding: 0.5rem;
-        border: 1px solid $main;
-        border-radius: 5px;
-      }
-      input:focus {
-        outline: 1px $main solid;
-      }
-      .error_input {
-        border: 1px solid $error;
-        &:focus {
-          outline: none !important;
-          box-shadow: none !important;
-        }
-      }
-    }
-    .product_calc_top,
-    .product_calc_bottom {
-      display: flex;
-      gap: 1rem;
-      justify-content: space-between;
-    }
-    .product_calc_bottom {
-      .product_calc_input {
-        width: 30%;
-      }
-      input {
-        width: 100%;
-        padding: 0.5rem;
-        border: 1px solid $main;
-        border-radius: 5px;
-      }
-      input:focus,
-      select:focus {
-        outline: 1px $main solid;
-      }
-    }
-    .product_btn_container {
-      gap: 1rem;
-      button {
-        background-color: $main;
-        padding: 0.7rem;
-        color: #fff;
-        border: none;
-        cursor: pointer;
-        transition: 0.5s;
-        border-radius: 5px;
-        &:hover {
-          outline: 1px solid $main;
-          background-color: transparent;
-          color: $main;
-        }
-      }
-      display: flex;
-      align-items: center;
-      position: relative;
-      .error_text {
-        position: absolute;
-        bottom: 0;
-        translate: 0 120%;
-        color: $error;
-        width: 40rem;
-        display: flex;
-        flex-direction: column;
-      }
-    }
-  }
-  .product_calc_riht {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 1rem;
-    width: 30%;
-    h2 {
-      text-align: center;
-      color: $main;
-    }
-    .product_calc_div {
-      display: flex;
-      gap: 2rem;
-      align-items: center;
-      justify-content: space-between;
-      h3 {
-        color: $main;
-      }
-    }
-    .product_calc_right_buttons {
-      display: flex;
-      justify-content: space-between;
-      button {
-        background-color: $main;
-        padding: 0.7rem;
-        color: #fff;
-        border: none;
-        cursor: pointer;
-        transition: 0.5s;
-        border-radius: 5px;
-        width: 45%;
-        &:hover {
-          outline: 1px solid $main;
-          background-color: transparent;
-          color: $main;
-        }
-      }
-    }
   }
 }
