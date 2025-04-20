@@ -2,14 +2,15 @@ import React, { useEffect, useRef, useState } from "react";
 import "./product.scss";
 import axios from "axios";
 import { BASE } from "../../App";
-
 import pImage from "../../images/process.svg";
 import Contact from "../../components/contact/Contact";
-import Faq from "../../components/Faq/Faq";
 import { useInView } from "react-intersection-observer";
-
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import FaqC from "../../components/Faq/FaqC";
+import LoadingForm from "../../components/loading/LoadingForm";
+import LoadingSmall from "../../components/loading/LoadingSmall";
+import LoadingSpiner from "../../components/loading/LoadingSpiner";
+
 const Product = () => {
   const [solutions, setSolutions] = useState([]);
   const [process, setProcess] = useState([]);
@@ -17,6 +18,48 @@ const Product = () => {
   const [faqData, setFaqData] = useState([]);
   const [d, setD] = useState({});
   const { productId } = useParams();
+
+  const [selected, setSelected] = useState("");
+  const navigate = useNavigate();
+
+  const handleChange = (e) => {
+    const newId = e.target.value;
+    setSelected(newId);
+    navigate(`/product/${newId}`);
+  };
+
+  useEffect(() => {
+    if (productId) {
+      setSelected(productId);
+    }
+  }, [productId]);
+  const productMap = [
+    {
+      product: "Reimbursement Authorization",
+      id: 10,
+    },
+    {
+      product: "Buyer’s Credit",
+      id: 8,
+    },
+    {
+      product: "Confirmation-Backed Import",
+      id: 11,
+    },
+    {
+      product: "Supplier’s Credit",
+      id: 9,
+    },
+    {
+      product: "Export LC Bill Discounting",
+      id: 12,
+    },
+    {
+      product: "Local Letter of Credit Bill Discounting",
+      id: 13,
+    },
+  ];
+
   useEffect(() => {
     const fetch = async () => {
       try {
@@ -33,6 +76,7 @@ const Product = () => {
     };
     fetch();
   }, [productId]);
+
   const { ref: sol, inView: solW } = useInView({
     threshold: 0.6,
   });
@@ -127,6 +171,50 @@ const Product = () => {
       }
     }
   };
+
+  const [res, setRes] = useState({
+    "Benchmark Rate": null,
+    "financing Spread": null,
+    "total interest rate": null,
+  });
+
+  const [currency, setCurrency] = useState("USD");
+  const [amount, setAmount] = useState();
+  const [tenor, setTenor] = useState();
+  const [company_name, setCompanyName] = useState();
+  const [phone_number, setPhoneNumber] = useState();
+  const [email, setEmail] = useState();
+  const [sending, setSending] = useState(false);
+  const [errors, setErrors] = useState({});
+  const submit = async (e) => {
+    e.preventDefault();
+    const body = {
+      currency,
+      amount,
+      tenor,
+      company_name,
+      phone_number,
+      email,
+      product: productId,
+    };
+    setSending(true);
+    setErrors({});
+    try {
+      const res = await axios.post(BASE + "/cal/", body, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      setRes(res.data);
+      setSending(false);
+      setErrors({});
+    } catch (error) {
+      setErrors(error.response.data);
+      setSending(false);
+      console.log(error);
+    }
+  };
+
   return (
     <div className="product_container">
       <div className="product_hero">
@@ -135,61 +223,113 @@ const Product = () => {
         <button>Rates starts from 1.00% p.a.</button>
       </div>
       <div className="product_calc">
-        <div className="product_clac_lef">
-          <div className="product_calc_top">
-            <div className="product_calc_input">
-              <label htmlFor="">Product</label>
-              <select name="cars" id="cars">
-                <option value="Buyer's Credit">Buyer's Credit</option>
-              </select>
+        <form onSubmit={submit}>
+          <div className="product_clac_lef">
+            <div className="product_calc_top">
+              <div className="product_calc_input">
+                <label htmlFor="">Product</label>
+                <select required value={selected} onChange={handleChange}>
+                  {productMap.map((item, index) => {
+                    return (
+                      <option value={item.id} key={index}>
+                        {item.product}
+                      </option>
+                    );
+                  })}
+                </select>
+              </div>
+              <div className="product_calc_input">
+                <label htmlFor="">Currency</label>
+                <select
+                  required
+                  onChange={(e) => setCurrency(e.currentTarget.value)}
+                  value={currency}
+                  className={`${"currency" in errors && "error_input"}`}
+                >
+                  <option value="USD">USD</option>
+                  <option value="INR">INR</option>
+                  <option value="EUR">EURO</option>
+                  <option value="JPY">JPY</option>
+                </select>
+              </div>
+              <div className="product_calc_input">
+                <label htmlFor="">Amount</label>
+                <input
+                  type="number"
+                  required
+                  onChange={(e) => setAmount(e.currentTarget.value)}
+                  value={amount}
+                  className={`${"amount" in errors && "error_input"}`}
+                />
+              </div>
+              <div className="product_calc_input">
+                <label htmlFor="">Tenor</label>
+                <input
+                  type="number"
+                  required
+                  onChange={(e) => setTenor(e.currentTarget.value)}
+                  value={tenor}
+                  className={`${"tenor" in errors && "error_input"}`}
+                />
+              </div>
             </div>
-            <div className="product_calc_input">
-              <label htmlFor="">Currency</label>
-              <select name="cars" id="cars">
-                <option value="Buyer's Credit">USD</option>
-                <option value="Buyer's Credit">INR</option>
-                <option value="Buyer's Credit">EURO</option>
-                <option value="Buyer's Credit">JPY</option>
-              </select>
+            <div className="product_calc_bottom">
+              <div className="product_calc_input">
+                <label htmlFor="">Importer Name</label>
+                <input
+                  type="text"
+                  required
+                  onChange={(e) => setCompanyName(e.currentTarget.value)}
+                  value={company_name}
+                />
+              </div>
+              <div className="product_calc_input">
+                <label htmlFor="">Phone Number</label>
+                <input
+                  type="number"
+                  required
+                  onChange={(e) => setPhoneNumber(e.currentTarget.value)}
+                  className={`${"phone_number" in errors && "error_input"}`}
+                  value={phone_number}
+                />
+              </div>
+              <div className="product_calc_input">
+                <label htmlFor="">Email</label>
+                <input
+                  type="email"
+                  required
+                  onChange={(e) => setEmail(e.currentTarget.value)}
+                  className={`${"email" in errors && "error_input"}`}
+                  value={email}
+                />
+              </div>
             </div>
-            <div className="product_calc_input">
-              <label htmlFor="">Amount</label>
-              <input type="text" name="" id="" />
-            </div>
-            <div className="product_calc_input">
-              <label htmlFor="">Tenor</label>
-              <input type="text" name="" id="" />
+            <div className="product_btn_container">
+              <button>FIND BEST RATE</button>
+              {sending && <LoadingSpiner />}
+              <div className="error_text">
+                {errors &&
+                  Object.entries(errors).map(([field, messages]) =>
+                    messages.map((msg, i) => <p key={`${field}-${i}`}>{msg}</p>)
+                  )}
+              </div>
             </div>
           </div>
-          <div className="product_calc_bottom">
-            <div className="product_calc_input">
-              <label htmlFor="">Importer Name</label>
-              <input type="text" name="" id="" />
-            </div>
-            <div className="product_calc_input">
-              <label htmlFor="">Phone Number</label>
-              <input type="text" name="" id="" />
-            </div>
-            <div className="product_calc_input">
-              <label htmlFor="">Email</label>
-              <input type="text" name="" id="" />
-            </div>
-          </div>
-          <button>FIND BEST RATE</button>
-        </div>
+        </form>
+
         <div className="product_calc_riht">
           <h2>INTEREST RATE</h2>
           <div className="product_calc_div">
             <p>Benchmark Rate</p>
-            <h3>3 month</h3>
+            <h3>{res["Benchmark Rate"]}</h3>
           </div>
           <div className="product_calc_div">
             <p>Financing Spread</p>
-            <h3>00000000</h3>
+            <h3>{res["financing Spread"]}</h3>
           </div>
           <div className="product_calc_div">
             <p>Total Interest Rate</p>
-            <h3>33333333</h3>
+            <h3>{res["total interest rate"]}</h3>
           </div>
           <div className="product_calc_right_buttons">
             <button>Get Quote</button>

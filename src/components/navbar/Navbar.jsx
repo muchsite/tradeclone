@@ -22,6 +22,9 @@ const Navbar = ({ setOpenC, openC, setCalc }) => {
   const [navHover, setNavHover] = useState(-1);
   const [openHam, setOpaenHam] = useState(false);
   const [openIndex, setOpenIndex] = useState(null);
+  const closeNav = () => {
+    setNavHover(-1);
+  };
   const handleIndex = (i) => {
     if (i === 1 && openIndex !== 1) {
       setOpenIndex(1);
@@ -101,7 +104,7 @@ const Navbar = ({ setOpenC, openC, setCalc }) => {
         </div>
         <div className="nav_content">
           <div className="nav_logo">
-            <Link to="/">
+            <Link onClick={closeNav} to="/">
               <img src={logo} alt="" />
             </Link>
           </div>
@@ -142,7 +145,11 @@ const Navbar = ({ setOpenC, openC, setCalc }) => {
                       <ul>
                         {importLink.map((item, i) => {
                           return (
-                            <Link key={item.id} to={`/product/${item.id}`}>
+                            <Link
+                              onClick={closeNav}
+                              key={item.id}
+                              to={`/product/${item.id}`}
+                            >
                               {item.title}
                             </Link>
                           );
@@ -154,7 +161,11 @@ const Navbar = ({ setOpenC, openC, setCalc }) => {
                       <ul>
                         {exportLink.map((item, i) => {
                           return (
-                            <Link key={item.id} to={`/product/${item.id}`}>
+                            <Link
+                              onClick={closeNav}
+                              key={item.id}
+                              to={`/product/${item.id}`}
+                            >
                               {item.title}
                             </Link>
                           );
@@ -168,7 +179,11 @@ const Navbar = ({ setOpenC, openC, setCalc }) => {
                   <ul>
                     {domesticLink.map((item, i) => {
                       return (
-                        <Link key={item.id} to={`/product/${item.id}`}>
+                        <Link
+                          onClick={closeNav}
+                          key={item.id}
+                          to={`/product/${item.id}`}
+                        >
                           {item.title}
                         </Link>
                       );
@@ -208,28 +223,26 @@ const Navbar = ({ setOpenC, openC, setCalc }) => {
                 <div>
                   <div className="link_publications">
                     <h3>Publications</h3>
-                    <Link to="/blogs">Blogs</Link>
-                    <Link to="/cases">Case Stdies</Link>
-                    <Link to="/faq">FAQs</Link>
+                    <Link onClick={closeNav} to="/blogs">
+                      Blogs
+                    </Link>
+                    <Link onClick={closeNav} to="/cases">
+                      Case Stdies
+                    </Link>
+                    <Link onClick={closeNav} to="/faq">
+                      FAQs
+                    </Link>
                   </div>
-                  <div>
-                    <div className="link_publications_benchark">
-                      <h3>Benchmark Rates</h3>
-                      <p>
-                        Explore latest benchmark rates of the world's leading
-                        currencies: the US Dollar, Euro, Japanese Yen
-                      </p>
-                      <Link to="">Explore rates</Link>
-                    </div>
-                  </div>
+                  <div></div>
                 </div>
-                <div className="link_calc">
-                  <h3>Cost Calculators</h3>
-                  <Link to="/calculator" onClick={() => setCalc("d")}>
-                    Domestic Finance
-                  </Link>
-                  <Link to="/calculator" onClick={() => setCalc("i")}>
-                    Import / Export Finance
+                <div className="link_publications_benchark">
+                  <h3>Benchmark Rates</h3>
+                  <p>
+                    Explore latest benchmark rates of the world's leading
+                    currencies: the US Dollar, Euro, Japanese Yen
+                  </p>
+                  <Link onClick={closeNav} to="">
+                    Explore rates
                   </Link>
                 </div>
               </div>
@@ -268,7 +281,9 @@ const Navbar = ({ setOpenC, openC, setCalc }) => {
                       We are revolutionizing Trade finance accessibility. Learn
                       more the TradeFlair
                     </p>
-                    <Link to="/about">Learn More</Link>
+                    <Link onClick={closeNav} to="/about">
+                      Learn More
+                    </Link>
                   </div>
                   <div className="nav_career">
                     <h3>Career</h3>
@@ -276,7 +291,9 @@ const Navbar = ({ setOpenC, openC, setCalc }) => {
                       Become a partner of a rapidly expanding team of experts
                       and visionaries today.
                     </p>
-                    <Link to="/career">Transform with TradeFlair</Link>
+                    <Link onClick={closeNav} to="/career">
+                      Transform with TradeFlair
+                    </Link>
                   </div>
                   <div className="nav_career">
                     <h3>Contact</h3>
@@ -452,7 +469,9 @@ const Navbar = ({ setOpenC, openC, setCalc }) => {
                           We are revolutionizing Trade finance accessibility.
                           Learn more the TradeFlair
                         </p>
-                        <Link to="/about">Learn More</Link>
+                        <Link onClick={closeNav} to="/about">
+                          Learn More
+                        </Link>
                       </div>
                       <div className="nav_career_mobile">
                         <h3>Career</h3>
@@ -460,14 +479,18 @@ const Navbar = ({ setOpenC, openC, setCalc }) => {
                           Become a partner of a rapidly expanding team of
                           experts and visionaries today.
                         </p>
-                        <Link to="/about">Transform with TradeFlair</Link>
+                        <Link onClick={closeNav} to="/about">
+                          Transform with TradeFlair
+                        </Link>
                       </div>
                       <div className="nav_career_mobile">
                         <h3>Contact</h3>
                         <p>Connect with a TradeFlair expert today.</p>
                         <p>Trade@tradeflaircorporate.com</p>
                         <p>+91-9458703128</p>
-                        <Link to="/contact">Contact Us</Link>
+                        <Link onClick={closeNav} to="/contact">
+                          Contact Us
+                        </Link>
                       </div>
                     </div>
                     <div className="nav_company_third_mobile">

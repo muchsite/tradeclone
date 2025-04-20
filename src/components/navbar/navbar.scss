@@ -142,7 +142,10 @@
             font-size: 1rem;
           }
           .nav_link_absolute_solutions {
-            width: 25%;
+            width: 30%;
+            @include breack_down(xlarge) {
+              width: 50%;
+            }
           }
           .nav_link_absolute_inter {
             // width: 40%;
@@ -245,6 +248,7 @@
               margin-top: 1rem;
               img {
                 width: 5rem;
+                object-fit: cover;
               }
             }
           }
@@ -475,7 +479,6 @@
   }
 }
 .link_publications_benchark {
-  margin-top: 1rem;
   p {
     max-width: 20rem;
     margin-bottom: 0.5rem;

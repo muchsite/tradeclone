@@ -49,7 +49,7 @@ const Footer = () => {
           <Link to="/">
             <img src={logo} alt="" />
           </Link>
-          <p>Trade flais Corporate Services put Ltd</p>
+          <p>Tradeflair Corporate Services Pvt. Ltd</p>
         </div>
         <div className="footer_links">
           <div className="footer_links_item">
@@ -78,7 +78,7 @@ const Footer = () => {
               </div>
             </div>
             <div className="footer_links_item">
-              <h3>Expert Finance</h3>
+              <h3>Export Finance</h3>
               <div className="footer_import_finance_container">
                 {exportLink.map((item) => {
                   return (
@@ -106,14 +106,17 @@ const Footer = () => {
               </Link>
               <Link to={`/faq`}>FAQS</Link>
               <Link to={`/faq`} style={{ whiteSpace: "nowrap" }}>
-                Partner withus
+                Partner with us
               </Link>
             </div>
           </div>
           <div className="footer_links_item">
             <h3>Contact us</h3>
             <div className="footer_import_finance_container">
-              <p>Adress</p>
+              <p>
+                1st Floor, G-31, Block G, Sector 3, Noida 201301 PINCODE -
+                201301
+              </p>
               <p>+91 9810911531</p>
               <p>sales@tradeflaircorporate.com</p>
             </div>

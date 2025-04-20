@@ -29,6 +29,7 @@
     h1 {
       font-size: 40px;
       font-family: "Open Sans", serif;
+      font-weight: 900;
       @include breack_down(large) {
         font-size: 35px;
         text-align: center;

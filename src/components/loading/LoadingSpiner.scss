@@ -1,0 +1,21 @@
+@use "../../App.scss" as *;
+
+.loading-state-spinner {
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.loading-spinner {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 10px solid #ddd;
+  border-top-color: $main;
+  animation: loading 1s linear infinite;
+}
+@keyframes loading {
+  to {
+    transform: rotate(360deg);
+  }
+}
