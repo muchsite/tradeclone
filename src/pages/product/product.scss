@@ -284,7 +284,9 @@
       flex-direction: column;
       gap: 3rem;
     }
+
     img {
+      width: 50%;
       @include breack_down(large) {
         width: 100%;
       }
