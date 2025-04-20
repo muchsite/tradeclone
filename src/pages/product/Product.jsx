@@ -409,18 +409,22 @@ const Product = () => {
         </div>
         <div>
           <div className="solutions">
-            <div className="solutions_left" ref={sol}>
-              {solutions?.map((item, index) => {
-                return (
-                  <div
-                    className={`solution_item ${index % 2 !== 0 && "margin_t"}`}
-                    key={index}
-                  >
-                    <img src={item.p_sol_image} alt="" />
-                    <p>{item.p_sol_paragraph}</p>
-                  </div>
-                );
-              })}
+            <div className="solutions_left_container">
+              <div className="solutions_left" ref={sol}>
+                {solutions?.map((item, index) => {
+                  return (
+                    <div
+                      className={`solution_item ${
+                        index % 2 !== 0 && "margin_t"
+                      }`}
+                      key={index}
+                    >
+                      <img src={item.p_sol_image} alt="" />
+                      <p>{item.p_sol_paragraph}</p>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
             <div className="solutions_right">
               <h3 ref={solRef}>{d.solution_heading}</h3>

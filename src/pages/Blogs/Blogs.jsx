@@ -41,7 +41,6 @@ const Blogs = () => {
       ) : (
         <div className="a_blogs_content">
           {data.map((blog, index) => {
-            console.log(blog);
             return (
               <div
                 className="a_blogs_item"

@@ -11,6 +11,7 @@ const Faq = () => {
   const [qIndex, setQindex] = useState(0);
   const [title, setTitle] = useState("");
   const [pr, setPr] = useState("");
+
   const handleCategory = (index) => {
     if (index === catIndex) {
       setCatIndex(-1);
@@ -144,13 +145,13 @@ const Faq = () => {
                                       >
                                         <h4
                                           className={`${
-                                            qIndex == qIn && "faq_aqtive_color"
+                                            qIndex === qIn && "faq_aqtive_color"
                                           }`}
                                           onClick={() => handleQ(qIn)}
                                         >
                                           {q.quset}
                                         </h4>
-                                        {qIn == qIndex && <p>{q.ans}</p>}
+                                        {qIn === qIndex && <p>{q.ans}</p>}
                                       </div>
                                     );
                                   })}
@@ -171,7 +172,7 @@ const Faq = () => {
                 <div className="faq_item_mobile" key={index}>
                   <h3
                     className={`faq_top_item_mobile ${
-                      index == catIndex && "faq_top_item_active_mobile"
+                      index === catIndex && "faq_top_item_active_mobile"
                     }`}
                     onClick={() => handleCategory(index)}
                   >
@@ -199,13 +200,14 @@ const Faq = () => {
                                         <div key={qI}>
                                           <h4
                                             className={`${
-                                              qIndex == qI && "faq_aqtive_color"
+                                              qIndex === qI &&
+                                              "faq_aqtive_color"
                                             }`}
                                             onClick={() => handleQ(qI)}
                                           >
                                             {q.quset}
                                           </h4>
-                                          {qI == qIndex && <p>{q.ans}</p>}
+                                          {qI === qIndex && <p>{q.ans}</p>}
                                         </div>
                                       );
                                     })}

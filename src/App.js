@@ -24,6 +24,7 @@ import "react-multi-carousel/lib/styles.css";
 import Faq from "./components/Faq/Faq";
 import About from "./pages/about/About";
 import Career from "./pages/career/Career";
+import ScrollToTop from "./components/scrollTop";
 export const BASE = "https://backend.tradeflaircorporate.com";
 function App() {
   const [openC, setOpenC] = useState(false);
@@ -31,6 +32,7 @@ function App() {
   return (
     <HashRouter>
       <Navbar setOpenC={setOpenC} openC={openC} setCalc={setCalc} />
+      <ScrollToTop />
       <Routes>
         <Route element={<Home setOpenC={setOpenC} openC={openC} />} path="/" />
         <Route
