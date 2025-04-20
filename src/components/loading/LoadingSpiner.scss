@@ -7,10 +7,10 @@
   align-items: center;
 }
 .loading-spinner {
-  width: 30px;
-  height: 30px;
+  width: 16px;
+  height: 16px;
   border-radius: 50%;
-  border: 10px solid #ddd;
+  border: 4px solid #ddd;
   border-top-color: $main;
   animation: loading 1s linear infinite;
 }

@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import "./product.scss";
 import axios from "axios";
 import { BASE } from "../../App";
-import pImage from "../../images/process.svg";
+import pImage from "../../images/ProcessFlow.png";
 import Contact from "../../components/contact/Contact";
 import { useInView } from "react-intersection-observer";
 import { useNavigate, useParams } from "react-router-dom";
@@ -312,8 +312,8 @@ const Product = () => {
                   </div>
                 </div>
                 <div className="product_btn_container">
-                  <button>FIND BEST RATE</button>
-                  {sending && <LoadingSpiner />}
+                  <button>{sending ? <LoadingSpiner /> : "Get Quote"}</button>
+
                   <div className="error_text">
                     {errors &&
                       Object.entries(errors).map(([field, messages]) =>
