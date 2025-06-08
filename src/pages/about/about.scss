@@ -35,51 +35,74 @@
   .about_nav {
     display: flex;
     flex-direction: column;
-    margin-top: 2rem;
     background-color: #fff;
-    padding: 2rem;
+    margin: 2rem 0;
     .about_nav_top {
+      position: sticky;
+      width: fit-content;
+      top: 10rem;
+      left: 50%;
+      transform: translateX(-50%);
       display: flex;
-      justify-content: center;
-      gap: 2rem;
-      color: $second;
+      align-items: center;
+      background-color: #fff;
+      z-index: 1;
+      border-radius: 10px;
+      outline: 1px solid $main;
+      margin-top: 1rem;
+      overflow: hidden;
+      @include breack_down(large) {
+        left: 0%;
+        transform: translateX(0%);
+        width: 100%;
+        top: 5rem;
+        display: flex;
+        justify-content: space-between;
+      }
       .about_nav_item {
-        cursor: pointer;
-        transition: 0.5s;
-        position: relative;
-        padding: 0 0.5rem;
-        &:hover {
-          color: $main;
+        @include breack_down(large) {
+          font-size: 10px;
+          // padding: 0.4rem;
+          width: 100%;
         }
-        &::after {
-          position: absolute;
-          bottom: -5px;
-          left: 50%;
-          translate: -50% 0%;
-          width: 0%;
-          height: 2px;
-          content: "";
-          background-color: $main;
-          transition: 0.5s;
+        border: none;
+        background-color: transparent;
+        padding: 0.4rem 1rem;
+        cursor: pointer;
+        color: #fff;
+        transition: 0.5s;
+
+        font-weight: 600;
+        color: $main;
+        @include breack_up(medium) {
+          &:hover {
+            background-color: $main;
+            color: #fff;
+          }
         }
       }
       .active_about {
-        color: $main;
-        &::after {
-          width: 100% !important;
-        }
+        background-color: $main;
+        color: #fff;
       }
     }
     .about_nav_content_items {
       margin-top: 2rem;
+      display: flex;
+      flex-direction: column;
       .about_nav_content {
         display: flex;
         align-items: center;
         gap: 4rem;
-        img {
+        padding: 2rem;
+        .about_nav_content_image {
           width: 60%;
-          height: 50vh;
-          object-fit: cover;
+          display: flex;
+          justify-content: center;
+          img {
+            height: 50vh;
+            object-fit: cover;
+          }
         }
         .about_nav_content_text {
           width: 40%;
@@ -100,120 +123,124 @@
           }
         }
       }
-    }
-    .vision_div {
-      flex-direction: row-reverse;
-    }
-    .about_nav_content_simple {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1rem;
-      .simple_text {
-        text-align: center;
-        width: 50%;
-        margin: 1rem;
+
+      .vision_div {
+        flex-direction: row-reverse;
+        background-color: $background;
       }
-      .simple_content_divs {
+      .about_nav_content_simple {
         display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 1rem;
-        .simple_content_div {
-          max-width: calc(25% - 1rem);
-          padding: 2.5rem;
-          background-color: #fff;
-          box-shadow: 0px 0px 10px rgba(0, 0, 78, 0.39);
-          background-color: $background;
-          border-radius: 7px;
-          img {
-            height: 14rem;
-            object-fit: cover;
-            width: 100%;
-          }
-          .simple_content_div_text {
-            text-align: center;
-            h4 {
-              font-size: 24px;
-              margin: 0.7rem 0;
-            }
-          }
-        }
-      }
-    }
-    .carrer_div {
-      justify-content: space-between;
-      .career_left {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        position: relative;
-        width: 60%;
-        .career_div {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          background-color: $background;
-          padding: 1.5rem;
-          height: fit-content;
-          width: 40%;
-          box-shadow: 0px 0px 10px rgba(0, 0, 78, 0.39);
-          .career_div_text {
-            text-align: center;
-            h5 {
-              color: $main;
-              margin: 0.5rem;
-              font-size: 20px;
-            }
-          }
-          img {
-            width: 90%;
-            height: 8rem;
-            object-fit: cover;
-          }
-        }
-        .c_d_1 {
-          margin-left: 5rem;
-          margin-top: 5rem;
-        }
-        .c_d_2 {
-          margin-left: 0rem;
-          margin-top: 2rem;
-        }
-      }
-    }
-    .leadership_div {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      .leadership_text {
-        width: 50%;
-        text-align: center;
-      }
-      .leadership_items {
-        display: flex;
+        flex-direction: column;
         align-items: center;
-        justify-content: center;
         gap: 1rem;
-        width: 100%;
-        margin-top: 1rem;
-        .leadership_item {
-          width: 20rem;
-          padding: 0.5rem;
-          box-shadow: 0px 0px 10px rgba(0, 0, 78, 0.39);
-          background-color: $background;
-          border-radius: 5px;
-          img {
-            width: 100%;
-            height: 20rem;
-            object-fit: cover;
-            border-radius: 5px;
+        padding: 2rem;
+        .simple_text {
+          text-align: center;
+          width: 50%;
+          margin: 1rem;
+        }
+        .simple_content_divs {
+          display: flex;
+          justify-content: center;
+          flex-wrap: wrap;
+          gap: 1rem;
+          .simple_content_div {
+            max-width: calc(25% - 1rem);
+            padding: 2.5rem;
+            background-color: #fff;
+            box-shadow: 0px 0px 10px rgba(0, 0, 78, 0.39);
+            background-color: $background;
+            border-radius: 7px;
+            img {
+              height: 14rem;
+              object-fit: cover;
+              width: 100%;
+            }
+            .simple_content_div_text {
+              text-align: center;
+              h4 {
+                font-size: 24px;
+                margin: 0.7rem 0;
+              }
+            }
           }
-          .leadership_item_text {
-            text-align: center;
-            h5 {
-              font-size: 18px;
-              color: $main;
+        }
+      }
+      .carrer_div {
+        justify-content: space-between;
+        background-color: $background;
+        .career_left {
+          display: flex;
+          justify-content: center;
+          flex-wrap: wrap;
+          position: relative;
+          width: 60%;
+          .career_div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: $background;
+            padding: 1.5rem;
+            height: fit-content;
+            width: 40%;
+            box-shadow: 0px 0px 10px rgba(0, 0, 78, 0.39);
+            .career_div_text {
+              text-align: center;
+              h5 {
+                color: $main;
+                margin: 0.5rem;
+                font-size: 20px;
+              }
+            }
+            img {
+              width: 90%;
+              height: 8rem;
+              object-fit: cover;
+            }
+          }
+          .c_d_1 {
+            margin-left: 5rem;
+            margin-top: 5rem;
+          }
+          .c_d_2 {
+            margin-left: 0rem;
+            margin-top: 2rem;
+          }
+        }
+      }
+      .leadership_div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .leadership_text {
+          width: 50%;
+          text-align: center;
+        }
+        .leadership_items {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 1rem;
+          width: 100%;
+          margin-top: 1rem;
+          .leadership_item {
+            width: 20rem;
+            padding: 0.5rem;
+            box-shadow: 0px 0px 10px rgba(0, 0, 78, 0.39);
+            background-color: $background;
+            border-radius: 5px;
+            img {
+              width: 100%;
+              height: 20rem;
+              object-fit: cover;
+              border-radius: 5px;
+            }
+            .leadership_item_text {
+              text-align: center;
+              h5 {
+                font-size: 18px;
+                color: $main;
+              }
             }
           }
         }

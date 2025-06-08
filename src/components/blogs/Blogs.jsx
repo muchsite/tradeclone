@@ -11,7 +11,7 @@ const Blogs = ({ data }) => {
   const [hover, setHover] = useState(-1);
   const [click, setClik] = useState(-1);
   const handleClick = (index) => {
-    if (index == click) {
+    if (index === click) {
       setClik(-1);
     } else {
       setClik(index);
@@ -51,19 +51,19 @@ const Blogs = ({ data }) => {
           {data.map((item, index) => {
             return (
               <div
-                className={`blog ${hover == index && "top_0"}`}
+                className={`blog ${hover === index && "top_0"}`}
                 key={index}
                 onMouseEnter={() => setHover(index)}
                 onMouseLeave={() => setHover(-1)}
               >
                 <img src={BASE + item.image} alt="Blog" />
                 <h3>{item.title}</h3>
-                <div className={`blog_hover ${hover == index && "top_0"}`}>
+                <div className={`blog_hover ${hover === index && "top_0"}`}>
                   <h3>{item.title}</h3>
                   <p>{item.details}</p>
                   <Link to={`/blog/${item.slug}`}>Learn More</Link>
                 </div>
-                <div className={`blog_click ${click == index && "top_0"}`}>
+                <div className={`blog_click ${click === index && "top_0"}`}>
                   <h3>{item.title}</h3>
                   <p>{item.details}</p>
                   <Link to={`/blog/${item.slug}`}>Learn More</Link>
@@ -72,7 +72,7 @@ const Blogs = ({ data }) => {
                   <AiFillPlusSquare
                     onClick={() => handleClick(index)}
                     className={`blog_icon ${
-                      click == index ? "blog_icon_0" : ""
+                      click === index ? "blog_icon_0" : ""
                     }`}
                   />
                   <AiFillMinusSquare

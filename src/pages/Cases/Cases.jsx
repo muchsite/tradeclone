@@ -27,7 +27,7 @@ const Cases = () => {
   const [hover, setHover] = useState(-1);
   const [click, setClik] = useState(-1);
   const handleClick = (index) => {
-    if (index == click) {
+    if (index === click) {
       setClik(-1);
     } else {
       setClik(index);
@@ -77,7 +77,7 @@ const Cases = () => {
                   <AiFillPlusSquare
                     onClick={() => handleClick(index)}
                     className={`a_case_icon ${
-                      click == index ? "a_case_icon_0" : ""
+                      click === index ? "a_case_icon_0" : ""
                     }`}
                   />
                   <AiFillMinusSquare

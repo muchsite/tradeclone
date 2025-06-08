@@ -1,0 +1,45 @@
+@use "../../App.scss" as *;
+
+.partner_container {
+  margin-top: 10rem;
+  .partner_hero {
+    height: 70vh;
+    position: relative;
+    background-image: url("../../images/partner.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    ::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 17, 39, 0.295);
+      z-index: -1;
+    }
+    .partner_hero_text {
+      text-align: center;
+      width: 70%;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      h2 {
+        color: $main;
+        font-size: 40px;
+        color: $light;
+      }
+      p {
+        font-size: 20px;
+        color: #fff;
+      }
+    }
+  }
+}

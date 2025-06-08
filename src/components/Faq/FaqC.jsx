@@ -25,7 +25,7 @@ const FaqC = ({ data }) => {
                   className="fc_icon_container"
                   onClick={() => handleClick(index)}
                 >
-                  {ind == index ? (
+                  {ind === index ? (
                     <AiOutlineMinus color="#ffffff" />
                   ) : (
                     <AiOutlinePlus color="#ffffff" />

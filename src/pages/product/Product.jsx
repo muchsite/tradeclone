@@ -78,93 +78,97 @@ const Product = () => {
     fetch();
   }, [productId]);
 
-  const { ref: sol, inView: solW } = useInView({
+  const { ref: firstWRef, inView: firstW } = useInView({
     threshold: 0.6,
   });
-  const { ref: proc, inView: procW } = useInView({
+  const { ref: secondWRef, inView: secondW } = useInView({
     threshold: 1,
   });
-  const { ref: ben, inView: benW } = useInView({
+  const { ref: thirdWref, inView: thirdW } = useInView({
     threshold: 0.5,
   });
-  const { ref: con, inView: conW } = useInView({
+  const { ref: forthWRef, inView: forthW } = useInView({
     threshold: 0.5,
   });
-  const { ref: fa, inView: faW } = useInView({
+  const { ref: fifthWRef, inView: fifthW } = useInView({
     threshold: 0.5,
   });
-  const [active, setActive] = useState("sol");
+
+  const [active, setActive] = useState("first");
+
   useEffect(() => {
-    if (solW && !procW) {
-      setActive("sol");
+    if (firstW && !secondW) {
+      setActive("first");
     }
-    if (procW && !solW) {
-      setActive("proc");
+    if (secondW && !firstW) {
+      setActive("second");
     }
-    if (procW && !solW) {
-      setActive("proc");
+    if (secondW && !firstW) {
+      setActive("second");
     }
 
-    if (benW && !procW) {
-      setActive("ben");
+    if (thirdW && !secondW) {
+      setActive("third");
     }
-    if (conW && !benW) {
-      setActive("con");
+    if (forthW && !thirdW) {
+      setActive("forth");
     }
-    if (faW && !conW) {
-      setActive("fa");
+    if (fifthW && !forthW) {
+      setActive("fifth");
     }
-  }, [solW, procW, benW, conW, faW]);
-  const procRef = useRef();
-  const solRef = useRef();
-  const benRef = useRef();
-  const conRef = useRef();
-  const faRef = useRef();
+  }, [firstW, secondW, thirdW, forthW, fifthW]);
+
+  const firstRef = useRef();
+  const secondRef = useRef();
+  const thirdRef = useRef();
+  const forthRef = useRef();
+  const fifthRef = useRef();
+
   const scrollTo = (ar) => {
-    if (ar === "sol") {
-      if (solRef.current) {
+    if (ar === "first") {
+      if (firstRef.current) {
         const top =
-          solRef.current.getBoundingClientRect().top +
+          firstRef.current.getBoundingClientRect().top +
           window.scrollY -
           document.documentElement.clientTop -
           700;
         window.scrollTo({ top: top, behavior: "smooth" });
       }
     }
-    if (ar === "proc") {
-      if (procRef.current) {
+    if (ar === "second") {
+      if (secondRef.current) {
         const top =
-          procRef.current.getBoundingClientRect().top +
+          secondRef.current.getBoundingClientRect().top +
           window.scrollY -
           document.documentElement.clientTop -
           200;
         window.scrollTo({ top: top, behavior: "smooth" });
       }
     }
-    if (ar === "ben") {
-      if (benRef.current) {
+    if (ar === "third") {
+      if (thirdRef.current) {
         const top =
-          benRef.current.getBoundingClientRect().top +
+          thirdRef.current.getBoundingClientRect().top +
           window.scrollY -
           document.documentElement.clientTop -
           200;
         window.scrollTo({ top: top, behavior: "smooth" });
       }
     }
-    if (ar === "con") {
-      if (conRef.current) {
+    if (ar === "forth") {
+      if (forthRef.current) {
         const top =
-          conRef.current.getBoundingClientRect().top +
+          forthRef.current.getBoundingClientRect().top +
           window.scrollY -
           document.documentElement.clientTop -
           200;
         window.scrollTo({ top: top, behavior: "smooth" });
       }
     }
-    if (ar === "fa") {
-      if (faRef.current) {
+    if (ar === "fifth") {
+      if (fifthRef.current) {
         const top =
-          faRef.current.getBoundingClientRect().top +
+          fifthRef.current.getBoundingClientRect().top +
           window.scrollY -
           document.documentElement.clientTop -
           200;
@@ -374,43 +378,50 @@ const Product = () => {
       <div className="sticky_nav_container">
         <div className="sticky_nav">
           <button
-            className={`sticky_btn ${active === "sol" && "sticky_btn_active"}`}
-            onClick={() => scrollTo("sol")}
+            className={`sticky_btn ${
+              active === "first" && "sticky_btn_active"
+            }`}
+            onClick={() => scrollTo("first")}
           >
             Solutions
           </button>
           <button
-            className={`sticky_btn ${active === "proc" && "sticky_btn_active"}`}
-            onClick={() => scrollTo("proc")}
+            className={`sticky_btn ${
+              active === "second" && "sticky_btn_active"
+            }`}
+            onClick={() => scrollTo("second")}
           >
             Process
           </button>
           <button
-            className={`sticky_btn ${active === "ben" && "sticky_btn_active"}`}
-            onClick={() => scrollTo("ben")}
+            className={`sticky_btn ${
+              active === "third" && "sticky_btn_active"
+            }`}
+            onClick={() => scrollTo("third")}
           >
             Benefits
           </button>
           <button
-            className={`sticky_btn ${active === "con" && "sticky_btn_active"}`}
-            onClick={() => scrollTo("con")}
+            className={`sticky_btn ${
+              active === "forth" && "sticky_btn_active"
+            }`}
+            onClick={() => scrollTo("forth")}
           >
             Contact
           </button>
           <button
-            className={`sticky_btn ${active === "fa" && "sticky_btn_active"}`}
-            onClick={() => scrollTo("fa")}
+            className={`sticky_btn ${
+              active === "fifth" && "sticky_btn_active"
+            }`}
+            onClick={() => scrollTo("fifth")}
           >
             F.A.Q
           </button>
         </div>
-        <div className="product_calc">
-          <div className="product_calc_left"></div>
-        </div>
         <div>
           <div className="solutions">
             <div className="solutions_left_container">
-              <div className="solutions_left" ref={sol}>
+              <div className="solutions_left" ref={firstWRef}>
                 {solutions?.map((item, index) => {
                   return (
                     <div
@@ -427,18 +438,18 @@ const Product = () => {
               </div>
             </div>
             <div className="solutions_right">
-              <h3 ref={solRef}>{d.solution_heading}</h3>
+              <h3 ref={firstRef}>{d.solution_heading}</h3>
               <p>{d.solution_paragraph}</p>
               <button>Schedule a call with our team</button>
             </div>
           </div>
         </div>
         <div className="process">
-          <div className="process_text" ref={procRef}></div>
+          <div className="process_text" ref={secondRef}></div>
           <div className="process_body">
             <div className="process_left">
               <h2>{d.process_heading}</h2>
-              <p ref={proc}>{d.process_paragraph}</p>
+              <p ref={secondWRef}>{d.process_paragraph}</p>
               {process.map((item, index) => {
                 return (
                   <div className="process_item" key={index}>
@@ -451,8 +462,10 @@ const Product = () => {
             <img src={pImage} alt="" />
           </div>
         </div>
-        <div className="benefits" ref={benRef}>
-          <h3 ref={ben}>KEY BENEFITS OF BUYER’S CREDIT WITH TRADEFLAIR</h3>
+        <div className="benefits" ref={thirdRef}>
+          <h3 ref={thirdWref}>
+            KEY BENEFITS OF BUYER’S CREDIT WITH TRADEFLAIR
+          </h3>
           <div className="benefits_items">
             {benefits?.map((item, index) => {
               return (
@@ -467,12 +480,12 @@ const Product = () => {
             })}
           </div>
         </div>
-        <div ref={con}>
-          <div ref={conRef}></div>
+        <div ref={forthWRef}>
+          <div ref={forthRef}></div>
           <Contact h={d.contact_heading} p={d.contact_paragraph} />
         </div>
-        <div ref={fa}>
-          <div ref={faRef}></div>
+        <div ref={fifthWRef}>
+          <div ref={fifthRef}></div>
           <FaqC data={faqData} />
         </div>
       </div>
