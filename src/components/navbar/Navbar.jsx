@@ -83,6 +83,7 @@ const Navbar = ({ setOpenC, openC, setCalc }) => {
 
   return (
     <>
+      <div className="nav_height" />
       <Pop setOpenC={setOpenC} openC={openC} />
       <nav className="nav_container">
         <div className="nav_footer">
@@ -241,7 +242,7 @@ const Navbar = ({ setOpenC, openC, setCalc }) => {
                     Explore latest benchmark rates of the world's leading
                     currencies: the US Dollar, Euro, Japanese Yen
                   </p>
-                  <Link onClick={closeNav} to="">
+                  <Link onClick={closeNav} to="/bench-mark">
                     Explore rates
                   </Link>
                 </div>
@@ -293,6 +294,16 @@ const Navbar = ({ setOpenC, openC, setCalc }) => {
                     </p>
                     <Link onClick={closeNav} to="/career">
                       Transform with TradeFlair
+                    </Link>
+                  </div>
+                  <div className="nav_career">
+                    <h3>Partner</h3>
+                    <p>
+                      Become a partner of a rapidly expanding team of experts
+                      and visionaries today.
+                    </p>
+                    <Link onClick={closeNav} to="/partner">
+                      Partner with Us
                     </Link>
                   </div>
                   <div className="nav_career">

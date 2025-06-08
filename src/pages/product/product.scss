@@ -1,7 +1,6 @@
 @use "../../App.scss" as *;
 .product_container {
   min-height: 100vh;
-  padding-top: 10rem;
   @include breack_down(large) {
     padding-top: 7rem;
   }

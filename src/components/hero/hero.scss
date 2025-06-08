@@ -9,7 +9,6 @@
   height: 80vh;
   max-width: 100%;
   overflow: hidden;
-  margin-top: 7rem;
   @include breack_down(large) {
     margin-top: 2rem;
     flex-direction: column;

@@ -31,3 +31,18 @@ $breack-down: (
     @content;
   }
 }
+
+// 16:9
+@mixin h_image {
+  height: 20.25vw;
+  width: 36vw;
+}
+
+@mixin s_image {
+  width: 6rem;
+  height: 6rem;
+}
+
+@mixin box_shadow {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.164);
+}

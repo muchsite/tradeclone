@@ -1,4 +1,7 @@
 @use "../../App.scss" as *;
+.nav_height {
+  height: 4.2rem;
+}
 .nav_container {
   // overflow: hidden;
   position: fixed;

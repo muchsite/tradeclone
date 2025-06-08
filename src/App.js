@@ -26,6 +26,7 @@ import About from "./pages/about/About";
 import Career from "./pages/career/Career";
 import ScrollToTop from "./components/scrollTop";
 import Partner from "./pages/partner/Partner";
+import BenchMark from "./pages/benchMark/benchMark";
 export const BASE = "https://backend.tradeflaircorporate.com";
 function App() {
   const [openC, setOpenC] = useState(false);
@@ -55,6 +56,7 @@ function App() {
         <Route element={<About />} path="/about" />
         <Route element={<Career />} path="/career" />
         <Route element={<Partner />} path="/partner" />
+        <Route element={<BenchMark />} path="/bench-mark" />
       </Routes>
       <Footer />
     </HashRouter>
