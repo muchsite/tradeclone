@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./calc.scss";
-import axios, { spread } from "axios";
+import axios from "axios";
 import { BASE } from "../../App";
 import { Bar } from "react-chartjs-2";
 import {
@@ -37,14 +37,16 @@ const Calc = ({ calc, setCalc }) => {
       const val = interData.international_date.find(
         (item) => iTenor >= item.min_days && iTenor < item.max_days
       );
-      if (e === "USD") {
-        setIBenchB(val.sofr_usd);
-      }
-      if (e === "EURO") {
-        setIBenchB(val.euribor_euro);
-      }
-      if (e === "YEN") {
-        setIBenchB(val.tibor_jpy);
+      if (val) {
+        if (e === "USD") {
+          setIBenchB(val?.sofr_usd);
+        }
+        if (e === "EURO") {
+          setIBenchB(val?.euribor_euro);
+        }
+        if (e === "YEN") {
+          setIBenchB(val?.tibor_jpy);
+        }
       }
     }
   };

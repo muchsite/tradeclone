@@ -10,7 +10,6 @@
   max-width: 100%;
   overflow: hidden;
   @include breack_down(large) {
-    margin-top: 2rem;
     flex-direction: column;
     padding: 1rem 2rem;
     height: auto;
@@ -24,7 +23,8 @@
     @include breack_down(large) {
       align-items: center;
       gap: 1rem;
-      margin-top: 3rem;
+      margin-top: 1rem;
+      width: 90%;
     }
     h1 {
       font-size: 40px;

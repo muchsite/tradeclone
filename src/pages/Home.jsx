@@ -5,7 +5,6 @@ import Accounts from "../components/accounts/Accounts";
 import Test from "../components/test/Test";
 import Contact from "../components/contact/Contact";
 import Blogs from "../components/blogs/Blogs";
-import Faq from "../components/Faq/Faq";
 import { BASE } from "../App";
 import axios from "axios";
 import Loading from "../components/loading/Loading";
@@ -28,7 +27,7 @@ const Home = ({ setOpenC, openC }) => {
       }
     };
     fetchData();
-  }, []);
+  }, [url]);
   return (
     <>
       <Hero setOpenC={setOpenC} openC={openC} />

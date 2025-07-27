@@ -8,7 +8,6 @@ $backOpacity: 0.97;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 50vh;
     gap: 1rem;
     position: relative;
     background-image: url("../../images/benchmark.webp");
@@ -30,18 +29,31 @@ $backOpacity: 0.97;
       position: relative;
       z-index: 2;
     }
+    @include breack_down(large) {
+      text-align: center;
+    }
     h1 {
       color: #fff0f0;
       font-size: 44px;
+      @include breack_down(large) {
+        font-size: 30px;
+      }
     }
     h2 {
       font-size: 30px;
       color: #fff0f0;
+      @include breack_down(large) {
+        font-size: 20px;
+      }
     }
     p {
       width: 60%;
       text-align: center;
       color: #fff0f0;
+      @include breack_down(large) {
+        font-size: 16px;
+        width: 100%;
+      }
     }
   }
   .rates_tabls {
@@ -54,12 +66,18 @@ $backOpacity: 0.97;
       align-items: center;
       gap: 1rem;
       padding: 2rem 0;
+      @include breack_down(large) {
+        padding: 1rem 0;
+      }
       .screen_container {
         width: 100%;
         display: flex;
         flex-direction: column;
         gap: 1rem;
         align-items: center;
+        @include breack_down(large) {
+          gap: 0.4rem;
+        }
       }
       .rates_table {
         border-collapse: collapse;
@@ -74,6 +92,10 @@ $backOpacity: 0.97;
           padding: 8px 12px;
           border: 1px solid #ccc;
           text-align: center;
+          @include breack_down(large) {
+            padding: 0;
+            font-size: 11px;
+          }
         }
 
         thead {
@@ -118,6 +140,10 @@ $backOpacity: 0.97;
           color: #fff0f0;
           padding: 10px;
           font-size: 13px;
+          @include breack_down(large) {
+            font-size: 10px;
+            padding: 4px;
+          }
         }
       }
       .rates_table_buttons_container {
@@ -125,6 +151,9 @@ $backOpacity: 0.97;
         gap: 2rem;
         align-self: flex-end;
         margin-right: 1rem;
+        @include breack_down(large) {
+          align-self: center;
+        }
         button,
         a {
           text-decoration: none;
@@ -136,6 +165,10 @@ $backOpacity: 0.97;
           cursor: pointer;
           outline: 1px solid $main;
           transition: 0.3s;
+          @include breack_down(large) {
+            padding: 5px;
+            font-size: 12px;
+          }
           &:hover {
             background-color: #f0f0ff;
             color: $main;

@@ -9,9 +9,7 @@
     min-height: 50vh;
     min-height: 50vh;
   }
-  @include breack_down(large) {
-    margin-top: 5rem;
-  }
+
   .faq_text {
     display: flex;
     flex-direction: column;

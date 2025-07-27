@@ -24,6 +24,7 @@ const Navbar = ({ setOpenC, openC, setCalc }) => {
   const [openIndex, setOpenIndex] = useState(null);
   const closeNav = () => {
     setNavHover(-1);
+    setOpaenHam(false);
   };
   const handleIndex = (i) => {
     if (i === 1 && openIndex !== 1) {
@@ -311,7 +312,7 @@ const Navbar = ({ setOpenC, openC, setCalc }) => {
                     <p>Connect with a TradeFlair expert today.</p>
                     <p>Trade@tradeflaircorporate.com</p>
                     <p>+91-9458703128</p>
-                    <Link to="/contact" onClick={() => setOpaenHam(false)}>
+                    <Link to="/contact" onClick={closeNav}>
                       Contact Us
                     </Link>
                   </div>
@@ -373,7 +374,7 @@ const Navbar = ({ setOpenC, openC, setCalc }) => {
                           return (
                             <Link
                               key={item.id}
-                              onClick={() => setOpaenHam(false)}
+                              onClick={closeNav}
                               to={`/product/${index}`}
                             >
                               {item.title}
@@ -389,7 +390,7 @@ const Navbar = ({ setOpenC, openC, setCalc }) => {
                           return (
                             <Link
                               key={item.id}
-                              onClick={() => setOpaenHam(false)}
+                              onClick={closeNav}
                               to={`/product/${index}`}
                             >
                               {item.title}
@@ -421,35 +422,24 @@ const Navbar = ({ setOpenC, openC, setCalc }) => {
                     </div>
                     <div className="nav_links_mobile_container">
                       <h3>Publications</h3>
-                      <Link onClick={() => setOpaenHam(false)} to="/blogs">
+                      <Link onClick={closeNav} to="/blogs">
                         Blogs
                       </Link>
-                      <Link onClick={() => setOpaenHam(false)} to="/cases">
+                      <Link onClick={closeNav} to="/cases">
                         Case Stdies
                       </Link>
-                      <Link onClick={() => setOpaenHam(false)} to="/faq">
+                      <Link onClick={closeNav} to="/faq">
                         FAQs
                       </Link>
                     </div>
-                    <div className="nav_links_mobile_container">
-                      <h3>Cost Calculators</h3>
-                      <Link
-                        to="/calculator"
-                        onClick={() => {
-                          setCalc("d");
-                          setOpaenHam(false);
-                        }}
-                      >
-                        Domestic Finance
-                      </Link>
-                      <Link
-                        to="/calculator"
-                        onClick={() => {
-                          setCalc("i");
-                          setOpaenHam(false);
-                        }}
-                      >
-                        Import / Export Finance
+                    <div className="link_publications_benchark_mobile">
+                      <h3>Benchmark Rates</h3>
+                      <p>
+                        Explore latest benchmark rates of the world's leading
+                        currencies: the US Dollar, Euro, Japanese Yen
+                      </p>
+                      <Link onClick={closeNav} to="/bench-mark">
+                        Explore rates
                       </Link>
                     </div>
                   </div>
@@ -490,7 +480,7 @@ const Navbar = ({ setOpenC, openC, setCalc }) => {
                           Become a partner of a rapidly expanding team of
                           experts and visionaries today.
                         </p>
-                        <Link onClick={closeNav} to="/about">
+                        <Link onClick={closeNav} to="/career">
                           Transform with TradeFlair
                         </Link>
                       </div>

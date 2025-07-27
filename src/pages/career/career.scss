@@ -1,13 +1,5 @@
 @use "../../App.scss" as *;
-.career_cont {
-  margin: 12rem 0 5rem 0;
-  @include breack_down(large) {
-    margin: 8rem 0 5rem 0;
-  }
-  @include breack_down(large) {
-    // margin: 6rem 0 5rem 0;
-  }
-}
+
 .career_hero {
   background-image: url("../../images/joinhero.svg");
   margin-bottom: 10rem;

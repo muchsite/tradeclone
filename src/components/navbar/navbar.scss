@@ -1,14 +1,18 @@
 @use "../../App.scss" as *;
 .nav_height {
   height: 4.2rem;
+  @include breack_down(large) {
+    height: 3rem;
+  }
+  @include breack_down(medium) {
+    height: 2.4rem;
+  }
 }
 .nav_container {
-  // overflow: hidden;
   position: fixed;
   align-items: center;
   top: 0;
   width: 100%;
-  /* From https://css.glass */
   background: rgba(250, 250, 250, 0.76);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.027);
   backdrop-filter: blur(9.8px);
@@ -72,17 +76,11 @@
     justify-content: space-between;
     align-items: center;
     padding: 0.5rem 1rem;
-    // margin-top: 2rem;
-
-    @include breack_down(large) {
-      // padding: 0 1rem;
-      // margin-top: 1rem;
-    }
     .nav_logo {
       img {
         width: 4rem;
         @include breack_down(large) {
-          width: 2rem;
+          width: 3rem;
         }
       }
     }
@@ -273,16 +271,6 @@
         display: flex;
         align-items: flex-end;
         gap: 5px;
-        &::before {
-          // transition: 0.5s;
-          // content: "";
-          // position: absolute;
-          // bottom: -0px;
-          // left: -100%;
-          // width: 100%;
-          // height: 3px;
-          // background-color: $second;
-        }
       }
       .active {
         overflow: hidden;
@@ -444,6 +432,14 @@
               color: #000;
             }
           }
+          .link_publications_benchark_mobile {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            a {
+              color: #000;
+            }
+          }
         }
       }
     }
@@ -487,9 +483,7 @@
     margin-bottom: 0.5rem;
   }
 }
-.nav_height {
-  // height: 7rem;
-}
+
 .nav_career_mobile {
   display: flex;
   flex-direction: column;

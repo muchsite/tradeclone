@@ -44,7 +44,7 @@ const About = () => {
     threshold: 0.5,
   });
   const { ref: fifthWRef, inView: fifthW } = useInView({
-    threshold: 0.5,
+    threshold: 0.2,
   });
 
   const [active, setActive] = useState("first");
@@ -151,7 +151,8 @@ const About = () => {
                 }`}
                 onClick={() => scrollTo("first")}
               >
-                What drives us
+                <div className="drive_text_desktop">What drives us</div>
+                <div className="drive_text_mobile">Drives</div>
               </div>
               <div
                 className={`about_nav_item ${

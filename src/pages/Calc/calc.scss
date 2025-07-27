@@ -1,6 +1,5 @@
 @use "../../App.scss" as *;
 .calc_container {
-  margin-top: 10rem;
   padding: 2rem;
   .calc_title {
     display: flex;
@@ -19,6 +18,9 @@
       align-items: center;
       width: 30%;
       justify-content: space-between;
+      @include breack_down(large) {
+        width: 100%;
+      }
       button {
         width: 15rem;
         border: none;
@@ -27,6 +29,9 @@
         outline: 1px solid $main;
         cursor: pointer;
         transition: 0.5s;
+        @include breack_down(large) {
+          width: auto;
+        }
         &:hover {
           background-color: $light;
           outline: 1px solid $light;
@@ -68,6 +73,12 @@
   display: flex;
   margin-top: 5rem;
   justify-content: space-between;
+  @include breack_down(large) {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
   .calc_inputs {
     width: fit-content;
     .calc_f_input {
@@ -127,6 +138,9 @@
         p {
           width: 15rem;
           margin-top: 1rem;
+          @include breack_down(large) {
+            width: 7rem;
+          }
         }
         .calc_inp_container {
           display: flex;
@@ -193,6 +207,9 @@
     gap: 1rem;
     justify-content: space-between;
     width: 40%;
+    @include breack_down(large) {
+      width: 100%;
+    }
     .calc_graph_top {
       display: flex;
       justify-content: space-between;

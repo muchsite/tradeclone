@@ -1,23 +1,29 @@
 @use "../../App.scss" as *;
 .product_container {
   min-height: 100vh;
-  @include breack_down(large) {
-    padding-top: 7rem;
-  }
 }
 .product_hero_container {
   background-color: $light;
   padding: 4rem;
+  @include breack_down(large) {
+    padding: 1rem;
+  }
   .product_hero_container_content {
     background-color: #fff;
     padding: 4rem;
     border-radius: 10px;
+    @include breack_down(large) {
+      padding: 1rem;
+    }
     .product_hero {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       gap: 1rem;
+      @include breack_down(large) {
+        gap: 0;
+      }
       h2 {
         color: $main;
         font-size: 3rem;
@@ -44,7 +50,12 @@
       justify-content: space-between;
       align-items: flex-end;
       padding: 2rem 0;
-
+      @include breack_down(large) {
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+        padding: 0;
+      }
       .product_clac_lef {
         display: flex;
         flex-direction: column;
@@ -63,6 +74,8 @@
           @include breack_down(large) {
             padding: 0.5rem 1rem;
             font-size: 0.75rem;
+            margin: 0;
+            width: 100%;
           }
           &:hover {
             background-color: transparent;
@@ -105,8 +118,14 @@
           justify-content: space-between;
         }
         .product_calc_bottom {
+          @include breack_down(large) {
+            flex-wrap: wrap;
+          }
           .product_calc_input {
             width: 30%;
+            @include breack_down(large) {
+              width: 100%;
+            }
           }
           input {
             width: 100%;
@@ -160,7 +179,10 @@
         background-color: $main;
         padding: 2rem;
         border-radius: 10px;
-
+        @include breack_down(large) {
+          width: 100%;
+          padding: 1rem;
+        }
         h2 {
           text-align: center;
           color: #fff;

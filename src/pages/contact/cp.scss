@@ -28,6 +28,7 @@
       gap: 1rem;
       @include breack_down(large) {
         gap: 0.5rem;
+        flex-wrap: wrap;
       }
     }
   }
@@ -129,7 +130,7 @@
   padding: 13rem 10vw 3rem 10vw;
   background-image: url("../../images/cb.svg");
   @include breack_down(large) {
-    padding: 7rem 1rem 2rem 1rem;
+    padding: 2rem 1rem 2rem 1rem;
   }
   .cp_left_title {
     width: 50%;
