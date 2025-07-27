@@ -1,0 +1,29 @@
+@use "../../App.scss" as *;
+.blog_container {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  @include breack_down(large) {
+    gap: 1rem;
+  }
+  img {
+    @include h_image;
+    @include breack_down(large) {
+      width: 100%;
+      height: auto;
+      max-height: 40vh;
+    }
+    object-fit: cover;
+  }
+  .blog_title {
+    text-align: center;
+  }
+  .blog_html {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 2rem 2rem 2rem;
+  }
+}

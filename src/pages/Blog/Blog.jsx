@@ -29,7 +29,7 @@ const Blog = () => {
         <Loading />
       ) : (
         <div className="blog_container">
-          <h2>{data.title}</h2>
+          <h2 className="blog_title">{data.title}</h2>
           <img src={data.image} alt="" />
           <div
             dangerouslySetInnerHTML={{ __html: data.details }}

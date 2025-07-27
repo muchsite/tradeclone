@@ -3,6 +3,8 @@ import Loading from "../../components/loading/Loading";
 import { useParams } from "react-router-dom";
 import { BASE } from "../../App";
 import axios from "axios";
+import "./case.scss";
+
 const SingleCase = () => {
   const { caseId } = useParams();
   const [data, setData] = useState(null);
@@ -20,7 +22,7 @@ const SingleCase = () => {
       }
     };
     fetchData();
-  }, []);
+  }, [caseId]);
 
   return (
     <>
@@ -28,7 +30,7 @@ const SingleCase = () => {
         <Loading />
       ) : (
         <div className="blog_container">
-          <h2>{data.title}</h2>
+          <h2 className="blog_title">{data.title}</h2>
           <img src={data.image} alt="" />
           <div
             dangerouslySetInnerHTML={{ __html: data.details }}
