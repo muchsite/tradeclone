@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/tradeclone/static/css/main.334bf18b.css",
-    "main.js": "/tradeclone/static/js/main.95d5df44.js",
+    "main.css": "/tradeclone/static/css/main.90f8c6c8.css",
+    "main.js": "/tradeclone/static/js/main.0a0df547.js",
     "static/media/partner.png": "/tradeclone/static/media/partner.356e854a7d9a11aa97b5.png",
     "static/media/ProcessFlow.png": "/tradeclone/static/media/ProcessFlow.2ed7050324f1e0da1d5c.png",
     "static/media/landingPhoto.jpg": "/tradeclone/static/media/landingPhoto.4e2f82aea44592a8d0ec.jpg",
@@ -55,11 +55,11 @@
     "index.html": "/tradeclone/index.html",
     "static/media/close.svg": "/tradeclone/static/media/close.9bb6ecec6faa0c4e975b3e7eb211d177.svg",
     "static/media/yes.svg": "/tradeclone/static/media/yes.4ffc97f12c14bc4bb5cbc9f916b61887.svg",
-    "main.334bf18b.css.map": "/tradeclone/static/css/main.334bf18b.css.map",
-    "main.95d5df44.js.map": "/tradeclone/static/js/main.95d5df44.js.map"
+    "main.90f8c6c8.css.map": "/tradeclone/static/css/main.90f8c6c8.css.map",
+    "main.0a0df547.js.map": "/tradeclone/static/js/main.0a0df547.js.map"
   },
   "entrypoints": [
-    "static/css/main.334bf18b.css",
-    "static/js/main.95d5df44.js"
+    "static/css/main.90f8c6c8.css",
+    "static/js/main.0a0df547.js"
   ]
 }
